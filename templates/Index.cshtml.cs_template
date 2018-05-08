@@ -1,0 +1,50 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Crystal.Models;
+using Crystal.Utils;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+
+namespace Crystal.Pages.Substances.{{ model_dir }}
+{
+    public class IndexModel : PageModel
+    {
+        private readonly CrystalContext _context;
+        private readonly ContextUtils _contextUtils;
+
+        public IndexModel(CrystalContext context)
+        {
+            _context = context;
+            _contextUtils = new ContextUtils(_context);
+        }
+
+        public IList<{{ model }}Language> {{ model }}Language { get; set; }
+        {% if has_references %}
+        public IDictionary<int, BibliogrLanguage> References { get; set; }
+        {% endif %}
+
+        public async Task OnGetAsync(string systemUrl)
+        {
+            var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
+
+            {{ model }}Language = await _context.{{ model }}Language
+                .Include(m => m.{{ model }})
+                .Where(m => m.{{ model }}.HeadClue == headClue)
+                .Where(m => m.LanguageId == this.GetLanguageId())
+                .ToListAsync();
+
+            {% if has_references %}
+            var bibliogrLanguage = await _context.BibliogrLanguage
+                .Include(b => b.Bibliogr)
+                .Where(b => b.LanguageId == this.GetLanguageId())
+                .ToDictionaryAsync(b => b.BibliogrId, b => b);
+
+            References = {{ model }}Language
+                .ToDictionary(h => h.{{ model }}Id, h =>
+                    h.{{ model }}.Bknumber.HasValue ? bibliogrLanguage[(int) h.{{ model }}.Bknumber] : null
+                );
+            {% endif %}
+        }
+    }
+}

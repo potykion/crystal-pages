@@ -6,7 +6,7 @@ using Crystal.Utils;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Crystal.Pages.Substances.Heat
+namespace Crystal.Pages.Substances.Hardness
 {
     public class IndexModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Crystal.Pages.Substances.Heat
             _contextUtils = new ContextUtils(_context);
         }
 
-        public IList<HeatTablLanguage> HeatTablLanguage { get; set; }
+        public IList<HardTablLanguage> HardTablLanguage { get; set; }
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
@@ -28,9 +28,9 @@ namespace Crystal.Pages.Substances.Heat
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            HeatTablLanguage = await _context.HeatTablLanguage
-                .Include(m => m.HeatTabl)
-                .Where(m => m.HeatTabl.HeadClue == headClue)
+            HardTablLanguage = await _context.HardTablLanguage
+                .Include(m => m.HardTabl)
+                .Where(m => m.HardTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId())
                 .ToListAsync();
 
@@ -40,9 +40,9 @@ namespace Crystal.Pages.Substances.Heat
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = HeatTablLanguage
-                .ToDictionary(h => h.HeatTablId, h =>
-                    h.HeatTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HeatTabl.Bknumber] : null
+            References = HardTablLanguage
+                .ToDictionary(h => h.HardTablId, h =>
+                    h.HardTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HardTabl.Bknumber] : null
                 );
             
         }

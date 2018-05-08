@@ -1,0 +1,121 @@
+@page "{systemUrl}"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IHtmlLocalizer<SharedResources> SharedLocalizer;
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].MethodIn)
+            </th>
+        
+
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.Temper)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.WaveLeng)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.NazbIndx)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ZnachInd)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ErrIndex)
+            </th>
+        
+
+        
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <th>
+                @SharedLocalizer["Reference"]
+            </th>
+            }
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.RefrcInd)
+    {
+    <tr>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.MethodIn)
+                
+            </td>
+        
+
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.RefrcInd.Temper)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.RefrcInd.WaveLeng)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.RefrcInd.NazbIndx)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.RefrcInd.ZnachInd)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.RefrcInd.ErrIndex)
+                
+            </td>
+        
+
+        
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <td>
+                <a data-toggle="popover" data-placement="right"
+                   data-content="@Html.Raw(Model.References[item.RefrcIndId])">
+                    @Model.References[item.RefrcIndId].BibliogrId
+                </a>
+            </td>
+            }
+        
+
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

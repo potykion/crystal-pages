@@ -1,0 +1,111 @@
+@page "{systemUrl}"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IHtmlLocalizer<SharedResources> SharedLocalizer;
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].MethodR)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ZnN1)
+            </th>
+        
+
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.WvLeng)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.R)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.ErrR)
+            </th>
+        
+
+        
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <th>
+                @SharedLocalizer["Reference"]
+            </th>
+            }
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ElOpTabl)
+    {
+    <tr>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.MethodR)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.ZnN1)
+                
+            </td>
+        
+
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.ElOpTabl.WvLeng)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.ElOpTabl.R)
+                
+            </td>
+        
+            <td>
+                
+                    @Html.DisplayFor(modelItem => item.ElOpTabl.ErrR)
+                
+            </td>
+        
+
+        
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <td>
+                <a data-toggle="popover" data-placement="right"
+                   data-content="@Html.Raw(Model.References[item.ElOpTablId])">
+                    @Model.References[item.ElOpTablId].BibliogrId
+                </a>
+            </td>
+            }
+        
+
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

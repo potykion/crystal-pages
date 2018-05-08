@@ -1,0 +1,85 @@
+@page "{systemUrl}"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model Substances.Heat.IndexModel
+@inject IHtmlLocalizer<SharedResources> SharedLocalizer;
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        {% for field in language_fields %}
+            <th>
+                @Html.DisplayNameFor(model => model.{{ model }}Language[0].{{ field.name }})
+            </th>
+        {% endfor %}
+
+        {% for field in invariant_fields %}
+            <th>
+                @Html.DisplayNameFor(model => model.{{ model }}Language[0].{{ model }}.{{ field.name }})
+            </th>
+        {% endfor %}
+
+        {% if has_references %}
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <th>
+                @SharedLocalizer["Reference"]
+            </th>
+            }
+        {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.{{ model }})
+    {
+    <tr>
+        {% for field in language_fields %}
+            <td>
+                {% if field.raw %}
+                    @Html.Raw(item.{{ field.name }})
+                {% else %}
+                    @Html.DisplayFor(modelItem => item.{{ field.name }})
+                {% endif %}
+            </td>
+        {% endfor %}
+
+        {% for field in invariant_fields %}
+            <td>
+                {% if field.raw %}
+                    @Html.Raw(item.{{ model }}.{{ field.name }})
+                {% else %}
+                    @Html.DisplayFor(modelItem => item.{{ model }}.{{ field.name }})
+                {% endif %}
+            </td>
+        {% endfor %}
+
+        {% if has_references %}
+            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+            {
+            <td>
+                <a data-toggle="popover" data-placement="right"
+                   data-content="@Html.Raw(Model.References[item.{{ model }}Id])">
+                    @Model.References[item.{{ model }}Id].BibliogrId
+                </a>
+            </td>
+            }
+        {% endif %}
+
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

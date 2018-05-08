@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Wave
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            DecrTablLanguage = await _context.DecrTablLanguage
+            var substanceDecrTabl = _context.DecrTablLanguage
                 .Include(m => m.DecrTabl)
                 .Where(m => m.DecrTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceDecrTabl = substanceDecrTabl.Where(m => m.DecrTabl.SingCode == sing);
+            }
+            
+
+            DecrTablLanguage = await substanceDecrTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

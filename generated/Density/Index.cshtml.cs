@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Density
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            DensTablLanguage = await _context.DensTablLanguage
+            var substanceDensTabl = _context.DensTablLanguage
                 .Include(m => m.DensTabl)
                 .Where(m => m.DensTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceDensTabl = substanceDensTabl.Where(m => m.DensTabl.SingCode == sing);
+            }
+            
+
+            DensTablLanguage = await substanceDensTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

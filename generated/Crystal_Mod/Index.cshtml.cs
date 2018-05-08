@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Crystal_Mod
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            ModfTablLanguage = await _context.ModfTablLanguage
+            var substanceModfTabl = _context.ModfTablLanguage
                 .Include(m => m.ModfTabl)
                 .Where(m => m.ModfTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceModfTabl = substanceModfTabl.Where(m => m.ModfTabl.SingCode == sing);
+            }
+            
+
+            ModfTablLanguage = await substanceModfTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

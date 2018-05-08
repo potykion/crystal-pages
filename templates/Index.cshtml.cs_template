@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
         {% if has_references %}
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         {% endif %}
+        {% if has_sing %}
+        public IList<SingTabl> SingTabl { get; set; }
+        {% endif %}
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl {% if has_sing %}, string sing{% endif %})
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            {{ model }}Language = await _context.{{ model }}Language
+            var substance{{ model }} = _context.{{ model }}Language
                 .Include(m => m.{{ model }})
                 .Where(m => m.{{ model }}.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            {% if has_sing %}
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substance{{ model }} = substance{{ model }}.Where(m => m.{{ model }}.SingCode == sing);
+            }
+            {% endif %}
+
+            {{ model }}Language = await substance{{ model }}.ToListAsync();
+
+            {% if has_sing %}
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            {% endif %}
 
             {% if has_references %}
             var bibliogrLanguage = await _context.BibliogrLanguage

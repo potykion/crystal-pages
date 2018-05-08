@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Lattice
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            ElemTablLanguage = await _context.ElemTablLanguage
+            var substanceElemTabl = _context.ElemTablLanguage
                 .Include(m => m.ElemTabl)
                 .Where(m => m.ElemTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceElemTabl = substanceElemTabl.Where(m => m.ElemTabl.SingCode == sing);
+            }
+            
+
+            ElemTablLanguage = await substanceElemTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Thermal_Conductivity
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            HeatExpnLanguage = await _context.HeatExpnLanguage
+            var substanceHeatExpn = _context.HeatExpnLanguage
                 .Include(m => m.HeatExpn)
                 .Where(m => m.HeatExpn.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceHeatExpn = substanceHeatExpn.Where(m => m.HeatExpn.SingCode == sing);
+            }
+            
+
+            HeatExpnLanguage = await substanceHeatExpn.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

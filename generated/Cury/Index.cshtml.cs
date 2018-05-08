@@ -23,16 +23,22 @@ namespace Crystal.Pages.Substances.Cury
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl )
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            CuryTablLanguage = await _context.CuryTablLanguage
+            var substanceCuryTabl = _context.CuryTablLanguage
                 .Include(m => m.CuryTabl)
                 .Where(m => m.CuryTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
-                .ToListAsync();
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+
+            CuryTablLanguage = await substanceCuryTabl.ToListAsync();
+
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

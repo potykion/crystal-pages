@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.ElastoOptical
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            EsOpTablLanguage = await _context.EsOpTablLanguage
+            var substanceEsOpTabl = _context.EsOpTablLanguage
                 .Include(m => m.EsOpTabl)
                 .Where(m => m.EsOpTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceEsOpTabl = substanceEsOpTabl.Where(m => m.EsOpTabl.SingCode == sing);
+            }
+            
+
+            EsOpTablLanguage = await substanceEsOpTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

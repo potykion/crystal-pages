@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.ElectroOptical
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            ElOpTablLanguage = await _context.ElOpTablLanguage
+            var substanceElOpTabl = _context.ElOpTablLanguage
                 .Include(m => m.ElOpTabl)
                 .Where(m => m.ElOpTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceElOpTabl = substanceElOpTabl.Where(m => m.ElOpTabl.SingCode == sing);
+            }
+            
+
+            ElOpTablLanguage = await substanceElOpTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

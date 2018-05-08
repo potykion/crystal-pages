@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Sellmeier
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            ConstSelLanguage = await _context.ConstSelLanguage
+            var substanceConstSel = _context.ConstSelLanguage
                 .Include(m => m.ConstSel)
                 .Where(m => m.ConstSel.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceConstSel = substanceConstSel.Where(m => m.ConstSel.SingCode == sing);
+            }
+            
+
+            ConstSelLanguage = await substanceConstSel.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Dielectric
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            DielectrLanguage = await _context.DielectrLanguage
+            var substanceDielectr = _context.DielectrLanguage
                 .Include(m => m.Dielectr)
                 .Where(m => m.Dielectr.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceDielectr = substanceDielectr.Where(m => m.Dielectr.SingCode == sing);
+            }
+            
+
+            DielectrLanguage = await substanceDielectr.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            MechTablLanguage = await _context.MechTablLanguage
+            var substanceMechTabl = _context.MechTablLanguage
                 .Include(m => m.MechTabl)
                 .Where(m => m.MechTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceMechTabl = substanceMechTabl.Where(m => m.MechTabl.SingCode == sing);
+            }
+            
+
+            MechTablLanguage = await substanceMechTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

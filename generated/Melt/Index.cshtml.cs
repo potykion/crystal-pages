@@ -23,16 +23,22 @@ namespace Crystal.Pages.Substances.Melt
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl )
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            PlavTablLanguage = await _context.PlavTablLanguage
+            var substancePlavTabl = _context.PlavTablLanguage
                 .Include(m => m.PlavTabl)
                 .Where(m => m.PlavTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
-                .ToListAsync();
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+
+            PlavTablLanguage = await substancePlavTabl.ToListAsync();
+
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

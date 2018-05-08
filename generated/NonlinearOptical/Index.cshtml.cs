@@ -23,16 +23,33 @@ namespace Crystal.Pages.Substances.NonlinearOptical
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
+        public IList<SingTabl> SingTabl { get; set; }
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl , string sing)
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            NlOpTablLanguage = await _context.NlOpTablLanguage
+            var substanceNlOpTabl = _context.NlOpTablLanguage
                 .Include(m => m.NlOpTabl)
                 .Where(m => m.NlOpTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+            if (!string.IsNullOrEmpty(sing))
+            {
+                substanceNlOpTabl = substanceNlOpTabl.Where(m => m.NlOpTabl.SingCode == sing);
+            }
+            
+
+            NlOpTablLanguage = await substanceNlOpTabl.ToListAsync();
+
+            
+            SingTabl = await _context.SingTabl
+                .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

@@ -23,16 +23,22 @@ namespace Crystal.Pages.Substances.Solubility
         
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         
+        
 
-        public async Task OnGetAsync(string systemUrl)
+        public async Task OnGetAsync(string systemUrl )
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            SuspTablLanguage = await _context.SuspTablLanguage
+            var substanceSuspTabl = _context.SuspTablLanguage
                 .Include(m => m.SuspTabl)
                 .Where(m => m.SuspTabl.HeadClue == headClue)
-                .Where(m => m.LanguageId == this.GetLanguageId())
-                .ToListAsync();
+                .Where(m => m.LanguageId == this.GetLanguageId());
+
+            
+
+            SuspTablLanguage = await substanceSuspTabl.ToListAsync();
+
+            
 
             
             var bibliogrLanguage = await _context.BibliogrLanguage

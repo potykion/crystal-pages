@@ -1,9 +1,14 @@
 @page "{systemUrl}"
+
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Mvc.Localization
+@using Utils
+
 @model IndexModel
+
 @inject IHtmlLocalizer<SharedResources> SharedLocalizer;
 @inject IAuthorizationService AuthorizationService
+@inject UrlBuilder UrlBuilder
 
 @{
     ViewData["Title"] = "Index";
@@ -11,9 +16,31 @@
 
 <h2>Index</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div>
+    <a href="@UrlBuilder.BuildPropertyLink(
+                     Model.GetLanguage(),
+                     "Wave",
+                     "Create",
+                     ViewContext.RouteData.Values["systemUrl"] as string)">
+        Create New
+    </a>
+
+    
+     <div style="float: right">
+        Сингония:
+        @foreach (var sing in Model.SingTabl)
+        {
+            <a href="@UrlBuilder.BuildPropertyLink(
+                         Model.GetLanguage(),
+                         "Wave",
+                         system: ViewContext.RouteData.Values["systemUrl"] as string,
+                         queryParams: $"sing={sing.SingType}")">
+                @sing.SingType
+            </a>
+        }
+    </div>
+    
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -53,6 +80,8 @@
             </th>
             }
         
+
+         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -111,10 +140,27 @@
             }
         
 
-        <td>
-            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-        </td>
+         <td>
+                <div>
+                    <a href="@UrlBuilder.BuildPropertyLink(
+                                 Model.GetLanguage(),
+                                 "Wave",
+                                 "Edit",
+                                 queryParams: $"id={item.Id}"
+                                 )">
+                        Edit
+                    </a>
+                    |
+                    <a href="@UrlBuilder.BuildPropertyLink(
+                                 Model.GetLanguage(),
+                                 "Wave",
+                                 "Delete",
+                                 queryParams: $"id={item.Id}"
+                                 )">
+                        Delete
+                    </a>
+                </div>
+            </td>
     </tr>
     }
     </tbody>

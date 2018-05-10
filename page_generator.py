@@ -7,7 +7,9 @@ from jinja2 import FileSystemLoader
 BASE_DIR = 'generated'
 
 env = jinja2.Environment(
-    loader=FileSystemLoader("templates")
+    loader=FileSystemLoader("templates"),
+    trim_blocks=True,
+    lstrip_blocks=True
 )
 
 

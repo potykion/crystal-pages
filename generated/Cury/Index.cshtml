@@ -25,35 +25,27 @@
         Create New
     </a>
 
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.CuryTablLanguage[0].Oboztran)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.CuryTablLanguage[0].CuryTabl.CuryTemp)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.CuryTablLanguage[0].CuryTabl.ErrCury)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -62,29 +54,17 @@
     @foreach (var item in Model.CuryTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.Oboztran)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.CuryTabl.CuryTemp)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.CuryTabl.ErrCury)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -94,7 +74,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

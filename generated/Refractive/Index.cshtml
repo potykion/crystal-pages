@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,47 +38,36 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].MethodIn)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.Temper)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.WaveLeng)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.NazbIndx)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ZnachInd)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ErrIndex)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -88,47 +76,26 @@
     @foreach (var item in Model.RefrcIndLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodIn)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.RefrcInd.Temper)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.RefrcInd.WaveLeng)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.RefrcInd.NazbIndx)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.RefrcInd.ZnachInd)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.RefrcInd.ErrIndex)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -138,7 +105,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

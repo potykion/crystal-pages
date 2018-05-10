@@ -43,6 +43,14 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
             }
             {% endif %}
 
+            {% if extra_filters %}
+            substance{{ model }} = substance{{ model }}
+            {% for filter_ in extra_filters %}
+                .Where(m => {{ filter_ }}){% if loop.last %};{% endif %}
+            {% endfor %}
+
+            {% endif %}
+
             {{ model }}Language = await substance{{ model }}.ToListAsync();
 
             {% if has_sing %}

@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,55 +38,42 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].E)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].Nsv)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].Uzv)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.WaveLeng)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.Nzv)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M1)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M2)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M3)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -96,59 +82,32 @@
     @foreach (var item in Model.AcOpTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.E)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.Nsv)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.Uzv)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.AcOpTabl.WaveLeng)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.AcOpTabl.Nzv)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.AcOpTabl.M1)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.AcOpTabl.M2)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.AcOpTabl.M3)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -158,7 +117,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

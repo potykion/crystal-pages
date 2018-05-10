@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,43 +38,33 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].MethodPz)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.FreqPzEl)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.ConstD)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.D)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.ErrD)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -84,41 +73,23 @@
     @foreach (var item in Model.PzElTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodPz)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.PzElTabl.FreqPzEl)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.PzElTabl.ConstD)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.PzElTabl.D)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.PzElTabl.ErrD)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -128,7 +99,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

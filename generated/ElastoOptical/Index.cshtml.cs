@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.ElastoOptical
         }
 
         public IList<EsOpTablLanguage> EsOpTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.ElastoOptical
                 .Where(m => m.EsOpTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceEsOpTabl = substanceEsOpTabl.Where(m => m.EsOpTabl.SingCode == sing);
             }
-            
+
 
             EsOpTablLanguage = await substanceEsOpTabl.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.ElastoOptical
                 .ToDictionary(h => h.EsOpTablId, h =>
                     h.EsOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.EsOpTabl.Bknumber] : null
                 );
-            
         }
     }
 }

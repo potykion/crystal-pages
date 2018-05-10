@@ -20,10 +20,7 @@ namespace Crystal.Pages.Substances.Cury
         }
 
         public IList<CuryTablLanguage> CuryTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
 
         public async Task OnGetAsync(string systemUrl )
         {
@@ -34,13 +31,11 @@ namespace Crystal.Pages.Substances.Cury
                 .Where(m => m.CuryTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
+
 
             CuryTablLanguage = await substanceCuryTabl.ToListAsync();
 
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -50,7 +45,6 @@ namespace Crystal.Pages.Substances.Cury
                 .ToDictionary(h => h.CuryTablId, h =>
                     h.CuryTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.CuryTabl.Bknumber] : null
                 );
-            
         }
     }
 }

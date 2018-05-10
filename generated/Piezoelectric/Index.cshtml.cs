@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.Piezoelectric
         }
 
         public IList<PzElTablLanguage> PzElTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.Piezoelectric
                 .Where(m => m.PzElTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substancePzElTabl = substancePzElTabl.Where(m => m.PzElTabl.SingCode == sing);
             }
-            
+
 
             PzElTablLanguage = await substancePzElTabl.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.Piezoelectric
                 .ToDictionary(h => h.PzElTablId, h =>
                     h.PzElTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.PzElTabl.Bknumber] : null
                 );
-            
         }
     }
 }

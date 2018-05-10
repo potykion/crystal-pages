@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
         }
 
         public IList<DielDissLanguage> DielDissLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
                 .Where(m => m.DielDiss.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceDielDiss = substanceDielDiss.Where(m => m.DielDiss.SingCode == sing);
             }
-            
+
 
             DielDissLanguage = await substanceDielDiss.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
                 .ToDictionary(h => h.DielDissId, h =>
                     h.DielDiss.Bknumber.HasValue ? bibliogrLanguage[(int) h.DielDiss.Bknumber] : null
                 );
-            
         }
     }
 }

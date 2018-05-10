@@ -1,1 +1,712 @@
-[{"model": "AcOpTabl", "language_fields": [{"name": "E", "raw": false}, {"name": "Nsv", "raw": false}, {"name": "Uzv", "raw": false}], "invariant_fields": [{"name": "WaveLeng", "raw": false}, {"name": "Nzv", "raw": false}, {"name": "M1", "raw": false}, {"name": "M2", "raw": false}, {"name": "M3", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "AcoustoOptical"}, {"model": "ConstSel", "language_fields": [{"name": "Measure", "raw": false}], "invariant_fields": [{"name": "Equation", "raw": false}, {"name": "NazvSel", "raw": false}, {"name": "ZnachSel", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Sellmeier"}, {"model": "CuryTabl", "language_fields": [{"name": "Oboztran", "raw": false}], "invariant_fields": [{"name": "CuryTemp", "raw": false}, {"name": "ErrCury", "raw": false}], "has_references": true, "has_sing": false, "model_dir": "Cury"}, {"model": "DecrTabl", "language_fields": [{"name": "Nzv", "raw": false}, {"name": "Uzv", "raw": false}, {"name": "WaveType", "raw": false}], "invariant_fields": [{"name": "WaveSpeed", "raw": false}, {"name": "Decrement", "raw": false}, {"name": "DecrFreq", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Wave"}, {"model": "DensTabl", "language_fields": [{"name": "MethodD", "raw": false}], "invariant_fields": [{"name": "Density", "raw": false}, {"name": "ErrDens", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Density"}, {"model": "DielDiss", "language_fields": [{"name": "MethodY", "raw": false}, {"name": "TangName", "raw": false}], "invariant_fields": [{"name": "FreqDiss", "raw": false}, {"name": "Temper_3", "raw": false}, {"name": "TangentD", "raw": false}, {"name": "ErrDiss", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Dielectric_Loss"}, {"model": "Dielectr", "language_fields": [{"name": "MethodY", "raw": false}, {"name": "Znak", "raw": false}], "invariant_fields": [{"name": "FreqDiel", "raw": false}, {"name": "Temper_2", "raw": false}, {"name": "Constant", "raw": false}, {"name": "Diel", "raw": false}, {"name": "ErrY", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Dielectric"}, {"model": "Elastic1", "language_fields": [{"name": "MethodE", "raw": false}, {"name": "ZnE", "raw": false}], "invariant_fields": [{"name": "TemperEl", "raw": false}, {"name": "CondClu1", "raw": false}, {"name": "E1", "raw": false}, {"name": "ErrE", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Elastic"}, {"model": "ElemTabl", "language_fields": [{"name": "MethodP", "raw": false}, {"name": "Nazbparam", "raw": false}], "invariant_fields": [{"name": "Znparam", "raw": false}, {"name": "Errparam", "raw": false}, {"name": "NazvAngl", "raw": false}, {"name": "ZnAngle", "raw": false}, {"name": "ErrAngl", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Lattice"}, {"model": "ElOpTabl", "language_fields": [{"name": "MethodR", "raw": false}, {"name": "ZnN1", "raw": false}], "invariant_fields": [{"name": "WvLeng", "raw": false}, {"name": "R", "raw": false}, {"name": "ErrR", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "ElectroOptical"}, {"model": "EsOpTabl", "language_fields": [{"name": "MethodP", "raw": false}, {"name": "ZnP", "raw": false}], "invariant_fields": [{"name": "LengWave", "raw": false}, {"name": "P", "raw": false}, {"name": "ErrP", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "ElastoOptical"}, {"model": "HardTabl", "language_fields": [{"name": "MethodH", "raw": false}], "invariant_fields": [{"name": "Hard1", "raw": false}, {"name": "Hard2", "raw": false}, {"name": "ErrHard", "raw": false}, {"name": "Mohs", "raw": false}, {"name": "ErrMohs", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Hardness"}, {"model": "HeatExpn", "language_fields": [{"name": "MethodEx", "raw": false}, {"name": "Znak1", "raw": false}], "invariant_fields": [{"name": "DataType", "raw": false}, {"name": "Temper_1", "raw": false}, {"name": "Temper_2", "raw": false}, {"name": "S11", "raw": false}, {"name": "ErrHExp", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Thermal_Expansion"}, {"model": "HeatExpn", "language_fields": [{"name": "MethodEx", "raw": false}, {"name": "Znak1", "raw": false}], "invariant_fields": [{"name": "DataType", "raw": false}, {"name": "Temper_1", "raw": false}, {"name": "Temper_2", "raw": false}, {"name": "S11", "raw": false}, {"name": "ErrHExp", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Thermal_Conductivity"}, {"model": "HeatTabl", "language_fields": [{"name": "MethodC", "raw": false}], "invariant_fields": [{"name": "Temperat", "raw": false}, {"name": "ZnC", "raw": false}, {"name": "C", "raw": false}, {"name": "ErrC", "raw": false}], "has_references": true, "has_sing": false, "model_dir": "Heat"}, {"model": "MechTabl", "language_fields": [{"name": "MethodK", "raw": false}, {"name": "ZnK", "raw": false}], "invariant_fields": [{"name": "FreqCons", "raw": false}, {"name": "Temper", "raw": false}, {"name": "K", "raw": false}, {"name": "ErrK", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Piezoelectric_Coupling"}, {"model": "ModfTabl", "language_fields": [{"name": "SpaceGrp", "raw": false}], "invariant_fields": [{"name": "SuprTemp", "raw": false}, {"name": "SP2", "raw": false}, {"name": "ErrSupr", "raw": false}, {"name": "PointGrp", "raw": false}, {"name": "Z", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Crystal_Mod"}, {"model": "NlOpTabl", "language_fields": [{"name": "MethodR", "raw": false}, {"name": "ZnR", "raw": false}], "invariant_fields": [{"name": "Lyambda", "raw": false}, {"name": "Rij", "raw": false}, {"name": "ErrRij", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "NonlinearOptical"}, {"model": "PlavTabl", "language_fields": [{"name": "PlavType", "raw": false}], "invariant_fields": [{"name": "PlavTemp", "raw": false}, {"name": "ErrPlav", "raw": false}], "has_references": true, "has_sing": false, "model_dir": "Melt"}, {"model": "PzElTabl", "language_fields": [{"name": "MethodPz", "raw": false}], "invariant_fields": [{"name": "FreqPzEl", "raw": false}, {"name": "ConstD", "raw": false}, {"name": "D", "raw": false}, {"name": "ErrD", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Piezoelectric"}, {"model": "RefrcInd", "language_fields": [{"name": "MethodIn", "raw": false}], "invariant_fields": [{"name": "Temper", "raw": false}, {"name": "WaveLeng", "raw": false}, {"name": "NazbIndx", "raw": false}, {"name": "ZnachInd", "raw": false}, {"name": "ErrIndex", "raw": false}], "has_references": true, "has_sing": true, "model_dir": "Refractive"}, {"model": "SuspTabl", "language_fields": [{"name": "MethodS", "raw": false}, {"name": "SuspName", "raw": false}], "invariant_fields": [{"name": "Temper", "raw": false}, {"name": "Suspense", "raw": false}, {"name": "ErrSusp", "raw": false}], "has_references": true, "has_sing": false, "model_dir": "Solubility"}]
+[
+  {
+    "model": "AcOpTabl",
+    "language_fields": [
+      {
+        "name": "E",
+        "raw": false
+      },
+      {
+        "name": "Nsv",
+        "raw": false
+      },
+      {
+        "name": "Uzv",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "WaveLeng",
+        "raw": false
+      },
+      {
+        "name": "Nzv",
+        "raw": false
+      },
+      {
+        "name": "M1",
+        "raw": false
+      },
+      {
+        "name": "M2",
+        "raw": false
+      },
+      {
+        "name": "M3",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "AcoustoOptical"
+  },
+  {
+    "model": "ConstSel",
+    "language_fields": [
+      {
+        "name": "Measure",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Equation",
+        "raw": false
+      },
+      {
+        "name": "NazvSel",
+        "raw": false
+      },
+      {
+        "name": "ZnachSel",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Sellmeier"
+  },
+  {
+    "model": "CuryTabl",
+    "language_fields": [
+      {
+        "name": "Oboztran",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "CuryTemp",
+        "raw": false
+      },
+      {
+        "name": "ErrCury",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": false,
+    "model_dir": "Cury"
+  },
+  {
+    "model": "DecrTabl",
+    "language_fields": [
+      {
+        "name": "Nzv",
+        "raw": false
+      },
+      {
+        "name": "Uzv",
+        "raw": false
+      },
+      {
+        "name": "WaveType",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "WaveSpeed",
+        "raw": false
+      },
+      {
+        "name": "Decrement",
+        "raw": false
+      },
+      {
+        "name": "DecrFreq",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Wave"
+  },
+  {
+    "model": "DensTabl",
+    "language_fields": [
+      {
+        "name": "MethodD",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Density",
+        "raw": false
+      },
+      {
+        "name": "ErrDens",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Density"
+  },
+  {
+    "model": "DielDiss",
+    "language_fields": [
+      {
+        "name": "MethodY",
+        "raw": false
+      },
+      {
+        "name": "TangName",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "FreqDiss",
+        "raw": false
+      },
+      {
+        "name": "Temper_3",
+        "raw": false
+      },
+      {
+        "name": "TangentD",
+        "raw": false
+      },
+      {
+        "name": "ErrDiss",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Dielectric_Loss"
+  },
+  {
+    "model": "Dielectr",
+    "language_fields": [
+      {
+        "name": "MethodY",
+        "raw": false
+      },
+      {
+        "name": "Znak",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "FreqDiel",
+        "raw": false
+      },
+      {
+        "name": "Temper_2",
+        "raw": false
+      },
+      {
+        "name": "Constant",
+        "raw": false
+      },
+      {
+        "name": "Diel",
+        "raw": false
+      },
+      {
+        "name": "ErrY",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Dielectric"
+  },
+  {
+    "model": "Elastic1",
+    "language_fields": [
+      {
+        "name": "MethodE",
+        "raw": false
+      },
+      {
+        "name": "ZnE",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "TemperEl",
+        "raw": false
+      },
+      {
+        "name": "CondClu1",
+        "raw": false
+      },
+      {
+        "name": "E1",
+        "raw": false
+      },
+      {
+        "name": "ErrE",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Elastic"
+  },
+  {
+    "model": "ElemTabl",
+    "language_fields": [
+      {
+        "name": "MethodP",
+        "raw": false
+      },
+      {
+        "name": "Nazbparam",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Znparam",
+        "raw": false
+      },
+      {
+        "name": "Errparam",
+        "raw": false
+      },
+      {
+        "name": "NazvAngl",
+        "raw": false
+      },
+      {
+        "name": "ZnAngle",
+        "raw": false
+      },
+      {
+        "name": "ErrAngl",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Lattice"
+  },
+  {
+    "model": "ElOpTabl",
+    "language_fields": [
+      {
+        "name": "MethodR",
+        "raw": false
+      },
+      {
+        "name": "ZnN1",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "WvLeng",
+        "raw": false
+      },
+      {
+        "name": "R",
+        "raw": false
+      },
+      {
+        "name": "ErrR",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "ElectroOptical"
+  },
+  {
+    "model": "EsOpTabl",
+    "language_fields": [
+      {
+        "name": "MethodP",
+        "raw": false
+      },
+      {
+        "name": "ZnP",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "LengWave",
+        "raw": false
+      },
+      {
+        "name": "P",
+        "raw": false
+      },
+      {
+        "name": "ErrP",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "ElastoOptical"
+  },
+  {
+    "model": "HardTabl",
+    "language_fields": [
+      {
+        "name": "MethodH",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Hard1",
+        "raw": false
+      },
+      {
+        "name": "Hard2",
+        "raw": false
+      },
+      {
+        "name": "ErrHard",
+        "raw": false
+      },
+      {
+        "name": "Mohs",
+        "raw": false
+      },
+      {
+        "name": "ErrMohs",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Hardness"
+  },
+  {
+    "model": "HeatExpn",
+    "language_fields": [
+      {
+        "name": "MethodEx",
+        "raw": false
+      },
+      {
+        "name": "Znak1",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "DataType",
+        "raw": false
+      },
+      {
+        "name": "Temper_1",
+        "raw": false
+      },
+      {
+        "name": "Temper_2",
+        "raw": false
+      },
+      {
+        "name": "S11",
+        "raw": false
+      },
+      {
+        "name": "ErrHExp",
+        "raw": false
+      }
+    ],
+    "extra_filters": [
+      "m.HeatExpn.DataType == 1"
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Thermal_Expansion"
+  },
+  {
+    "model": "HeatExpn",
+    "language_fields": [
+      {
+        "name": "MethodEx",
+        "raw": false
+      },
+      {
+        "name": "Znak1",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "DataType",
+        "raw": false
+      },
+      {
+        "name": "Temper_1",
+        "raw": false
+      },
+      {
+        "name": "Temper_2",
+        "raw": false
+      },
+      {
+        "name": "S11",
+        "raw": false
+      },
+      {
+        "name": "ErrHExp",
+        "raw": false
+      }
+    ],
+    "extra_filters": [
+      "m.HeatExpn.DataType == 0"
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Thermal_Conductivity"
+  },
+  {
+    "model": "HeatTabl",
+    "language_fields": [
+      {
+        "name": "MethodC",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Temperat",
+        "raw": false
+      },
+      {
+        "name": "ZnC",
+        "raw": false
+      },
+      {
+        "name": "C",
+        "raw": false
+      },
+      {
+        "name": "ErrC",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": false,
+    "model_dir": "Heat"
+  },
+  {
+    "model": "MechTabl",
+    "language_fields": [
+      {
+        "name": "MethodK",
+        "raw": false
+      },
+      {
+        "name": "ZnK",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "FreqCons",
+        "raw": false
+      },
+      {
+        "name": "Temper",
+        "raw": false
+      },
+      {
+        "name": "K",
+        "raw": false
+      },
+      {
+        "name": "ErrK",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Piezoelectric_Coupling"
+  },
+  {
+    "model": "ModfTabl",
+    "language_fields": [
+      {
+        "name": "SpaceGrp",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "SuprTemp",
+        "raw": false
+      },
+      {
+        "name": "SP2",
+        "raw": false
+      },
+      {
+        "name": "ErrSupr",
+        "raw": false
+      },
+      {
+        "name": "PointGrp",
+        "raw": false
+      },
+      {
+        "name": "Z",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Crystal_Mod"
+  },
+  {
+    "model": "NlOpTabl",
+    "language_fields": [
+      {
+        "name": "MethodR",
+        "raw": false
+      },
+      {
+        "name": "ZnR",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Lyambda",
+        "raw": false
+      },
+      {
+        "name": "Rij",
+        "raw": false
+      },
+      {
+        "name": "ErrRij",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "NonlinearOptical"
+  },
+  {
+    "model": "PlavTabl",
+    "language_fields": [
+      {
+        "name": "PlavType",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "PlavTemp",
+        "raw": false
+      },
+      {
+        "name": "ErrPlav",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": false,
+    "model_dir": "Melt"
+  },
+  {
+    "model": "PzElTabl",
+    "language_fields": [
+      {
+        "name": "MethodPz",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "FreqPzEl",
+        "raw": false
+      },
+      {
+        "name": "ConstD",
+        "raw": false
+      },
+      {
+        "name": "D",
+        "raw": false
+      },
+      {
+        "name": "ErrD",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Piezoelectric"
+  },
+  {
+    "model": "RefrcInd",
+    "language_fields": [
+      {
+        "name": "MethodIn",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Temper",
+        "raw": false
+      },
+      {
+        "name": "WaveLeng",
+        "raw": false
+      },
+      {
+        "name": "NazbIndx",
+        "raw": false
+      },
+      {
+        "name": "ZnachInd",
+        "raw": false
+      },
+      {
+        "name": "ErrIndex",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Refractive"
+  },
+  {
+    "model": "SuspTabl",
+    "language_fields": [
+      {
+        "name": "MethodS",
+        "raw": false
+      },
+      {
+        "name": "SuspName",
+        "raw": false
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "Temper",
+        "raw": false
+      },
+      {
+        "name": "Suspense",
+        "raw": false
+      },
+      {
+        "name": "ErrSusp",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": false,
+    "model_dir": "Solubility"
+  }
+]

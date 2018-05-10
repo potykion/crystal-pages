@@ -20,10 +20,7 @@ namespace Crystal.Pages.Substances.Solubility
         }
 
         public IList<SuspTablLanguage> SuspTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
 
         public async Task OnGetAsync(string systemUrl )
         {
@@ -34,13 +31,11 @@ namespace Crystal.Pages.Substances.Solubility
                 .Where(m => m.SuspTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
+
 
             SuspTablLanguage = await substanceSuspTabl.ToListAsync();
 
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -50,7 +45,6 @@ namespace Crystal.Pages.Substances.Solubility
                 .ToDictionary(h => h.SuspTablId, h =>
                     h.SuspTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.SuspTabl.Bknumber] : null
                 );
-            
         }
     }
 }

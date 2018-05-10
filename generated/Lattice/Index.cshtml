@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,51 +38,39 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].MethodP)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].Nazbparam)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.Znparam)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.Errparam)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.NazvAngl)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.ZnAngle)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.ErrAngl)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -92,53 +79,29 @@
     @foreach (var item in Model.ElemTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodP)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.Nazbparam)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ElemTabl.Znparam)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ElemTabl.Errparam)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ElemTabl.NazvAngl)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ElemTabl.ZnAngle)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ElemTabl.ErrAngl)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -148,7 +111,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

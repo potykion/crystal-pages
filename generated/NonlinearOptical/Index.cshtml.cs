@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.NonlinearOptical
         }
 
         public IList<NlOpTablLanguage> NlOpTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.NonlinearOptical
                 .Where(m => m.NlOpTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceNlOpTabl = substanceNlOpTabl.Where(m => m.NlOpTabl.SingCode == sing);
             }
-            
+
 
             NlOpTablLanguage = await substanceNlOpTabl.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.NonlinearOptical
                 .ToDictionary(h => h.NlOpTablId, h =>
                     h.NlOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.NlOpTabl.Bknumber] : null
                 );
-            
         }
     }
 }

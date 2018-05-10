@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.Dielectric
         }
 
         public IList<DielectrLanguage> DielectrLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.Dielectric
                 .Where(m => m.Dielectr.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceDielectr = substanceDielectr.Where(m => m.Dielectr.SingCode == sing);
             }
-            
+
 
             DielectrLanguage = await substanceDielectr.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.Dielectric
                 .ToDictionary(h => h.DielectrId, h =>
                     h.Dielectr.Bknumber.HasValue ? bibliogrLanguage[(int) h.Dielectr.Bknumber] : null
                 );
-            
         }
     }
 }

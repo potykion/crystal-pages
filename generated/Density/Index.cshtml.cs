@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.Density
         }
 
         public IList<DensTablLanguage> DensTablLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.Density
                 .Where(m => m.DensTabl.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceDensTabl = substanceDensTabl.Where(m => m.DensTabl.SingCode == sing);
             }
-            
+
 
             DensTablLanguage = await substanceDensTabl.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.Density
                 .ToDictionary(h => h.DensTablId, h =>
                     h.DensTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.DensTabl.Bknumber] : null
                 );
-            
         }
     }
 }

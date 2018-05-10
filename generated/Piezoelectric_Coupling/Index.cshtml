@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,47 +38,36 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MethodK)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].ZnK)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.FreqCons)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.Temper)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.K)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.ErrK)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -88,47 +76,26 @@
     @foreach (var item in Model.MechTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodK)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ZnK)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MechTabl.FreqCons)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MechTabl.Temper)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MechTabl.K)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MechTabl.ErrK)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -138,7 +105,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

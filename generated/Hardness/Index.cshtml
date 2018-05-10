@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,47 +38,36 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].MethodH)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Hard1)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Hard2)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.ErrHard)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Mohs)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.ErrMohs)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -88,47 +76,26 @@
     @foreach (var item in Model.HardTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodH)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.HardTabl.Hard1)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.HardTabl.Hard2)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.HardTabl.ErrHard)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.HardTabl.Mohs)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.HardTabl.ErrMohs)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -138,7 +105,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

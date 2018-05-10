@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,43 +38,33 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].MethodR)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].ZnR)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.Lyambda)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.Rij)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.ErrRij)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -84,41 +73,23 @@
     @foreach (var item in Model.NlOpTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.MethodR)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ZnR)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.NlOpTabl.Lyambda)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.NlOpTabl.Rij)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.NlOpTabl.ErrRij)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -128,7 +99,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

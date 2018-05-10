@@ -20,12 +20,8 @@ namespace Crystal.Pages.Substances.Refractive
         }
 
         public IList<RefrcIndLanguage> RefrcIndLanguage { get; set; }
-        
         public IDictionary<int, BibliogrLanguage> References { get; set; }
-        
-        
         public IList<SingTabl> SingTabl { get; set; }
-        
 
         public async Task OnGetAsync(string systemUrl , string sing)
         {
@@ -36,22 +32,18 @@ namespace Crystal.Pages.Substances.Refractive
                 .Where(m => m.RefrcInd.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
-            
             if (!string.IsNullOrEmpty(sing))
             {
                 substanceRefrcInd = substanceRefrcInd.Where(m => m.RefrcInd.SingCode == sing);
             }
-            
+
 
             RefrcIndLanguage = await substanceRefrcInd.ToListAsync();
 
-            
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)
                 .ToListAsync();
-            
 
-            
             var bibliogrLanguage = await _context.BibliogrLanguage
                 .Include(b => b.Bibliogr)
                 .Where(b => b.LanguageId == this.GetLanguageId())
@@ -61,7 +53,6 @@ namespace Crystal.Pages.Substances.Refractive
                 .ToDictionary(h => h.RefrcIndId, h =>
                     h.RefrcInd.Bknumber.HasValue ? bibliogrLanguage[(int) h.RefrcInd.Bknumber] : null
                 );
-            
         }
     }
 }

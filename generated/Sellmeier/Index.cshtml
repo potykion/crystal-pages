@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,39 +38,30 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].Measure)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.Equation)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.NazvSel)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.ZnachSel)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -80,35 +70,20 @@
     @foreach (var item in Model.ConstSelLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.Measure)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ConstSel.Equation)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ConstSel.NazvSel)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ConstSel.ZnachSel)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -118,7 +93,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

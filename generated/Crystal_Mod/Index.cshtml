@@ -25,7 +25,6 @@
         Create New
     </a>
 
-    
      <div style="float: right">
         Сингония:
         @foreach (var sing in Model.SingTabl)
@@ -39,47 +38,36 @@
             </a>
         }
     </div>
-    
 </div>
 <table class="table">
     <thead>
     <tr>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].SpaceGrp)
             </th>
-        
 
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.SuprTemp)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.SP2)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.ErrSupr)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.PointGrp)
             </th>
-        
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.Z)
             </th>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <th>
                 @SharedLocalizer["Reference"]
             </th>
             }
-        
 
          <th>Actions</th>
     </tr>
@@ -88,47 +76,26 @@
     @foreach (var item in Model.ModfTablLanguage)
     {
     <tr>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.SpaceGrp)
-                
             </td>
-        
 
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ModfTabl.SuprTemp)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ModfTabl.SP2)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ModfTabl.ErrSupr)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ModfTabl.PointGrp)
-                
             </td>
-        
             <td>
-                
                     @Html.DisplayFor(modelItem => item.ModfTabl.Z)
-                
             </td>
-        
 
-        
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
             <td>
@@ -138,7 +105,6 @@
                 </a>
             </td>
             }
-        
 
          <td>
                 <div>

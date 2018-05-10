@@ -1,0 +1,58 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Heat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HeatTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.MethodC" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.MethodC" class="form-control" />
+                <span asp-validation-for="HeatTablLanguage.MethodC" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="HeatTablInvariant.Temperat" class="control-label"></label>
+                <input asp-for="HeatTablInvariant.Temperat" class="form-control" />
+                <span asp-validation-for="HeatTablInvariant.Temperat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablInvariant.ZnC" class="control-label"></label>
+                <input asp-for="HeatTablInvariant.ZnC" class="form-control" />
+                <span asp-validation-for="HeatTablInvariant.ZnC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablInvariant.C" class="control-label"></label>
+                <input asp-for="HeatTablInvariant.C" class="form-control" />
+                <span asp-validation-for="HeatTablInvariant.C" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablInvariant.ErrC" class="control-label"></label>
+                <input asp-for="HeatTablInvariant.ErrC" class="form-control" />
+                <span asp-validation-for="HeatTablInvariant.ErrC" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

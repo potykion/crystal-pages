@@ -1,0 +1,47 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>{{ model_dir }}</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="{{ model }}Language.Id" />
+
+            {% for field in language_fields %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Language.{{ field.name }}" class="control-label"></label>
+                <input asp-for="{{ model }}Language.{{ field.name }}" class="form-control" />
+                <span asp-validation-for="{{ model }}Language.{{ field.name }}" class="text-danger"></span>
+            </div>    
+            {% endfor %}
+
+            {% for field in invariant_fields %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Invariant.{{ field.name }}" class="control-label"></label>
+                <input asp-for="{{ model }}Invariant.{{ field.name }}" class="form-control" />
+                <span asp-validation-for="{{ model }}Invariant.{{ field.name }}" class="text-danger"></span>
+            </div>
+            {% endfor %}
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

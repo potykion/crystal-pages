@@ -1,0 +1,61 @@
+using System.Linq;
+using System.Threading.Tasks;
+using Crystal.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+namespace Crystal.Pages.Substances.{{ model_dir }}
+{
+    public class EditModel : PageModel
+    {
+        private readonly CrystalContext _context;
+
+        public EditModel(CrystalContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty] public {{ model }}Language {{ model }}Language { get; set; }
+        [BindProperty] public {{ model }}Invariant {{ model }}Invariant { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int id)
+        {
+            {{ model }}Language = await _context.{{ model }}Language
+                .Include(h => h.{{ model }})
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            {{ model }}Invariant = {{ model }}Language.{{ model }};
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            var {{ model }}LanguageToUpdate = await _context.{{ model }}Language
+                .Include(m => m.{{ model }})
+                .FirstAsync(m => m.Id == id);
+
+            var {{ model }}InvariantToUpdate = {{ model }}LanguageToUpdate.{{ model }};
+
+            await TryUpdateModelAsync(
+                {{ model }}LanguageToUpdate,
+                "{{ model }}Language",
+                {% for field in language_fields %}
+                    m => m.{{ field.name }}{% if not loop.last %},{% endif %}
+                {% endfor %}
+            );
+
+            await TryUpdateModelAsync(
+                {{ model }}InvariantToUpdate,
+                "{{ model }}Invariant",
+                {% for field in invariant_fields %}m => m.{{ field.name }} {% if not loop.last %},{% endif %}{% endfor %}
+            );
+
+            await _context.SaveChangesAsync();
+
+            return Page();
+        }
+    }
+}

@@ -1,0 +1,63 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Piezoelectric_Coupling</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MechTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MethodK" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MethodK" class="form-control" />
+                <span asp-validation-for="MechTablLanguage.MethodK" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.ZnK" class="control-label"></label>
+                <input asp-for="MechTablLanguage.ZnK" class="form-control" />
+                <span asp-validation-for="MechTablLanguage.ZnK" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="MechTablInvariant.FreqCons" class="control-label"></label>
+                <input asp-for="MechTablInvariant.FreqCons" class="form-control" />
+                <span asp-validation-for="MechTablInvariant.FreqCons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablInvariant.Temper" class="control-label"></label>
+                <input asp-for="MechTablInvariant.Temper" class="form-control" />
+                <span asp-validation-for="MechTablInvariant.Temper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablInvariant.K" class="control-label"></label>
+                <input asp-for="MechTablInvariant.K" class="form-control" />
+                <span asp-validation-for="MechTablInvariant.K" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablInvariant.ErrK" class="control-label"></label>
+                <input asp-for="MechTablInvariant.ErrK" class="form-control" />
+                <span asp-validation-for="MechTablInvariant.ErrK" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

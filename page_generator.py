@@ -30,3 +30,5 @@ if __name__ == '__main__':
     for context in contexts:
         render_page('Index.cshtml', context, context['model_dir'])
         render_page('Index.cshtml.cs', context, context['model_dir'])
+        render_page('Edit.cshtml', context, context['model_dir'])
+        render_page('Edit.cshtml.cs', context, context['model_dir'])

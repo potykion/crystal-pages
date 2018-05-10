@@ -1,0 +1,63 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Wave</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DecrTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="DecrTablLanguage.Nzv" class="control-label"></label>
+                <input asp-for="DecrTablLanguage.Nzv" class="form-control" />
+                <span asp-validation-for="DecrTablLanguage.Nzv" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="DecrTablLanguage.Uzv" class="control-label"></label>
+                <input asp-for="DecrTablLanguage.Uzv" class="form-control" />
+                <span asp-validation-for="DecrTablLanguage.Uzv" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="DecrTablLanguage.WaveType" class="control-label"></label>
+                <input asp-for="DecrTablLanguage.WaveType" class="form-control" />
+                <span asp-validation-for="DecrTablLanguage.WaveType" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="DecrTablInvariant.WaveSpeed" class="control-label"></label>
+                <input asp-for="DecrTablInvariant.WaveSpeed" class="form-control" />
+                <span asp-validation-for="DecrTablInvariant.WaveSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecrTablInvariant.Decrement" class="control-label"></label>
+                <input asp-for="DecrTablInvariant.Decrement" class="form-control" />
+                <span asp-validation-for="DecrTablInvariant.Decrement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecrTablInvariant.DecrFreq" class="control-label"></label>
+                <input asp-for="DecrTablInvariant.DecrFreq" class="form-control" />
+                <span asp-validation-for="DecrTablInvariant.DecrFreq" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,57 @@
+using System.Linq;
+using System.Threading.Tasks;
+using Crystal.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+namespace Crystal.Pages.Substances.Dielectric_Loss
+{
+    public class EditModel : PageModel
+    {
+        private readonly CrystalContext _context;
+
+        public EditModel(CrystalContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty] public DielDissLanguage DielDissLanguage { get; set; }
+        [BindProperty] public DielDissInvariant DielDissInvariant { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int id)
+        {
+            DielDissLanguage = await _context.DielDissLanguage
+                .Include(h => h.DielDiss)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            DielDissInvariant = DielDissLanguage.DielDiss;
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            var DielDissLanguageToUpdate = await _context.DielDissLanguage
+                .Include(m => m.DielDiss)
+                .FirstAsync(m => m.Id == id);
+
+            var DielDissInvariantToUpdate = DielDissLanguageToUpdate.DielDiss;
+
+            await TryUpdateModelAsync(
+                DielDissLanguageToUpdate,
+                "DielDissLanguage",
+                    m => m.MethodY,                    m => m.TangName            );
+
+            await TryUpdateModelAsync(
+                DielDissInvariantToUpdate,
+                "DielDissInvariant",
+m => m.FreqDiss ,m => m.Temper_3 ,m => m.TangentD ,m => m.ErrDiss             );
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
+    }
+}

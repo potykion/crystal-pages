@@ -1,0 +1,58 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Solubility</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SuspTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="SuspTablLanguage.MethodS" class="control-label"></label>
+                <input asp-for="SuspTablLanguage.MethodS" class="form-control" />
+                <span asp-validation-for="SuspTablLanguage.MethodS" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="SuspTablLanguage.SuspName" class="control-label"></label>
+                <input asp-for="SuspTablLanguage.SuspName" class="form-control" />
+                <span asp-validation-for="SuspTablLanguage.SuspName" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="SuspTablInvariant.Temper" class="control-label"></label>
+                <input asp-for="SuspTablInvariant.Temper" class="form-control" />
+                <span asp-validation-for="SuspTablInvariant.Temper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuspTablInvariant.Suspense" class="control-label"></label>
+                <input asp-for="SuspTablInvariant.Suspense" class="form-control" />
+                <span asp-validation-for="SuspTablInvariant.Suspense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuspTablInvariant.ErrSusp" class="control-label"></label>
+                <input asp-for="SuspTablInvariant.ErrSusp" class="form-control" />
+                <span asp-validation-for="SuspTablInvariant.ErrSusp" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

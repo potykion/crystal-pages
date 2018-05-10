@@ -1,0 +1,58 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ElectroOptical</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ElOpTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.MethodR" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.MethodR" class="form-control" />
+                <span asp-validation-for="ElOpTablLanguage.MethodR" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ZnN1" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ZnN1" class="form-control" />
+                <span asp-validation-for="ElOpTablLanguage.ZnN1" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="ElOpTablInvariant.WvLeng" class="control-label"></label>
+                <input asp-for="ElOpTablInvariant.WvLeng" class="form-control" />
+                <span asp-validation-for="ElOpTablInvariant.WvLeng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElOpTablInvariant.R" class="control-label"></label>
+                <input asp-for="ElOpTablInvariant.R" class="form-control" />
+                <span asp-validation-for="ElOpTablInvariant.R" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElOpTablInvariant.ErrR" class="control-label"></label>
+                <input asp-for="ElOpTablInvariant.ErrR" class="form-control" />
+                <span asp-validation-for="ElOpTablInvariant.ErrR" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

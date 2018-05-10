@@ -1,0 +1,63 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Hardness</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HardTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="HardTablLanguage.MethodH" class="control-label"></label>
+                <input asp-for="HardTablLanguage.MethodH" class="form-control" />
+                <span asp-validation-for="HardTablLanguage.MethodH" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="HardTablInvariant.Hard1" class="control-label"></label>
+                <input asp-for="HardTablInvariant.Hard1" class="form-control" />
+                <span asp-validation-for="HardTablInvariant.Hard1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardTablInvariant.Hard2" class="control-label"></label>
+                <input asp-for="HardTablInvariant.Hard2" class="form-control" />
+                <span asp-validation-for="HardTablInvariant.Hard2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardTablInvariant.ErrHard" class="control-label"></label>
+                <input asp-for="HardTablInvariant.ErrHard" class="form-control" />
+                <span asp-validation-for="HardTablInvariant.ErrHard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardTablInvariant.Mohs" class="control-label"></label>
+                <input asp-for="HardTablInvariant.Mohs" class="form-control" />
+                <span asp-validation-for="HardTablInvariant.Mohs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardTablInvariant.ErrMohs" class="control-label"></label>
+                <input asp-for="HardTablInvariant.ErrMohs" class="form-control" />
+                <span asp-validation-for="HardTablInvariant.ErrMohs" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

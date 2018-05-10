@@ -1,0 +1,53 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Sellmeier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ConstSelLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="ConstSelLanguage.Measure" class="control-label"></label>
+                <input asp-for="ConstSelLanguage.Measure" class="form-control" />
+                <span asp-validation-for="ConstSelLanguage.Measure" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="ConstSelInvariant.Equation" class="control-label"></label>
+                <input asp-for="ConstSelInvariant.Equation" class="form-control" />
+                <span asp-validation-for="ConstSelInvariant.Equation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConstSelInvariant.NazvSel" class="control-label"></label>
+                <input asp-for="ConstSelInvariant.NazvSel" class="form-control" />
+                <span asp-validation-for="ConstSelInvariant.NazvSel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConstSelInvariant.ZnachSel" class="control-label"></label>
+                <input asp-for="ConstSelInvariant.ZnachSel" class="form-control" />
+                <span asp-validation-for="ConstSelInvariant.ZnachSel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

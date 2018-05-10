@@ -1,0 +1,58 @@
+@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Piezoelectric</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PzElTablLanguage.Id" />
+
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.MethodPz" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.MethodPz" class="form-control" />
+                <span asp-validation-for="PzElTablLanguage.MethodPz" class="text-danger"></span>
+            </div>    
+
+            <div class="form-group">
+                <label asp-for="PzElTablInvariant.FreqPzEl" class="control-label"></label>
+                <input asp-for="PzElTablInvariant.FreqPzEl" class="form-control" />
+                <span asp-validation-for="PzElTablInvariant.FreqPzEl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablInvariant.ConstD" class="control-label"></label>
+                <input asp-for="PzElTablInvariant.ConstD" class="form-control" />
+                <span asp-validation-for="PzElTablInvariant.ConstD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablInvariant.D" class="control-label"></label>
+                <input asp-for="PzElTablInvariant.D" class="form-control" />
+                <span asp-validation-for="PzElTablInvariant.D" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablInvariant.ErrD" class="control-label"></label>
+                <input asp-for="PzElTablInvariant.ErrD" class="form-control" />
+                <span asp-validation-for="PzElTablInvariant.ErrD" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Hardness
 
             HardTablInvariant = HardTablLanguage.HardTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Hardness
             await TryUpdateModelAsync(
                 HardTablInvariantToUpdate,
                 "HardTablInvariant",
-m => m.Hard1 ,m => m.Hard2 ,m => m.ErrHard ,m => m.Mohs ,m => m.ErrMohs             );
+m => m.Hard1 ,m => m.Hard2 ,m => m.ErrHard ,m => m.Mohs ,m => m.ErrMohs , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

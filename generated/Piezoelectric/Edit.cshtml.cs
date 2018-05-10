@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Piezoelectric
 
             PzElTablInvariant = PzElTablLanguage.PzElTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Piezoelectric
             await TryUpdateModelAsync(
                 PzElTablInvariantToUpdate,
                 "PzElTablInvariant",
-m => m.FreqPzEl ,m => m.ConstD ,m => m.D ,m => m.ErrD             );
+m => m.FreqPzEl ,m => m.ConstD ,m => m.D ,m => m.ErrD , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

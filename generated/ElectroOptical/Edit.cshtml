@@ -16,6 +16,12 @@
             <input type="hidden" asp-for="ElOpTablLanguage.Id" />
 
             <div class="form-group">
+                <label asp-for="ElOpTablInvariant.SingCode" class="control-label"></label>
+                <select asp-for="ElOpTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ElOpTablInvariant.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="ElOpTablLanguage.MethodR" class="control-label"></label>
                 <input asp-for="ElOpTablLanguage.MethodR" class="form-control" />
                 <span asp-validation-for="ElOpTablLanguage.MethodR" class="text-danger"></span>
@@ -42,6 +48,13 @@
                 <span asp-validation-for="ElOpTablInvariant.ErrR" class="text-danger"></span>
             </div>
 
+
+            <div class="form-group">
+                <label asp-for="ElOpTablInvariant.Bknumber" class="control-label"></label>
+                <input asp-for="ElOpTablInvariant.Bknumber" class="form-control" />
+                <span asp-validation-for="ElOpTablInvariant.Bknumber" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -50,7 +63,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a onclick="window.history.back();">Back to List</a>
 </div>
 
 @section Scripts {

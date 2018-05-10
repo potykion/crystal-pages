@@ -28,6 +28,7 @@ namespace Crystal.Pages.Substances.Heat
 
             HeatTablInvariant = HeatTablLanguage.HeatTabl;
 
+
             return Page();
         }
 
@@ -47,11 +48,11 @@ namespace Crystal.Pages.Substances.Heat
             await TryUpdateModelAsync(
                 HeatTablInvariantToUpdate,
                 "HeatTablInvariant",
-m => m.Temperat ,m => m.ZnC ,m => m.C ,m => m.ErrC             );
+m => m.Temperat ,m => m.ZnC ,m => m.C ,m => m.ErrC , m => m.Bknumber             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

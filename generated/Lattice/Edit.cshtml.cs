@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Lattice
 
             ElemTablInvariant = ElemTablLanguage.ElemTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Lattice
             await TryUpdateModelAsync(
                 ElemTablInvariantToUpdate,
                 "ElemTablInvariant",
-m => m.Znparam ,m => m.Errparam ,m => m.NazvAngl ,m => m.ZnAngle ,m => m.ErrAngl             );
+m => m.Znparam ,m => m.Errparam ,m => m.NazvAngl ,m => m.ZnAngle ,m => m.ErrAngl , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

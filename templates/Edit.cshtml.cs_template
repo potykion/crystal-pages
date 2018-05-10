@@ -28,6 +28,11 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
 
             {{ model }}Invariant = {{ model }}Language.{{ model }};
 
+            {% if has_sing %}
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+            {% endif %}
+
             return Page();
         }
 
@@ -51,6 +56,8 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
                 {{ model }}InvariantToUpdate,
                 "{{ model }}Invariant",
                 {% for field in invariant_fields %}m => m.{{ field.name }} {% if not loop.last %},{% endif %}{% endfor %}
+                {% if has_references %}, m => m.Bknumber {% endif %}
+                {% if has_sing %}, m => m.SingCode {% endif %}
             );
 
             await _context.SaveChangesAsync();

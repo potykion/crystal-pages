@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Refractive
 
             RefrcIndInvariant = RefrcIndLanguage.RefrcInd;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Refractive
             await TryUpdateModelAsync(
                 RefrcIndInvariantToUpdate,
                 "RefrcIndInvariant",
-m => m.Temper ,m => m.WaveLeng ,m => m.NazbIndx ,m => m.ZnachInd ,m => m.ErrIndex             );
+m => m.Temper ,m => m.WaveLeng ,m => m.NazbIndx ,m => m.ZnachInd ,m => m.ErrIndex , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

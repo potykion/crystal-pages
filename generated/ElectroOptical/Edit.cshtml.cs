@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.ElectroOptical
 
             ElOpTablInvariant = ElOpTablLanguage.ElOpTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.ElectroOptical
             await TryUpdateModelAsync(
                 ElOpTablInvariantToUpdate,
                 "ElOpTablInvariant",
-m => m.WvLeng ,m => m.R ,m => m.ErrR             );
+m => m.WvLeng ,m => m.R ,m => m.ErrR , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

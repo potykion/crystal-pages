@@ -28,6 +28,7 @@ namespace Crystal.Pages.Substances.Solubility
 
             SuspTablInvariant = SuspTablLanguage.SuspTabl;
 
+
             return Page();
         }
 
@@ -47,11 +48,11 @@ namespace Crystal.Pages.Substances.Solubility
             await TryUpdateModelAsync(
                 SuspTablInvariantToUpdate,
                 "SuspTablInvariant",
-m => m.Temper ,m => m.Suspense ,m => m.ErrSusp             );
+m => m.Temper ,m => m.Suspense ,m => m.ErrSusp , m => m.Bknumber             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

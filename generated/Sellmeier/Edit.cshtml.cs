@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Sellmeier
 
             ConstSelInvariant = ConstSelLanguage.ConstSel;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Sellmeier
             await TryUpdateModelAsync(
                 ConstSelInvariantToUpdate,
                 "ConstSelInvariant",
-m => m.Equation ,m => m.NazvSel ,m => m.ZnachSel             );
+m => m.Equation ,m => m.NazvSel ,m => m.ZnachSel , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

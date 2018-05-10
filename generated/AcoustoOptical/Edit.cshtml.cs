@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.AcoustoOptical
 
             AcOpTablInvariant = AcOpTablLanguage.AcOpTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.AcoustoOptical
             await TryUpdateModelAsync(
                 AcOpTablInvariantToUpdate,
                 "AcOpTablInvariant",
-m => m.WaveLeng ,m => m.Nzv ,m => m.M1 ,m => m.M2 ,m => m.M3             );
+m => m.WaveLeng ,m => m.Nzv ,m => m.M1 ,m => m.M2 ,m => m.M3 , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

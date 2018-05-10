@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
 
             HeatExpnInvariant = HeatExpnLanguage.HeatExpn;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
             await TryUpdateModelAsync(
                 HeatExpnInvariantToUpdate,
                 "HeatExpnInvariant",
-m => m.DataType ,m => m.Temper_1 ,m => m.Temper_2 ,m => m.S11 ,m => m.ErrHExp             );
+m => m.DataType ,m => m.Temper_1 ,m => m.Temper_2 ,m => m.S11 ,m => m.ErrHExp , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

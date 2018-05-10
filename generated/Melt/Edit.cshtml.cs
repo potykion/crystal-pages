@@ -28,6 +28,7 @@ namespace Crystal.Pages.Substances.Melt
 
             PlavTablInvariant = PlavTablLanguage.PlavTabl;
 
+
             return Page();
         }
 
@@ -47,11 +48,11 @@ namespace Crystal.Pages.Substances.Melt
             await TryUpdateModelAsync(
                 PlavTablInvariantToUpdate,
                 "PlavTablInvariant",
-m => m.PlavTemp ,m => m.ErrPlav             );
+m => m.PlavTemp ,m => m.ErrPlav , m => m.Bknumber             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

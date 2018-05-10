@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Dielectric
 
             DielectrInvariant = DielectrLanguage.Dielectr;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Dielectric
             await TryUpdateModelAsync(
                 DielectrInvariantToUpdate,
                 "DielectrInvariant",
-m => m.FreqDiel ,m => m.Temper_2 ,m => m.Constant ,m => m.Diel ,m => m.ErrY             );
+m => m.FreqDiel ,m => m.Temper_2 ,m => m.Constant ,m => m.Diel ,m => m.ErrY , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

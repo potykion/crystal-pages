@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
 
             MechTablInvariant = MechTablLanguage.MechTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
             await TryUpdateModelAsync(
                 MechTablInvariantToUpdate,
                 "MechTablInvariant",
-m => m.FreqCons ,m => m.Temper ,m => m.K ,m => m.ErrK             );
+m => m.FreqCons ,m => m.Temper ,m => m.K ,m => m.ErrK , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

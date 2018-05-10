@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
 
             DielDissInvariant = DielDissLanguage.DielDiss;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
             await TryUpdateModelAsync(
                 DielDissInvariantToUpdate,
                 "DielDissInvariant",
-m => m.FreqDiss ,m => m.Temper_3 ,m => m.TangentD ,m => m.ErrDiss             );
+m => m.FreqDiss ,m => m.Temper_3 ,m => m.TangentD ,m => m.ErrDiss , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

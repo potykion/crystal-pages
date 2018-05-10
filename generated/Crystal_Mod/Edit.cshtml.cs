@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Crystal_Mod
 
             ModfTablInvariant = ModfTablLanguage.ModfTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Crystal_Mod
             await TryUpdateModelAsync(
                 ModfTablInvariantToUpdate,
                 "ModfTablInvariant",
-m => m.SuprTemp ,m => m.SP2 ,m => m.ErrSupr ,m => m.PointGrp ,m => m.Z             );
+m => m.SuprTemp ,m => m.SP2 ,m => m.ErrSupr ,m => m.PointGrp ,m => m.Z , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

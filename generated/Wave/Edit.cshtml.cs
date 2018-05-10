@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Wave
 
             DecrTablInvariant = DecrTablLanguage.DecrTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Wave
             await TryUpdateModelAsync(
                 DecrTablInvariantToUpdate,
                 "DecrTablInvariant",
-m => m.WaveSpeed ,m => m.Decrement ,m => m.DecrFreq             );
+m => m.WaveSpeed ,m => m.Decrement ,m => m.DecrFreq , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

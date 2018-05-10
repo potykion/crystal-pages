@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Density
 
             DensTablInvariant = DensTablLanguage.DensTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Density
             await TryUpdateModelAsync(
                 DensTablInvariantToUpdate,
                 "DensTablInvariant",
-m => m.Density ,m => m.ErrDens             );
+m => m.Density ,m => m.ErrDens , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

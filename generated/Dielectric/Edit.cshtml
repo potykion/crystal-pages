@@ -16,6 +16,12 @@
             <input type="hidden" asp-for="DielectrLanguage.Id" />
 
             <div class="form-group">
+                <label asp-for="DielectrInvariant.SingCode" class="control-label"></label>
+                <select asp-for="DielectrInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="DielectrInvariant.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="DielectrLanguage.MethodY" class="control-label"></label>
                 <input asp-for="DielectrLanguage.MethodY" class="form-control" />
                 <span asp-validation-for="DielectrLanguage.MethodY" class="text-danger"></span>
@@ -52,6 +58,13 @@
                 <span asp-validation-for="DielectrInvariant.ErrY" class="text-danger"></span>
             </div>
 
+
+            <div class="form-group">
+                <label asp-for="DielectrInvariant.Bknumber" class="control-label"></label>
+                <input asp-for="DielectrInvariant.Bknumber" class="form-control" />
+                <span asp-validation-for="DielectrInvariant.Bknumber" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -60,7 +73,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a onclick="window.history.back();">Back to List</a>
 </div>
 
 @section Scripts {

@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.Elastic
 
             Elastic1Invariant = Elastic1Language.Elastic1;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.Elastic
             await TryUpdateModelAsync(
                 Elastic1InvariantToUpdate,
                 "Elastic1Invariant",
-m => m.TemperEl ,m => m.CondClu1 ,m => m.E1 ,m => m.ErrE             );
+m => m.TemperEl ,m => m.CondClu1 ,m => m.E1 ,m => m.ErrE , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

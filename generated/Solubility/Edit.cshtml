@@ -15,6 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SuspTablLanguage.Id" />
 
+
             <div class="form-group">
                 <label asp-for="SuspTablLanguage.MethodS" class="control-label"></label>
                 <input asp-for="SuspTablLanguage.MethodS" class="form-control" />
@@ -42,6 +43,13 @@
                 <span asp-validation-for="SuspTablInvariant.ErrSusp" class="text-danger"></span>
             </div>
 
+
+            <div class="form-group">
+                <label asp-for="SuspTablInvariant.Bknumber" class="control-label"></label>
+                <input asp-for="SuspTablInvariant.Bknumber" class="form-control" />
+                <span asp-validation-for="SuspTablInvariant.Bknumber" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -50,7 +58,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a onclick="window.history.back();">Back to List</a>
 </div>
 
 @section Scripts {

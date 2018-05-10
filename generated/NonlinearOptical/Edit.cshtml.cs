@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.NonlinearOptical
 
             NlOpTablInvariant = NlOpTablLanguage.NlOpTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.NonlinearOptical
             await TryUpdateModelAsync(
                 NlOpTablInvariantToUpdate,
                 "NlOpTablInvariant",
-m => m.Lyambda ,m => m.Rij ,m => m.ErrRij             );
+m => m.Lyambda ,m => m.Rij ,m => m.ErrRij , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

@@ -16,6 +16,12 @@
             <input type="hidden" asp-for="ModfTablLanguage.Id" />
 
             <div class="form-group">
+                <label asp-for="ModfTablInvariant.SingCode" class="control-label"></label>
+                <select asp-for="ModfTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ModfTablInvariant.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="ModfTablLanguage.SpaceGrp" class="control-label"></label>
                 <input asp-for="ModfTablLanguage.SpaceGrp" class="form-control" />
                 <span asp-validation-for="ModfTablLanguage.SpaceGrp" class="text-danger"></span>
@@ -47,6 +53,13 @@
                 <span asp-validation-for="ModfTablInvariant.Z" class="text-danger"></span>
             </div>
 
+
+            <div class="form-group">
+                <label asp-for="ModfTablInvariant.Bknumber" class="control-label"></label>
+                <input asp-for="ModfTablInvariant.Bknumber" class="form-control" />
+                <span asp-validation-for="ModfTablInvariant.Bknumber" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -55,7 +68,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a onclick="window.history.back();">Back to List</a>
 </div>
 
 @section Scripts {

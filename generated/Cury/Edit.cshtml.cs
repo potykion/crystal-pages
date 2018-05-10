@@ -28,6 +28,7 @@ namespace Crystal.Pages.Substances.Cury
 
             CuryTablInvariant = CuryTablLanguage.CuryTabl;
 
+
             return Page();
         }
 
@@ -47,11 +48,11 @@ namespace Crystal.Pages.Substances.Cury
             await TryUpdateModelAsync(
                 CuryTablInvariantToUpdate,
                 "CuryTablInvariant",
-m => m.CuryTemp ,m => m.ErrCury             );
+m => m.CuryTemp ,m => m.ErrCury , m => m.Bknumber             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

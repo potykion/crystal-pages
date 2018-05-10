@@ -28,6 +28,9 @@ namespace Crystal.Pages.Substances.ElastoOptical
 
             EsOpTablInvariant = EsOpTablLanguage.EsOpTabl;
 
+            var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
+            ViewData["SingCode"] = new SelectList(singCodes);
+
             return Page();
         }
 
@@ -47,11 +50,11 @@ namespace Crystal.Pages.Substances.ElastoOptical
             await TryUpdateModelAsync(
                 EsOpTablInvariantToUpdate,
                 "EsOpTablInvariant",
-m => m.LengWave ,m => m.P ,m => m.ErrP             );
+m => m.LengWave ,m => m.P ,m => m.ErrP , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

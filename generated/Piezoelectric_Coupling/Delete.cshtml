@@ -1,0 +1,61 @@
+@page
+@model DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Piezoelectric_Coupling</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablLanguage.MethodK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablLanguage.MethodK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablLanguage.ZnK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablLanguage.ZnK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablInvariant.FreqCons)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablInvariant.FreqCons)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablInvariant.Temper)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablInvariant.Temper)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablInvariant.K)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablInvariant.K)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MechTablInvariant.ErrK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MechTablInvariant.ErrK)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="MechTablLanguage.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

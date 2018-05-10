@@ -32,3 +32,6 @@ if __name__ == '__main__':
         render_page('Index.cshtml.cs', context, context['model_dir'])
         render_page('Edit.cshtml', context, context['model_dir'])
         render_page('Edit.cshtml.cs', context, context['model_dir'])
+        render_page('Delete.cshtml', context, context['model_dir'])
+        render_page('Delete.cshtml.cs', context, context['model_dir'])
+

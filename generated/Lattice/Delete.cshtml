@@ -1,0 +1,67 @@
+@page
+@model DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Lattice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablLanguage.MethodP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablLanguage.MethodP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablLanguage.Nazbparam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablLanguage.Nazbparam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablInvariant.Znparam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablInvariant.Znparam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablInvariant.Errparam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablInvariant.Errparam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablInvariant.NazvAngl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablInvariant.NazvAngl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablInvariant.ZnAngle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablInvariant.ZnAngle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablInvariant.ErrAngl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablInvariant.ErrAngl)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="ElemTablLanguage.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

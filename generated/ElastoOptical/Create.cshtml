@@ -1,0 +1,68 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.MethodP" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.MethodP" class="form-control"/>
+                <span asp-validation-for="EsOpTablLanguage.MethodP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.ZnP" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.ZnP" class="form-control"/>
+                <span asp-validation-for="EsOpTablLanguage.ZnP" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.EsOpTabl.LengWave" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.EsOpTabl.LengWave" class="form-control"/>
+                <span asp-validation-for="EsOpTablLanguage.EsOpTabl.LengWave" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.EsOpTabl.P" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.EsOpTabl.P" class="form-control"/>
+                <span asp-validation-for="EsOpTablLanguage.EsOpTabl.P" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.EsOpTabl.ErrP" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.EsOpTabl.ErrP" class="form-control"/>
+                <span asp-validation-for="EsOpTablLanguage.EsOpTabl.ErrP" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.EsOpTabl.SingCode" class="control-label"></label>
+                <select asp-for="EsOpTablLanguage.EsOpTabl.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="EsOpTablLanguage.EsOpTabl.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EsOpTablLanguage.EsOpTabl.Bknumber" class="control-label"></label>
+                <input asp-for="EsOpTablLanguage.EsOpTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="EsOpTablLanguage.EsOpTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

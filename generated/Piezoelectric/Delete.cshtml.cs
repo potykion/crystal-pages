@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Crystal.Pages.Substances.Piezoelectric
 {
+    [Authorize(Policy = "AdminOnly")]
     public class DeleteModel : PageModel
     {
         private readonly CrystalContext _context;

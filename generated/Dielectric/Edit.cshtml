@@ -16,12 +16,6 @@
             <input type="hidden" asp-for="DielectrLanguage.Id" />
 
             <div class="form-group">
-                <label asp-for="DielectrInvariant.SingCode" class="control-label"></label>
-                <select asp-for="DielectrInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="DielectrInvariant.SingCode" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="DielectrLanguage.MethodY" class="control-label"></label>
                 <input asp-for="DielectrLanguage.MethodY" class="form-control" />
                 <span asp-validation-for="DielectrLanguage.MethodY" class="text-danger"></span>
@@ -58,6 +52,11 @@
                 <span asp-validation-for="DielectrInvariant.ErrY" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="DielectrInvariant.SingCode" class="control-label"></label>
+                <select asp-for="DielectrInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="DielectrInvariant.SingCode" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="DielectrInvariant.Bknumber" class="control-label"></label>

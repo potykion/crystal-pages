@@ -15,14 +15,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="{{ model }}Language.Id" />
 
-            {% if has_sing %}
-            <div class="form-group">
-                <label asp-for="{{ model }}Invariant.SingCode" class="control-label"></label>
-                <select asp-for="{{ model }}Invariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="{{ model }}Invariant.SingCode" class="text-danger"></span>
-            </div>
-            {% endif %}
-
             {% for field in language_fields %}
             <div class="form-group">
                 <label asp-for="{{ model }}Language.{{ field.name }}" class="control-label"></label>
@@ -39,6 +31,13 @@
             </div>
             {% endfor %}
 
+            {% if has_sing %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Invariant.SingCode" class="control-label"></label>
+                <select asp-for="{{ model }}Invariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="{{ model }}Invariant.SingCode" class="text-danger"></span>
+            </div>
+            {% endif %}
 
             {% if has_references %}
             <div class="form-group">

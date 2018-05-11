@@ -16,12 +16,6 @@
             <input type="hidden" asp-for="HeatExpnLanguage.Id" />
 
             <div class="form-group">
-                <label asp-for="HeatExpnInvariant.SingCode" class="control-label"></label>
-                <select asp-for="HeatExpnInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="HeatExpnInvariant.SingCode" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="HeatExpnLanguage.MethodEx" class="control-label"></label>
                 <input asp-for="HeatExpnLanguage.MethodEx" class="form-control" />
                 <span asp-validation-for="HeatExpnLanguage.MethodEx" class="text-danger"></span>
@@ -58,6 +52,11 @@
                 <span asp-validation-for="HeatExpnInvariant.ErrHExp" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="HeatExpnInvariant.SingCode" class="control-label"></label>
+                <select asp-for="HeatExpnInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="HeatExpnInvariant.SingCode" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="HeatExpnInvariant.Bknumber" class="control-label"></label>

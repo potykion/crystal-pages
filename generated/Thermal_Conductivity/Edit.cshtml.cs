@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Crystal.Pages.Substances.Thermal_Conductivity
 {
+    [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
         private readonly CrystalContext _context;

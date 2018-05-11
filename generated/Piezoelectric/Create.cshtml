@@ -1,0 +1,68 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.MethodPz" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.MethodPz" class="form-control"/>
+                <span asp-validation-for="PzElTablLanguage.MethodPz" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.FreqPzEl" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.PzElTabl.FreqPzEl" class="form-control"/>
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.FreqPzEl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.ConstD" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.PzElTabl.ConstD" class="form-control"/>
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.ConstD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.D" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.PzElTabl.D" class="form-control"/>
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.D" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.ErrD" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.PzElTabl.ErrD" class="form-control"/>
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.ErrD" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.SingCode" class="control-label"></label>
+                <select asp-for="PzElTablLanguage.PzElTabl.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PzElTablLanguage.PzElTabl.Bknumber" class="control-label"></label>
+                <input asp-for="PzElTablLanguage.PzElTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="PzElTablLanguage.PzElTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

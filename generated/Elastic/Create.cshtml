@@ -1,0 +1,73 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Elastic1Language.MethodE" class="control-label"></label>
+                <input asp-for="Elastic1Language.MethodE" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.MethodE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elastic1Language.ZnE" class="control-label"></label>
+                <input asp-for="Elastic1Language.ZnE" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.ZnE" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.TemperEl" class="control-label"></label>
+                <input asp-for="Elastic1Language.Elastic1.TemperEl" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.Elastic1.TemperEl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.CondClu1" class="control-label"></label>
+                <input asp-for="Elastic1Language.Elastic1.CondClu1" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.Elastic1.CondClu1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.E1" class="control-label"></label>
+                <input asp-for="Elastic1Language.Elastic1.E1" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.Elastic1.E1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.ErrE" class="control-label"></label>
+                <input asp-for="Elastic1Language.Elastic1.ErrE" class="form-control"/>
+                <span asp-validation-for="Elastic1Language.Elastic1.ErrE" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.SingCode" class="control-label"></label>
+                <select asp-for="Elastic1Language.Elastic1.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="Elastic1Language.Elastic1.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Elastic1Language.Elastic1.Bknumber" class="control-label"></label>
+                <input asp-for="Elastic1Language.Elastic1.Bknumber" class="form-control" />
+                <span asp-validation-for="Elastic1Language.Elastic1.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

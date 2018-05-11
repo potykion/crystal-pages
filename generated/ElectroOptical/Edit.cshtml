@@ -16,12 +16,6 @@
             <input type="hidden" asp-for="ElOpTablLanguage.Id" />
 
             <div class="form-group">
-                <label asp-for="ElOpTablInvariant.SingCode" class="control-label"></label>
-                <select asp-for="ElOpTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="ElOpTablInvariant.SingCode" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="ElOpTablLanguage.MethodR" class="control-label"></label>
                 <input asp-for="ElOpTablLanguage.MethodR" class="form-control" />
                 <span asp-validation-for="ElOpTablLanguage.MethodR" class="text-danger"></span>
@@ -48,6 +42,11 @@
                 <span asp-validation-for="ElOpTablInvariant.ErrR" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="ElOpTablInvariant.SingCode" class="control-label"></label>
+                <select asp-for="ElOpTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ElOpTablInvariant.SingCode" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="ElOpTablInvariant.Bknumber" class="control-label"></label>

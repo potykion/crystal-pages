@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Crystal.Pages.Substances.Elastic
 {
+    [Authorize(Policy = "AdminOnly")]
     public class EditModel : PageModel
     {
         private readonly CrystalContext _context;

@@ -1,0 +1,61 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            {% for field in language_fields %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Language.{{ field.name }}" class="control-label"></label>
+                <input asp-for="{{ model }}Language.{{ field.name }}" class="form-control"/>
+                <span asp-validation-for="{{ model }}Language.{{ field.name }}" class="text-danger"></span>
+            </div>
+            {% endfor %}
+
+            {% for field in invariant_fields %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Language.{{ model }}.{{ field.name }}" class="control-label"></label>
+                <input asp-for="{{ model }}Language.{{ model }}.{{ field.name }}" class="form-control"/>
+                <span asp-validation-for="{{ model }}Language.{{ model }}.{{ field.name }}" class="text-danger"></span>
+            </div>
+            {% endfor %}
+
+            {% if has_sing %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Language.{{ model }}.SingCode" class="control-label"></label>
+                <select asp-for="{{ model }}Language.{{ model }}.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="{{ model }}Language.{{ model }}.SingCode" class="text-danger"></span>
+            </div>
+            {% endif %}
+
+            {% if has_references %}
+            <div class="form-group">
+                <label asp-for="{{ model }}Language.{{ model }}.Bknumber" class="control-label"></label>
+                <input asp-for="{{ model }}Language.{{ model }}.Bknumber" class="form-control" />
+                <span asp-validation-for="{{ model }}Language.{{ model }}.Bknumber" class="text-danger"></span>
+            </div>
+            {% endif %}
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

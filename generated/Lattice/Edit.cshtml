@@ -16,12 +16,6 @@
             <input type="hidden" asp-for="ElemTablLanguage.Id" />
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.SingCode" class="control-label"></label>
-                <select asp-for="ElemTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="ElemTablInvariant.SingCode" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="ElemTablLanguage.MethodP" class="control-label"></label>
                 <input asp-for="ElemTablLanguage.MethodP" class="form-control" />
                 <span asp-validation-for="ElemTablLanguage.MethodP" class="text-danger"></span>
@@ -58,6 +52,11 @@
                 <span asp-validation-for="ElemTablInvariant.ErrAngl" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="ElemTablInvariant.SingCode" class="control-label"></label>
+                <select asp-for="ElemTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ElemTablInvariant.SingCode" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="ElemTablInvariant.Bknumber" class="control-label"></label>

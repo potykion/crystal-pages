@@ -1,0 +1,83 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.E" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.E" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.E" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.Nsv" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.Nsv" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.Nsv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.Uzv" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.Uzv" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.Uzv" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.WaveLeng" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.WaveLeng" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.WaveLeng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.Nzv" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.Nzv" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.Nzv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.M1" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.M1" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.M1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.M2" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.M2" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.M2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.M3" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.M3" class="form-control"/>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.M3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.SingCode" class="control-label"></label>
+                <select asp-for="AcOpTablLanguage.AcOpTabl.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AcOpTablLanguage.AcOpTabl.Bknumber" class="control-label"></label>
+                <input asp-for="AcOpTablLanguage.AcOpTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="AcOpTablLanguage.AcOpTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,0 +1,73 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MethodK" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MethodK" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.MethodK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.ZnK" class="control-label"></label>
+                <input asp-for="MechTablLanguage.ZnK" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.ZnK" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.FreqCons" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MechTabl.FreqCons" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.MechTabl.FreqCons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.Temper" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MechTabl.Temper" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.MechTabl.Temper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.K" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MechTabl.K" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.MechTabl.K" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.ErrK" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MechTabl.ErrK" class="form-control"/>
+                <span asp-validation-for="MechTablLanguage.MechTabl.ErrK" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.SingCode" class="control-label"></label>
+                <select asp-for="MechTablLanguage.MechTabl.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="MechTablLanguage.MechTabl.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MechTablLanguage.MechTabl.Bknumber" class="control-label"></label>
+                <input asp-for="MechTablLanguage.MechTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="MechTablLanguage.MechTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

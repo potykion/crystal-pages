@@ -1,0 +1,68 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.MethodR" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.MethodR" class="form-control"/>
+                <span asp-validation-for="ElOpTablLanguage.MethodR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ZnN1" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ZnN1" class="form-control"/>
+                <span asp-validation-for="ElOpTablLanguage.ZnN1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ElOpTabl.WvLeng" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ElOpTabl.WvLeng" class="form-control"/>
+                <span asp-validation-for="ElOpTablLanguage.ElOpTabl.WvLeng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ElOpTabl.R" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ElOpTabl.R" class="form-control"/>
+                <span asp-validation-for="ElOpTablLanguage.ElOpTabl.R" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ElOpTabl.ErrR" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ElOpTabl.ErrR" class="form-control"/>
+                <span asp-validation-for="ElOpTablLanguage.ElOpTabl.ErrR" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ElOpTabl.SingCode" class="control-label"></label>
+                <select asp-for="ElOpTablLanguage.ElOpTabl.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ElOpTablLanguage.ElOpTabl.SingCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ElOpTablLanguage.ElOpTabl.Bknumber" class="control-label"></label>
+                <input asp-for="ElOpTablLanguage.ElOpTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="ElOpTablLanguage.ElOpTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

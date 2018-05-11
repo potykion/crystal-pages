@@ -1,0 +1,63 @@
+@page "{systemUrl}"
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.MethodC" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.MethodC" class="form-control"/>
+                <span asp-validation-for="HeatTablLanguage.MethodC" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.HeatTabl.Temperat" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.HeatTabl.Temperat" class="form-control"/>
+                <span asp-validation-for="HeatTablLanguage.HeatTabl.Temperat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.HeatTabl.ZnC" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.HeatTabl.ZnC" class="form-control"/>
+                <span asp-validation-for="HeatTablLanguage.HeatTabl.ZnC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.HeatTabl.C" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.HeatTabl.C" class="form-control"/>
+                <span asp-validation-for="HeatTablLanguage.HeatTabl.C" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.HeatTabl.ErrC" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.HeatTabl.ErrC" class="form-control"/>
+                <span asp-validation-for="HeatTablLanguage.HeatTabl.ErrC" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="HeatTablLanguage.HeatTabl.Bknumber" class="control-label"></label>
+                <input asp-for="HeatTablLanguage.HeatTabl.Bknumber" class="form-control" />
+                <span asp-validation-for="HeatTablLanguage.HeatTabl.Bknumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a onclick="window.history.back();">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

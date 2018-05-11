@@ -16,12 +16,6 @@
             <input type="hidden" asp-for="DielDissLanguage.Id" />
 
             <div class="form-group">
-                <label asp-for="DielDissInvariant.SingCode" class="control-label"></label>
-                <select asp-for="DielDissInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="DielDissInvariant.SingCode" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
                 <label asp-for="DielDissLanguage.MethodY" class="control-label"></label>
                 <input asp-for="DielDissLanguage.MethodY" class="form-control" />
                 <span asp-validation-for="DielDissLanguage.MethodY" class="text-danger"></span>
@@ -53,6 +47,11 @@
                 <span asp-validation-for="DielDissInvariant.ErrDiss" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="DielDissInvariant.SingCode" class="control-label"></label>
+                <select asp-for="DielDissInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="DielDissInvariant.SingCode" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label asp-for="DielDissInvariant.Bknumber" class="control-label"></label>

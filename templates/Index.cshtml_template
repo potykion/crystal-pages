@@ -74,57 +74,49 @@
     <tr>
         {% for field in language_fields %}
             <td>
-                {% if field.raw %}
-                    @Html.Raw(item.{{ field.name }})
-                {% else %}
-                    @Html.DisplayFor(modelItem => item.{{ field.name }})
-                {% endif %}
+                @Html.Raw(item.{{ field.name }})
             </td>
         {% endfor %}
 
         {% for field in invariant_fields %}
             <td>
-                {% if field.raw %}
-                    @Html.Raw(item.{{ model }}.{{ field.name }})
-                {% else %}
-                    @Html.DisplayFor(modelItem => item.{{ model }}.{{ field.name }})
-                {% endif %}
+                @Html.Raw(item.{{ model }}.{{ field.name }})
             </td>
         {% endfor %}
 
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
         {% if has_references %}
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.{{ model }}Id])">
                     @Model.References[item.{{ model }}Id].BibliogrId
                 </a>
             </td>
-            }
         {% endif %}
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "{{ model_dir }}",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "{{ model_dir }}",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "{{ model_dir }}",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "{{ model_dir }}",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

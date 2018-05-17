@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Crystal.Models;
 using Crystal.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;

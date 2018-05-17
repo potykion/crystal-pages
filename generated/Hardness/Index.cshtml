@@ -77,56 +77,56 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.MethodH)
+                @Html.Raw(item.MethodH)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.HardTabl.Hard1)
+                @Html.Raw(item.HardTabl.Hard1)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HardTabl.Hard2)
+                @Html.Raw(item.HardTabl.Hard2)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HardTabl.ErrHard)
+                @Html.Raw(item.HardTabl.ErrHard)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HardTabl.Mohs)
+                @Html.Raw(item.HardTabl.Mohs)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HardTabl.ErrMohs)
+                @Html.Raw(item.HardTabl.ErrMohs)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.HardTablId])">
                     @Model.References[item.HardTablId].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Hardness",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Hardness",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Hardness",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Hardness",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

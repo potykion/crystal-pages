@@ -74,53 +74,53 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.MethodR)
+                @Html.Raw(item.MethodR)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ZnR)
+                @Html.Raw(item.ZnR)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.NlOpTabl.Lyambda)
+                @Html.Raw(item.NlOpTabl.Lyambda)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.NlOpTabl.Rij)
+                @Html.Raw(item.NlOpTabl.Rij)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.NlOpTabl.ErrRij)
+                @Html.Raw(item.NlOpTabl.ErrRij)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.NlOpTablId])">
                     @Model.References[item.NlOpTablId].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "NonlinearOptical",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "NonlinearOptical",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "NonlinearOptical",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "NonlinearOptical",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

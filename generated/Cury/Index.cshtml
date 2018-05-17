@@ -55,47 +55,47 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.Oboztran)
+                @Html.Raw(item.Oboztran)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.CuryTabl.CuryTemp)
+                @Html.Raw(item.CuryTabl.CuryTemp)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.CuryTabl.ErrCury)
+                @Html.Raw(item.CuryTabl.ErrCury)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.CuryTablId])">
                     @Model.References[item.CuryTablId].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Cury",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Cury",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Cury",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Cury",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

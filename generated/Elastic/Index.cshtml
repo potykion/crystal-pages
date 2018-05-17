@@ -77,56 +77,56 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.MethodE)
+                @Html.Raw(item.MethodE)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ZnE)
+                @Html.Raw(item.ZnE)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.Elastic1.TemperEl)
+                @Html.Raw(item.Elastic1.TemperEl)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Elastic1.CondClu1)
+                @Html.Raw(item.Elastic1.CondClu1)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Elastic1.E1)
+                @Html.Raw(item.Elastic1.E1)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Elastic1.ErrE)
+                @Html.Raw(item.Elastic1.ErrE)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.Elastic1Id])">
                     @Model.References[item.Elastic1Id].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Elastic",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Elastic",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Elastic",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Elastic",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

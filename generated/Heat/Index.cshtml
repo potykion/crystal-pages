@@ -61,53 +61,53 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.MethodC)
+                @Html.Raw(item.MethodC)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.HeatTabl.Temperat)
+                @Html.Raw(item.HeatTabl.Temperat)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HeatTabl.ZnC)
+                @Html.Raw(item.HeatTabl.ZnC)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HeatTabl.C)
+                @Html.Raw(item.HeatTabl.C)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.HeatTabl.ErrC)
+                @Html.Raw(item.HeatTabl.ErrC)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.HeatTablId])">
                     @Model.References[item.HeatTablId].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Heat",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Heat",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Heat",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Heat",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

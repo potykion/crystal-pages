@@ -77,56 +77,56 @@
     {
     <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.SpaceGrp)
+                @Html.Raw(item.SpaceGrp)
             </td>
 
             <td>
-                    @Html.DisplayFor(modelItem => item.ModfTabl.SuprTemp)
+                @Html.Raw(item.ModfTabl.SuprTemp)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ModfTabl.SP2)
+                @Html.Raw(item.ModfTabl.SP2)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ModfTabl.ErrSupr)
+                @Html.Raw(item.ModfTabl.ErrSupr)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ModfTabl.PointGrp)
+                @Html.Raw(item.ModfTabl.PointGrp)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.ModfTabl.Z)
+                @Html.Raw(item.ModfTabl.Z)
             </td>
 
-            @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
-            {
+        @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+        {
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.ModfTablId])">
                     @Model.References[item.ModfTablId].BibliogrId
                 </a>
             </td>
-            }
 
          <td>
-                <div>
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Crystal_Mod",
-                                 "Edit",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Edit
-                    </a>
-                    |
-                    <a href="@UrlBuilder.BuildPropertyLink(
-                                 Model.GetLanguage(),
-                                 "Crystal_Mod",
-                                 "Delete",
-                                 queryParams: $"id={item.Id}"
-                                 )">
-                        Delete
-                    </a>
-                </div>
-            </td>
+            <div>
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Crystal_Mod",
+                             "Edit",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Edit
+                </a>
+                |
+                <a href="@UrlBuilder.BuildPropertyLink(
+                             Model.GetLanguage(),
+                             "Crystal_Mod",
+                             "Delete",
+                             queryParams: $"id={item.Id}"
+                             )">
+                    Delete
+                </a>
+            </div>
+         </td>
+         }
     </tr>
     }
     </tbody>

@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
         }
 
         public IList<{{ model }}Language> {{ model }}Language { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         {% if has_references %}
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         {% endif %}
@@ -52,6 +53,13 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
             {% endif %}
 
             {{ model }}Language = await substance{{ model }}.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == {{ model_id }})
+                .ToListAsync();
 
             {% if has_sing %}
             SingTabl = await _context.SingTabl

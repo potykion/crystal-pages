@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.Hardness
         }
 
         public IList<HardTablLanguage> HardTablLanguage { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         public IList<SingTabl> SingTabl { get; set; }
 
@@ -39,6 +40,13 @@ namespace Crystal.Pages.Substances.Hardness
 
 
             HardTablLanguage = await substanceHardTabl.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == 7)
+                .ToListAsync();
 
             SingTabl = await _context.SingTabl
                 .Where(s => s.HeadClue == headClue)

@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.Melt
         }
 
         public IList<PlavTablLanguage> PlavTablLanguage { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
 
         public async Task OnGetAsync(string systemUrl )
@@ -34,6 +35,13 @@ namespace Crystal.Pages.Substances.Melt
 
 
             PlavTablLanguage = await substancePlavTabl.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == 9)
+                .ToListAsync();
 
 
             var bibliogrLanguage = await _context.BibliogrLanguage

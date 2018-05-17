@@ -39,7 +39,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "AcoustoOptical"
+    "model_dir": "AcoustoOptical",
+    "model_id": 28
   },
   {
     "model": "ConstSel",
@@ -65,7 +66,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Sellmeier"
+    "model_dir": "Sellmeier",
+    "model_id": 23
   },
   {
     "model": "CuryTabl",
@@ -87,7 +89,8 @@
     ],
     "has_references": true,
     "has_sing": false,
-    "model_dir": "Cury"
+    "model_dir": "Cury",
+    "model_id": 10
   },
   {
     "model": "DecrTabl",
@@ -121,7 +124,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Wave"
+    "model_dir": "Wave",
+    "model_id": 27
   },
   {
     "model": "DensTabl",
@@ -143,7 +147,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Density"
+    "model_dir": "Density",
+    "model_id": 6
   },
   {
     "model": "DielDiss",
@@ -177,7 +182,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Dielectric_Loss"
+    "model_dir": "Dielectric_Loss",
+    "model_id": 17
   },
   {
     "model": "Dielectr",
@@ -215,7 +221,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Dielectric"
+    "model_dir": "Dielectric",
+    "model_id": 16
   },
   {
     "model": "Elastic1",
@@ -249,7 +256,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Elastic"
+    "model_dir": "Elastic",
+    "model_id": 20
   },
   {
     "model": "ElemTabl",
@@ -287,7 +295,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Lattice"
+    "model_dir": "Lattice",
+    "model_id": 13
   },
   {
     "model": "ElOpTabl",
@@ -317,7 +326,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "ElectroOptical"
+    "model_dir": "ElectroOptical",
+    "model_id": 24
   },
   {
     "model": "EsOpTabl",
@@ -347,7 +357,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "ElastoOptical"
+    "model_dir": "ElastoOptical",
+    "model_id": 26
   },
   {
     "model": "HardTabl",
@@ -381,7 +392,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Hardness"
+    "model_dir": "Hardness",
+    "model_id": 7
   },
   {
     "model": "HeatExpn",
@@ -422,7 +434,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Thermal_Expansion"
+    "model_dir": "Thermal_Expansion",
+    "model_id": 14
   },
   {
     "model": "HeatExpn",
@@ -463,7 +476,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Thermal_Conductivity"
+    "model_dir": "Thermal_Conductivity",
+    "model_id": 15
   },
   {
     "model": "HeatTabl",
@@ -493,7 +507,8 @@
     ],
     "has_references": true,
     "has_sing": false,
-    "model_dir": "Heat"
+    "model_dir": "Heat",
+    "model_id": 5
   },
   {
     "model": "MechTabl",
@@ -527,7 +542,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Piezoelectric_Coupling"
+    "model_dir": "Piezoelectric_Coupling",
+    "model_id": 19
   },
   {
     "model": "ModfTabl",
@@ -561,7 +577,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Crystal_Mod"
+    "model_dir": "Crystal_Mod",
+    "model_id": 12
   },
   {
     "model": "NlOpTabl",
@@ -591,7 +608,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "NonlinearOptical"
+    "model_dir": "NonlinearOptical",
+    "model_id": 25
   },
   {
     "model": "PlavTabl",
@@ -613,7 +631,8 @@
     ],
     "has_references": true,
     "has_sing": false,
-    "model_dir": "Melt"
+    "model_dir": "Melt",
+    "model_id": 9
   },
   {
     "model": "PzElTabl",
@@ -643,7 +662,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Piezoelectric"
+    "model_dir": "Piezoelectric",
+    "model_id": 18
   },
   {
     "model": "RefrcInd",
@@ -677,7 +697,8 @@
     ],
     "has_references": true,
     "has_sing": true,
-    "model_dir": "Refractive"
+    "model_dir": "Refractive",
+    "model_id": 22
   },
   {
     "model": "SuspTabl",
@@ -707,6 +728,7 @@
     ],
     "has_references": true,
     "has_sing": false,
-    "model_dir": "Solubility"
+    "model_dir": "Solubility",
+    "model_id": 8
   }
 ]

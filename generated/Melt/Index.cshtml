@@ -100,3 +100,10 @@
     }
     </tbody>
 </table>
+
+<ul>
+    @foreach (var image in Model.Images)
+    {
+        <li><a href="/ru/Images/@image.NameGraf">@Html.Raw(image.Signatur)</a></li>
+    }
+</ul>

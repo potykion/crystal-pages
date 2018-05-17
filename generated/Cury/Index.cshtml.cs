@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.Cury
         }
 
         public IList<CuryTablLanguage> CuryTablLanguage { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
 
         public async Task OnGetAsync(string systemUrl )
@@ -34,6 +35,13 @@ namespace Crystal.Pages.Substances.Cury
 
 
             CuryTablLanguage = await substanceCuryTabl.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == 10)
+                .ToListAsync();
 
 
             var bibliogrLanguage = await _context.BibliogrLanguage

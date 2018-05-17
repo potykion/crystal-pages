@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.Heat
         }
 
         public IList<HeatTablLanguage> HeatTablLanguage { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
 
         public async Task OnGetAsync(string systemUrl )
@@ -34,6 +35,13 @@ namespace Crystal.Pages.Substances.Heat
 
 
             HeatTablLanguage = await substanceHeatTabl.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == 5)
+                .ToListAsync();
 
 
             var bibliogrLanguage = await _context.BibliogrLanguage

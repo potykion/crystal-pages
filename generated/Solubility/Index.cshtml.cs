@@ -20,6 +20,7 @@ namespace Crystal.Pages.Substances.Solubility
         }
 
         public IList<SuspTablLanguage> SuspTablLanguage { get; set; }
+        public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
 
         public async Task OnGetAsync(string systemUrl )
@@ -34,6 +35,13 @@ namespace Crystal.Pages.Substances.Solubility
 
 
             SuspTablLanguage = await substanceSuspTabl.ToListAsync();
+
+            Images = await _context.GrafTablLanguage
+                .Include(image => image.GrafTabl)
+                .Where(image => image.LanguageId == this.GetLanguageId())
+                .Where(image => image.GrafTabl.HeadClue == headClue)
+                .Where(image => image.GrafTabl.NompClue == 8)
+                .ToListAsync();
 
 
             var bibliogrLanguage = await _context.BibliogrLanguage

@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
         {
             HeatExpnLanguage = await _context.HeatExpnLanguage
                 .Include(h => h.HeatExpn)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HeatExpnInvariant = HeatExpnLanguage.HeatExpn;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
         {
             HeatExpnLanguage = await _context.HeatExpnLanguage
                 .Include(h => h.HeatExpn)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HeatExpnInvariant = HeatExpnLanguage.HeatExpn;
 
             _context.HeatExpnLanguage.Remove(HeatExpnLanguage);
             _context.HeatExpnInvariant.Remove(HeatExpnInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
                 this.GetLanguage(),
                 "Thermal_Expansion",
                 system: _contextUtils.GetSystemUrlByHeadClue(HeatExpnInvariant.HeadClue)
+
             );
             return Redirect(url);
 

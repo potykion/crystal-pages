@@ -33,7 +33,11 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
             return Page();
         }
 
+        {% if language_fields %}
         [BindProperty] public {{ model }}Language {{ model }}Language { get; set; }
+        {% else %}
+        [BindProperty] public {{ model }} {{ model }} { get; set; }
+        {% endif %}
 
         public async Task<IActionResult> OnPostAsync(string systemUrl)
         {
@@ -42,10 +46,17 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
                 return Page();
             }
 
+            {% if language_fields %}
             {{ model }}Language.{{ model }}.HeadClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
             {{ model }}Language.LanguageId = this.GetLanguageId();
 
             _context.{{ model }}Language.Add({{ model }}Language);
+            {% else %}
+            {{ model }}.HeadClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
+
+            _context.{{ model }}.Add({{ model }});
+            {% endif %}
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

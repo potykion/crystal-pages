@@ -13,7 +13,12 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            {% if language_fields %}
             <input type="hidden" asp-for="{{ model }}Language.Id" />
+            {% else %}
+            <input type="hidden" asp-for="{{ model }}.Id" />
+            {% endif %}
+
 
             {% for field in language_fields %}
             <div class="form-group">
@@ -24,27 +29,52 @@
             {% endfor %}
 
             {% for field in invariant_fields %}
+            {% if language_fields %}
             <div class="form-group">
                 <label asp-for="{{ model }}Invariant.{{ field.name }}" class="control-label"></label>
                 <input asp-for="{{ model }}Invariant.{{ field.name }}" class="form-control" />
                 <span asp-validation-for="{{ model }}Invariant.{{ field.name }}" class="text-danger"></span>
             </div>
+            {% else %}
+            <div class="form-group">
+                <label asp-for="{{ model }}.{{ field.name }}" class="control-label"></label>
+                <input asp-for="{{ model }}.{{ field.name }}" class="form-control" />
+                <span asp-validation-for="{{ model }}.{{ field.name }}" class="text-danger"></span>
+            </div>
+            {% endif %}
+
             {% endfor %}
 
             {% if has_sing %}
+            {% if language_fields %}
             <div class="form-group">
                 <label asp-for="{{ model }}Invariant.SingCode" class="control-label"></label>
                 <select asp-for="{{ model }}Invariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
                 <span asp-validation-for="{{ model }}Invariant.SingCode" class="text-danger"></span>
             </div>
+            {% else %}
+            <div class="form-group">
+                <label asp-for="{{ model }}.SingCode" class="control-label"></label>
+                <select asp-for="{{ model }}.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="{{ model }}.SingCode" class="text-danger"></span>
+            </div>
+            {% endif %}
             {% endif %}
 
             {% if has_references %}
+            {% if language_fields %}
             <div class="form-group">
                 <label asp-for="{{ model }}Invariant.Bknumber" class="control-label"></label>
                 <input asp-for="{{ model }}Invariant.Bknumber" class="form-control" />
                 <span asp-validation-for="{{ model }}Invariant.Bknumber" class="text-danger"></span>
             </div>
+            {% else %}
+            <div class="form-group">
+                <label asp-for="{{ model }}.Bknumber" class="control-label"></label>
+                <input asp-for="{{ model }}.Bknumber" class="form-control" />
+                <span asp-validation-for="{{ model }}.Bknumber" class="text-danger"></span>
+            </div>
+            {% endif %}
             {% endif %}
 
             <div class="form-group">

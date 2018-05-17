@@ -730,5 +730,45 @@
     "has_sing": false,
     "model_dir": "Solubility",
     "model_id": 8
+  },
+  {
+    "model": "SistTabl",
+    "language_fields": [],
+    "invariant_fields": [
+      {
+        "name": "ElemNumb",
+        "raw": false
+      },
+      {
+        "name": "MinValue",
+        "raw": false
+      },
+      {
+        "name": "MaxValue",
+        "raw": false
+      }
+    ],
+    "has_references": false,
+    "has_sing": false,
+    "model_dir": "Composition",
+    "model_id": 4
+  },
+  {
+    "model": "Wavepure",
+    "language_fields": [],
+    "invariant_fields": [
+      {
+        "name": "Leftwave",
+        "raw": false
+      },
+      {
+        "name": "Rightwave",
+        "raw": false
+      }
+    ],
+    "has_references": true,
+    "has_sing": true,
+    "model_dir": "Transparency",
+    "model_id": 21
   }
 ]

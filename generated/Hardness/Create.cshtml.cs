@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Hardness
             HardTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.HardTablLanguage.Add(HardTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

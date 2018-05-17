@@ -55,18 +55,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.WaveLeng)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.Nzv)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M1)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M2)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.AcOpTablLanguage[0].AcOpTabl.M3)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -93,19 +98,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.AcOpTabl.WaveLeng)
+                    @Html.Raw(item.AcOpTabl.WaveLeng)
             </td>
             <td>
-                @Html.Raw(item.AcOpTabl.Nzv)
+                    @Html.Raw(item.AcOpTabl.Nzv)
             </td>
             <td>
-                @Html.Raw(item.AcOpTabl.M1)
+                    @Html.Raw(item.AcOpTabl.M1)
             </td>
             <td>
-                @Html.Raw(item.AcOpTabl.M2)
+                    @Html.Raw(item.AcOpTabl.M2)
             </td>
             <td>
-                @Html.Raw(item.AcOpTabl.M3)
+                    @Html.Raw(item.AcOpTabl.M3)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -113,7 +118,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.AcOpTablId])">
-                    @Model.References[item.AcOpTablId].BibliogrId
+                   @Model.References[item.AcOpTablId].BibliogrId
+
                 </a>
             </td>
 

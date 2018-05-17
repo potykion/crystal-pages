@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Lattice
         {
             ElemTablLanguage = await _context.ElemTablLanguage
                 .Include(h => h.ElemTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ElemTablInvariant = ElemTablLanguage.ElemTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Lattice
         {
             ElemTablLanguage = await _context.ElemTablLanguage
                 .Include(h => h.ElemTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ElemTablInvariant = ElemTablLanguage.ElemTabl;
 
             _context.ElemTablLanguage.Remove(ElemTablLanguage);
             _context.ElemTablInvariant.Remove(ElemTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Lattice
                 this.GetLanguage(),
                 "Lattice",
                 system: _contextUtils.GetSystemUrlByHeadClue(ElemTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

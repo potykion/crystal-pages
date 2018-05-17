@@ -52,15 +52,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.DielDissLanguage[0].DielDiss.FreqDiss)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielDissLanguage[0].DielDiss.Temper_3)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielDissLanguage[0].DielDiss.TangentD)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielDissLanguage[0].DielDiss.ErrDiss)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -84,16 +88,16 @@
             </td>
 
             <td>
-                @Html.Raw(item.DielDiss.FreqDiss)
+                    @Html.Raw(item.DielDiss.FreqDiss)
             </td>
             <td>
-                @Html.Raw(item.DielDiss.Temper_3)
+                    @Html.Raw(item.DielDiss.Temper_3)
             </td>
             <td>
-                @Html.Raw(item.DielDiss.TangentD)
+                    @Html.Raw(item.DielDiss.TangentD)
             </td>
             <td>
-                @Html.Raw(item.DielDiss.ErrDiss)
+                    @Html.Raw(item.DielDiss.ErrDiss)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +105,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.DielDissId])">
-                    @Model.References[item.DielDissId].BibliogrId
+                   @Model.References[item.DielDissId].BibliogrId
+
                 </a>
             </td>
 

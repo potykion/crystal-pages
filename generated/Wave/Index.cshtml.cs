@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Wave
                 .ToDictionary(h => h.DecrTablId, h =>
                     h.DecrTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.DecrTabl.Bknumber] : null
                 );
+
         }
     }
 }

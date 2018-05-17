@@ -49,18 +49,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Hard1)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Hard2)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.ErrHard)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.Mohs)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HardTablLanguage[0].HardTabl.ErrMohs)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,19 +86,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.HardTabl.Hard1)
+                    @Html.Raw(item.HardTabl.Hard1)
             </td>
             <td>
-                @Html.Raw(item.HardTabl.Hard2)
+                    @Html.Raw(item.HardTabl.Hard2)
             </td>
             <td>
-                @Html.Raw(item.HardTabl.ErrHard)
+                    @Html.Raw(item.HardTabl.ErrHard)
             </td>
             <td>
-                @Html.Raw(item.HardTabl.Mohs)
+                    @Html.Raw(item.HardTabl.Mohs)
             </td>
             <td>
-                @Html.Raw(item.HardTabl.ErrMohs)
+                    @Html.Raw(item.HardTabl.ErrMohs)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +106,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.HardTablId])">
-                    @Model.References[item.HardTablId].BibliogrId
+                   @Model.References[item.HardTablId].BibliogrId
+
                 </a>
             </td>
 

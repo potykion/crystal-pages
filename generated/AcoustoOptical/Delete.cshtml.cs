@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.AcoustoOptical
         {
             AcOpTablLanguage = await _context.AcOpTablLanguage
                 .Include(h => h.AcOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             AcOpTablInvariant = AcOpTablLanguage.AcOpTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.AcoustoOptical
         {
             AcOpTablLanguage = await _context.AcOpTablLanguage
                 .Include(h => h.AcOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             AcOpTablInvariant = AcOpTablLanguage.AcOpTabl;
 
             _context.AcOpTablLanguage.Remove(AcOpTablLanguage);
             _context.AcOpTablInvariant.Remove(AcOpTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.AcoustoOptical
                 this.GetLanguage(),
                 "AcoustoOptical",
                 system: _contextUtils.GetSystemUrlByHeadClue(AcOpTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

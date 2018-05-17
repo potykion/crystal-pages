@@ -49,18 +49,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.Temper)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.WaveLeng)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.NazbIndx)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ZnachInd)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.RefrcIndLanguage[0].RefrcInd.ErrIndex)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,19 +86,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.RefrcInd.Temper)
+                    @Html.Raw(item.RefrcInd.Temper)
             </td>
             <td>
-                @Html.Raw(item.RefrcInd.WaveLeng)
+                    @Html.Raw(item.RefrcInd.WaveLeng)
             </td>
             <td>
-                @Html.Raw(item.RefrcInd.NazbIndx)
+                    @Html.Raw(item.RefrcInd.NazbIndx)
             </td>
             <td>
-                @Html.Raw(item.RefrcInd.ZnachInd)
+                    @Html.Raw(item.RefrcInd.ZnachInd)
             </td>
             <td>
-                @Html.Raw(item.RefrcInd.ErrIndex)
+                    @Html.Raw(item.RefrcInd.ErrIndex)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +106,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.RefrcIndId])">
-                    @Model.References[item.RefrcIndId].BibliogrId
+                   @Model.References[item.RefrcIndId].BibliogrId
+
                 </a>
             </td>
 

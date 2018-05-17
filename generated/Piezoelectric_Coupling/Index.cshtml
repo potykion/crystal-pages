@@ -52,15 +52,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.FreqCons)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.Temper)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.K)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.MechTablLanguage[0].MechTabl.ErrK)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -84,16 +88,16 @@
             </td>
 
             <td>
-                @Html.Raw(item.MechTabl.FreqCons)
+                    @Html.Raw(item.MechTabl.FreqCons)
             </td>
             <td>
-                @Html.Raw(item.MechTabl.Temper)
+                    @Html.Raw(item.MechTabl.Temper)
             </td>
             <td>
-                @Html.Raw(item.MechTabl.K)
+                    @Html.Raw(item.MechTabl.K)
             </td>
             <td>
-                @Html.Raw(item.MechTabl.ErrK)
+                    @Html.Raw(item.MechTabl.ErrK)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +105,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.MechTablId])">
-                    @Model.References[item.MechTablId].BibliogrId
+                   @Model.References[item.MechTablId].BibliogrId
+
                 </a>
             </td>
 

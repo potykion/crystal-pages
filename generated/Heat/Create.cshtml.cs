@@ -42,6 +42,7 @@ namespace Crystal.Pages.Substances.Heat
             HeatTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.HeatTablLanguage.Add(HeatTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

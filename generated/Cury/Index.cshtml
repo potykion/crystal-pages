@@ -36,9 +36,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.CuryTablLanguage[0].CuryTabl.CuryTemp)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.CuryTablLanguage[0].CuryTabl.ErrCury)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -59,10 +61,10 @@
             </td>
 
             <td>
-                @Html.Raw(item.CuryTabl.CuryTemp)
+                    @Html.Raw(item.CuryTabl.CuryTemp)
             </td>
             <td>
-                @Html.Raw(item.CuryTabl.ErrCury)
+                    @Html.Raw(item.CuryTabl.ErrCury)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -70,7 +72,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.CuryTablId])">
-                    @Model.References[item.CuryTablId].BibliogrId
+                   @Model.References[item.CuryTablId].BibliogrId
+
                 </a>
             </td>
 

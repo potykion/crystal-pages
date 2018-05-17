@@ -42,6 +42,7 @@ namespace Crystal.Pages.Substances.Cury
             CuryTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.CuryTablLanguage.Add(CuryTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

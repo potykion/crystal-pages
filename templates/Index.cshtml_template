@@ -52,8 +52,13 @@
 
         {% for field in invariant_fields %}
             <th>
+            {% if language_fields %}
                 @Html.DisplayNameFor(model => model.{{ model }}Language[0].{{ model }}.{{ field.name }})
+            {% else %}
+                @Html.DisplayNameFor(model => model.{{ model }}[0].{{ field.name }})
+            {% endif %}
             </th>
+
         {% endfor %}
 
         {% if has_references %}
@@ -69,7 +74,11 @@
     </tr>
     </thead>
     <tbody>
+    {% if language_fields %}
     @foreach (var item in Model.{{ model }}Language)
+    {% else %}
+    @foreach (var item in Model.{{ model }})
+    {% endif %}
     {
     <tr>
         {% for field in language_fields %}
@@ -80,7 +89,11 @@
 
         {% for field in invariant_fields %}
             <td>
-                @Html.Raw(item.{{ model }}.{{ field.name }})
+                {% if language_fields %}
+                    @Html.Raw(item.{{ model }}.{{ field.name }})
+                {% else %}
+                    @Html.Raw(item.{{ field.name }})
+                {% endif %}
             </td>
         {% endfor %}
 
@@ -89,8 +102,14 @@
         {% if has_references %}
             <td>
                 <a data-toggle="popover" data-placement="right"
+                {% if language_fields %}
                    data-content="@Html.Raw(Model.References[item.{{ model }}Id])">
-                    @Model.References[item.{{ model }}Id].BibliogrId
+                   @Model.References[item.{{ model }}Id].BibliogrId
+                {% else %}
+                    data-content="@Html.Raw(Model.References[item.Id])">
+                    @Model.References[item.Id].BibliogrId
+                {% endif %}
+
                 </a>
             </td>
         {% endif %}

@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Piezoelectric
             PzElTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.PzElTablLanguage.Add(PzElTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Crystal_Mod
             ModfTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.ModfTablLanguage.Add(ModfTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

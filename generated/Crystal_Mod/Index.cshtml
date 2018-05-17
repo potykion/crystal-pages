@@ -49,18 +49,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.SuprTemp)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.SP2)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.ErrSupr)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.PointGrp)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ModfTablLanguage[0].ModfTabl.Z)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,19 +86,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.ModfTabl.SuprTemp)
+                    @Html.Raw(item.ModfTabl.SuprTemp)
             </td>
             <td>
-                @Html.Raw(item.ModfTabl.SP2)
+                    @Html.Raw(item.ModfTabl.SP2)
             </td>
             <td>
-                @Html.Raw(item.ModfTabl.ErrSupr)
+                    @Html.Raw(item.ModfTabl.ErrSupr)
             </td>
             <td>
-                @Html.Raw(item.ModfTabl.PointGrp)
+                    @Html.Raw(item.ModfTabl.PointGrp)
             </td>
             <td>
-                @Html.Raw(item.ModfTabl.Z)
+                    @Html.Raw(item.ModfTabl.Z)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +106,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.ModfTablId])">
-                    @Model.References[item.ModfTablId].BibliogrId
+                   @Model.References[item.ModfTablId].BibliogrId
+
                 </a>
             </td>
 

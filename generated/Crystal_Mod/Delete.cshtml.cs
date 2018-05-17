@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Crystal_Mod
         {
             ModfTablLanguage = await _context.ModfTablLanguage
                 .Include(h => h.ModfTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ModfTablInvariant = ModfTablLanguage.ModfTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Crystal_Mod
         {
             ModfTablLanguage = await _context.ModfTablLanguage
                 .Include(h => h.ModfTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ModfTablInvariant = ModfTablLanguage.ModfTabl;
 
             _context.ModfTablLanguage.Remove(ModfTablLanguage);
             _context.ModfTablInvariant.Remove(ModfTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Crystal_Mod
                 this.GetLanguage(),
                 "Crystal_Mod",
                 system: _contextUtils.GetSystemUrlByHeadClue(ModfTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

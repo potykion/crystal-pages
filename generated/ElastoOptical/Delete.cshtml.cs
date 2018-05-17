@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.ElastoOptical
         {
             EsOpTablLanguage = await _context.EsOpTablLanguage
                 .Include(h => h.EsOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             EsOpTablInvariant = EsOpTablLanguage.EsOpTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.ElastoOptical
         {
             EsOpTablLanguage = await _context.EsOpTablLanguage
                 .Include(h => h.EsOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             EsOpTablInvariant = EsOpTablLanguage.EsOpTabl;
 
             _context.EsOpTablLanguage.Remove(EsOpTablLanguage);
             _context.EsOpTablInvariant.Remove(EsOpTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.ElastoOptical
                 this.GetLanguage(),
                 "ElastoOptical",
                 system: _contextUtils.GetSystemUrlByHeadClue(EsOpTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

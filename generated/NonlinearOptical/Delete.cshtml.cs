@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.NonlinearOptical
         {
             NlOpTablLanguage = await _context.NlOpTablLanguage
                 .Include(h => h.NlOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             NlOpTablInvariant = NlOpTablLanguage.NlOpTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.NonlinearOptical
         {
             NlOpTablLanguage = await _context.NlOpTablLanguage
                 .Include(h => h.NlOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             NlOpTablInvariant = NlOpTablLanguage.NlOpTabl;
 
             _context.NlOpTablLanguage.Remove(NlOpTablLanguage);
             _context.NlOpTablInvariant.Remove(NlOpTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.NonlinearOptical
                 this.GetLanguage(),
                 "NonlinearOptical",
                 system: _contextUtils.GetSystemUrlByHeadClue(NlOpTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

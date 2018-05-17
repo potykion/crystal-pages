@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Elastic
             Elastic1Language.LanguageId = this.GetLanguageId();
 
             _context.Elastic1Language.Add(Elastic1Language);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

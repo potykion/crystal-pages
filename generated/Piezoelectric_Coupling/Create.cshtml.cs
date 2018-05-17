@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
             MechTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.MechTablLanguage.Add(MechTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

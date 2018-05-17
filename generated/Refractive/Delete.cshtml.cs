@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Refractive
         {
             RefrcIndLanguage = await _context.RefrcIndLanguage
                 .Include(h => h.RefrcInd)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             RefrcIndInvariant = RefrcIndLanguage.RefrcInd;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Refractive
         {
             RefrcIndLanguage = await _context.RefrcIndLanguage
                 .Include(h => h.RefrcInd)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             RefrcIndInvariant = RefrcIndLanguage.RefrcInd;
 
             _context.RefrcIndLanguage.Remove(RefrcIndLanguage);
             _context.RefrcIndInvariant.Remove(RefrcIndInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Refractive
                 this.GetLanguage(),
                 "Refractive",
                 system: _contextUtils.GetSystemUrlByHeadClue(RefrcIndInvariant.HeadClue)
+
             );
             return Redirect(url);
 

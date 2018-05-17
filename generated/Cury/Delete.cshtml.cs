@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Cury
         {
             CuryTablLanguage = await _context.CuryTablLanguage
                 .Include(h => h.CuryTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             CuryTablInvariant = CuryTablLanguage.CuryTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Cury
         {
             CuryTablLanguage = await _context.CuryTablLanguage
                 .Include(h => h.CuryTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             CuryTablInvariant = CuryTablLanguage.CuryTabl;
 
             _context.CuryTablLanguage.Remove(CuryTablLanguage);
             _context.CuryTablInvariant.Remove(CuryTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Cury
                 this.GetLanguage(),
                 "Cury",
                 system: _contextUtils.GetSystemUrlByHeadClue(CuryTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

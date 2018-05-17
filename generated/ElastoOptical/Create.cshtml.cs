@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.ElastoOptical
             EsOpTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.EsOpTablLanguage.Add(EsOpTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

@@ -39,12 +39,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.SuspTablLanguage[0].SuspTabl.Temper)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.SuspTablLanguage[0].SuspTabl.Suspense)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.SuspTablLanguage[0].SuspTabl.ErrSusp)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -68,13 +71,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.SuspTabl.Temper)
+                    @Html.Raw(item.SuspTabl.Temper)
             </td>
             <td>
-                @Html.Raw(item.SuspTabl.Suspense)
+                    @Html.Raw(item.SuspTabl.Suspense)
             </td>
             <td>
-                @Html.Raw(item.SuspTabl.ErrSusp)
+                    @Html.Raw(item.SuspTabl.ErrSusp)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -82,7 +85,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.SuspTablId])">
-                    @Model.References[item.SuspTablId].BibliogrId
+                   @Model.References[item.SuspTablId].BibliogrId
+
                 </a>
             </td>
 

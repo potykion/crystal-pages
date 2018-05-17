@@ -21,37 +21,59 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
             _contextUtils = new ContextUtils(context);
         }
 
+        {% if language_fields %}
         [BindProperty] public {{ model }}Language {{ model }}Language { get; set; }
         [BindProperty] public {{ model }}Invariant {{ model }}Invariant { get; set; }
+        {% else %}
+        [BindProperty] public {{ model }} {{ model }} { get; set; }
+        {% endif %}
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
+            {% if language_fields %}
             {{ model }}Language = await _context.{{ model }}Language
                 .Include(h => h.{{ model }})
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             {{ model }}Invariant = {{ model }}Language.{{ model }};
+            {% else %}
+            {{ model }} = await _context.{{ model }}
+                .FirstOrDefaultAsync(m => m.Id == id);
+            {% endif  %}
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
+            {% if language_fields %}
             {{ model }}Language = await _context.{{ model }}Language
                 .Include(h => h.{{ model }})
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             {{ model }}Invariant = {{ model }}Language.{{ model }};
 
             _context.{{ model }}Language.Remove({{ model }}Language);
             _context.{{ model }}Invariant.Remove({{ model }}Invariant);
+            {% else %}
+            {{ model }} = await _context.{{ model }}
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            _context.{{ model }}.Remove({{ model }});
+            {% endif  %}
+
 
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(
                 this.GetLanguage(),
                 "{{ model_dir }}",
+                {% if language_fields %}
                 system: _contextUtils.GetSystemUrlByHeadClue({{ model }}Invariant.HeadClue)
+                {% else %}
+                system: _contextUtils.GetSystemUrlByHeadClue({{ model }}.HeadClue)
+                {% endif %}
+
             );
             return Redirect(url);
 

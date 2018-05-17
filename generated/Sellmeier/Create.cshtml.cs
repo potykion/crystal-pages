@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Sellmeier
             ConstSelLanguage.LanguageId = this.GetLanguageId();
 
             _context.ConstSelLanguage.Add(ConstSelLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

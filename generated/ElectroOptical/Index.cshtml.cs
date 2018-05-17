@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.ElectroOptical
                 .ToDictionary(h => h.ElOpTablId, h =>
                     h.ElOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ElOpTabl.Bknumber] : null
                 );
+
         }
     }
 }

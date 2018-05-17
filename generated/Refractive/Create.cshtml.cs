@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Refractive
             RefrcIndLanguage.LanguageId = this.GetLanguageId();
 
             _context.RefrcIndLanguage.Add(RefrcIndLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

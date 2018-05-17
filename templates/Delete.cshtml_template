@@ -23,18 +23,31 @@
         {% endfor %}
 
         {% for field in invariant_fields %}
+        {% if language_fields %}
         <dt>
             @Html.DisplayNameFor(model => model.{{ model }}Invariant.{{ field.name }})
         </dt>
         <dd>
             @Html.DisplayFor(model => model.{{ model }}Invariant.{{ field.name }})
         </dd>
+        {% else %}
+        <dt>
+            @Html.DisplayNameFor(model => model.{{ model }}.{{ field.name }})
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.{{ model }}.{{ field.name }})
+        </dd>
+        {% endif %}
         {% endfor %}
 
     </dl>
 
     <form method="post">
+        {% if language_fields %}
         <input type="hidden" asp-for="{{ model }}Language.Id" />
+        {% else %}
+        <input type="hidden" asp-for="{{ model }}.Id" />
+        {% endif %}
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.NonlinearOptical
             NlOpTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.NlOpTablLanguage.Add(NlOpTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

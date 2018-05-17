@@ -19,16 +19,25 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
             _context = context;
         }
 
+        {% if language_fields %}
         [BindProperty] public {{ model }}Language {{ model }}Language { get; set; }
         [BindProperty] public {{ model }}Invariant {{ model }}Invariant { get; set; }
+        {% else %}
+        [BindProperty] public {{ model }} {{ model }} { get; set; }
+        {% endif %}
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
+            {% if language_fields %}
             {{ model }}Language = await _context.{{ model }}Language
                 .Include(h => h.{{ model }})
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             {{ model }}Invariant = {{ model }}Language.{{ model }};
+            {% else %}
+            {{ model }} = await _context.{{ model }}
+                .FirstOrDefaultAsync(m => m.Id == id);
+            {% endif  %}
 
             {% if has_sing %}
             var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
@@ -40,6 +49,7 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
+            {% if language_fields %}
             var {{ model }}LanguageToUpdate = await _context.{{ model }}Language
                 .Include(m => m.{{ model }})
                 .FirstAsync(m => m.Id == id);
@@ -61,6 +71,18 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
                 {% if has_references %}, m => m.Bknumber {% endif %}
                 {% if has_sing %}, m => m.SingCode {% endif %}
             );
+            {% else %}
+            var {{ model }}ToUpadte = await _context.{{ model }}
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            await TryUpdateModelAsync(
+                {{ model }}ToUpadte,
+                "{{ model }}",
+                {% for field in invariant_fields %}m => m.{{ field.name }} {% if not loop.last %},{% endif %}{% endfor %}
+                {% if has_references %}, m => m.Bknumber {% endif %}
+                {% if has_sing %}, m => m.SingCode {% endif %}
+            );
+            {% endif %}
 
             await _context.SaveChangesAsync();
 

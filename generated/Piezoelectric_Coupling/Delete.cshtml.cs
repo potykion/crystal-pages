@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
         {
             MechTablLanguage = await _context.MechTablLanguage
                 .Include(h => h.MechTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             MechTablInvariant = MechTablLanguage.MechTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
         {
             MechTablLanguage = await _context.MechTablLanguage
                 .Include(h => h.MechTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             MechTablInvariant = MechTablLanguage.MechTabl;
 
             _context.MechTablLanguage.Remove(MechTablLanguage);
             _context.MechTablInvariant.Remove(MechTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
                 this.GetLanguage(),
                 "Piezoelectric_Coupling",
                 system: _contextUtils.GetSystemUrlByHeadClue(MechTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

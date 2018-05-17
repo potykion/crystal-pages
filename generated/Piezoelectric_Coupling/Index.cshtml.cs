@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
                 .ToDictionary(h => h.MechTablId, h =>
                     h.MechTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.MechTabl.Bknumber] : null
                 );
+
         }
     }
 }

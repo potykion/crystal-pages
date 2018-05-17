@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.NonlinearOptical
                 .ToDictionary(h => h.NlOpTablId, h =>
                     h.NlOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.NlOpTabl.Bknumber] : null
                 );
+
         }
     }
 }

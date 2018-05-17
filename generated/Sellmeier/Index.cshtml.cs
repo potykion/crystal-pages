@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Sellmeier
                 .ToDictionary(h => h.ConstSelId, h =>
                     h.ConstSel.Bknumber.HasValue ? bibliogrLanguage[(int) h.ConstSel.Bknumber] : null
                 );
+
         }
     }
 }

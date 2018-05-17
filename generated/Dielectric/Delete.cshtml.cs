@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Dielectric
         {
             DielectrLanguage = await _context.DielectrLanguage
                 .Include(h => h.Dielectr)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DielectrInvariant = DielectrLanguage.Dielectr;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Dielectric
         {
             DielectrLanguage = await _context.DielectrLanguage
                 .Include(h => h.Dielectr)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DielectrInvariant = DielectrLanguage.Dielectr;
 
             _context.DielectrLanguage.Remove(DielectrLanguage);
             _context.DielectrInvariant.Remove(DielectrInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Dielectric
                 this.GetLanguage(),
                 "Dielectric",
                 system: _contextUtils.GetSystemUrlByHeadClue(DielectrInvariant.HeadClue)
+
             );
             return Redirect(url);
 

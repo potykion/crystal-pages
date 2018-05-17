@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.ElectroOptical
             ElOpTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.ElOpTablLanguage.Add(ElOpTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

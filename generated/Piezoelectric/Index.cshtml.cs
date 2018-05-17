@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Piezoelectric
                 .ToDictionary(h => h.PzElTablId, h =>
                     h.PzElTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.PzElTabl.Bknumber] : null
                 );
+
         }
     }
 }

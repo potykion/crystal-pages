@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Elastic
                 .ToDictionary(h => h.Elastic1Id, h =>
                     h.Elastic1.Bknumber.HasValue ? bibliogrLanguage[(int) h.Elastic1.Bknumber] : null
                 );
+
         }
     }
 }

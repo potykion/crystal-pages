@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Crystal_Mod
                 .ToDictionary(h => h.ModfTablId, h =>
                     h.ModfTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ModfTabl.Bknumber] : null
                 );
+
         }
     }
 }

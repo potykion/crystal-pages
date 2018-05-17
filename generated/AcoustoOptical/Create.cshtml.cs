@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.AcoustoOptical
             AcOpTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.AcOpTablLanguage.Add(AcOpTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

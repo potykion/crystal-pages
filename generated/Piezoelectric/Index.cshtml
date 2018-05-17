@@ -49,15 +49,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.FreqPzEl)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.ConstD)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.D)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.PzElTablLanguage[0].PzElTabl.ErrD)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -78,16 +82,16 @@
             </td>
 
             <td>
-                @Html.Raw(item.PzElTabl.FreqPzEl)
+                    @Html.Raw(item.PzElTabl.FreqPzEl)
             </td>
             <td>
-                @Html.Raw(item.PzElTabl.ConstD)
+                    @Html.Raw(item.PzElTabl.ConstD)
             </td>
             <td>
-                @Html.Raw(item.PzElTabl.D)
+                    @Html.Raw(item.PzElTabl.D)
             </td>
             <td>
-                @Html.Raw(item.PzElTabl.ErrD)
+                    @Html.Raw(item.PzElTabl.ErrD)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -95,7 +99,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.PzElTablId])">
-                    @Model.References[item.PzElTablId].BibliogrId
+                   @Model.References[item.PzElTablId].BibliogrId
+
                 </a>
             </td>
 

@@ -55,12 +55,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.DecrTablLanguage[0].DecrTabl.WaveSpeed)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DecrTablLanguage[0].DecrTabl.Decrement)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DecrTablLanguage[0].DecrTabl.DecrFreq)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -87,13 +90,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.DecrTabl.WaveSpeed)
+                    @Html.Raw(item.DecrTabl.WaveSpeed)
             </td>
             <td>
-                @Html.Raw(item.DecrTabl.Decrement)
+                    @Html.Raw(item.DecrTabl.Decrement)
             </td>
             <td>
-                @Html.Raw(item.DecrTabl.DecrFreq)
+                    @Html.Raw(item.DecrTabl.DecrFreq)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +104,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.DecrTablId])">
-                    @Model.References[item.DecrTablId].BibliogrId
+                   @Model.References[item.DecrTablId].BibliogrId
+
                 </a>
             </td>
 

@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.AcoustoOptical
                 .ToDictionary(h => h.AcOpTablId, h =>
                     h.AcOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.AcOpTabl.Bknumber] : null
                 );
+
         }
     }
 }

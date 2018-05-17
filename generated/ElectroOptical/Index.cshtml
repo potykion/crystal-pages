@@ -52,12 +52,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.WvLeng)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.R)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ElOpTablLanguage[0].ElOpTabl.ErrR)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,13 +84,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.ElOpTabl.WvLeng)
+                    @Html.Raw(item.ElOpTabl.WvLeng)
             </td>
             <td>
-                @Html.Raw(item.ElOpTabl.R)
+                    @Html.Raw(item.ElOpTabl.R)
             </td>
             <td>
-                @Html.Raw(item.ElOpTabl.ErrR)
+                    @Html.Raw(item.ElOpTabl.ErrR)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -95,7 +98,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.ElOpTablId])">
-                    @Model.References[item.ElOpTablId].BibliogrId
+                   @Model.References[item.ElOpTablId].BibliogrId
+
                 </a>
             </td>
 

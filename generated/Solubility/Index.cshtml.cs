@@ -53,6 +53,7 @@ namespace Crystal.Pages.Substances.Solubility
                 .ToDictionary(h => h.SuspTablId, h =>
                     h.SuspTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.SuspTabl.Bknumber] : null
                 );
+
         }
     }
 }

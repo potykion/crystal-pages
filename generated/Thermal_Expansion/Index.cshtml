@@ -52,18 +52,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.HeatExpnLanguage[0].HeatExpn.DataType)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HeatExpnLanguage[0].HeatExpn.Temper_1)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HeatExpnLanguage[0].HeatExpn.Temper_2)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HeatExpnLanguage[0].HeatExpn.S11)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.HeatExpnLanguage[0].HeatExpn.ErrHExp)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -87,19 +92,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.HeatExpn.DataType)
+                    @Html.Raw(item.HeatExpn.DataType)
             </td>
             <td>
-                @Html.Raw(item.HeatExpn.Temper_1)
+                    @Html.Raw(item.HeatExpn.Temper_1)
             </td>
             <td>
-                @Html.Raw(item.HeatExpn.Temper_2)
+                    @Html.Raw(item.HeatExpn.Temper_2)
             </td>
             <td>
-                @Html.Raw(item.HeatExpn.S11)
+                    @Html.Raw(item.HeatExpn.S11)
             </td>
             <td>
-                @Html.Raw(item.HeatExpn.ErrHExp)
+                    @Html.Raw(item.HeatExpn.ErrHExp)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -107,7 +112,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.HeatExpnId])">
-                    @Model.References[item.HeatExpnId].BibliogrId
+                   @Model.References[item.HeatExpnId].BibliogrId
+
                 </a>
             </td>
 

@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Elastic
         {
             Elastic1Language = await _context.Elastic1Language
                 .Include(h => h.Elastic1)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             Elastic1Invariant = Elastic1Language.Elastic1;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Elastic
         {
             Elastic1Language = await _context.Elastic1Language
                 .Include(h => h.Elastic1)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             Elastic1Invariant = Elastic1Language.Elastic1;
 
             _context.Elastic1Language.Remove(Elastic1Language);
             _context.Elastic1Invariant.Remove(Elastic1Invariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Elastic
                 this.GetLanguage(),
                 "Elastic",
                 system: _contextUtils.GetSystemUrlByHeadClue(Elastic1Invariant.HeadClue)
+
             );
             return Redirect(url);
 

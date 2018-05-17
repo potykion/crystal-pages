@@ -49,12 +49,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.Equation)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.NazvSel)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.ConstSelLanguage[0].ConstSel.ZnachSel)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -75,13 +78,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.ConstSel.Equation)
+                    @Html.Raw(item.ConstSel.Equation)
             </td>
             <td>
-                @Html.Raw(item.ConstSel.NazvSel)
+                    @Html.Raw(item.ConstSel.NazvSel)
             </td>
             <td>
-                @Html.Raw(item.ConstSel.ZnachSel)
+                    @Html.Raw(item.ConstSel.ZnachSel)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -89,7 +92,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.ConstSelId])">
-                    @Model.References[item.ConstSelId].BibliogrId
+                   @Model.References[item.ConstSelId].BibliogrId
+
                 </a>
             </td>
 

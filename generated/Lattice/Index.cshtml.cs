@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Lattice
                 .ToDictionary(h => h.ElemTablId, h =>
                     h.ElemTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ElemTabl.Bknumber] : null
                 );
+
         }
     }
 }

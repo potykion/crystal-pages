@@ -42,6 +42,7 @@ namespace Crystal.Pages.Substances.Melt
             PlavTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.PlavTablLanguage.Add(PlavTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

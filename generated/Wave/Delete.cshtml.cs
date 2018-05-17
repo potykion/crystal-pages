@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Wave
         {
             DecrTablLanguage = await _context.DecrTablLanguage
                 .Include(h => h.DecrTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DecrTablInvariant = DecrTablLanguage.DecrTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Wave
         {
             DecrTablLanguage = await _context.DecrTablLanguage
                 .Include(h => h.DecrTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DecrTablInvariant = DecrTablLanguage.DecrTabl;
 
             _context.DecrTablLanguage.Remove(DecrTablLanguage);
             _context.DecrTablInvariant.Remove(DecrTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Wave
                 this.GetLanguage(),
                 "Wave",
                 system: _contextUtils.GetSystemUrlByHeadClue(DecrTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

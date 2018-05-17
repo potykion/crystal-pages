@@ -42,6 +42,7 @@ namespace Crystal.Pages.Substances.Solubility
             SuspTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.SuspTablLanguage.Add(SuspTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

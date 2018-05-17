@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Lattice
             ElemTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.ElemTablLanguage.Add(ElemTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

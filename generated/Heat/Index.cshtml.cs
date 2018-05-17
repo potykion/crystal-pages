@@ -53,6 +53,7 @@ namespace Crystal.Pages.Substances.Heat
                 .ToDictionary(h => h.HeatTablId, h =>
                     h.HeatTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HeatTabl.Bknumber] : null
                 );
+
         }
     }
 }

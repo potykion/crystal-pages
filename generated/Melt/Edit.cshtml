@@ -15,6 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="PlavTablLanguage.Id" />
 
+
             <div class="form-group">
                 <label asp-for="PlavTablLanguage.PlavType" class="control-label"></label>
                 <input asp-for="PlavTablLanguage.PlavType" class="form-control" />
@@ -26,11 +27,13 @@
                 <input asp-for="PlavTablInvariant.PlavTemp" class="form-control" />
                 <span asp-validation-for="PlavTablInvariant.PlavTemp" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="PlavTablInvariant.ErrPlav" class="control-label"></label>
                 <input asp-for="PlavTablInvariant.ErrPlav" class="form-control" />
                 <span asp-validation-for="PlavTablInvariant.ErrPlav" class="text-danger"></span>
             </div>
+
 
 
             <div class="form-group">

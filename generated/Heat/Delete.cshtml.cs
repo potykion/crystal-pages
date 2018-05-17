@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Heat
         {
             HeatTablLanguage = await _context.HeatTablLanguage
                 .Include(h => h.HeatTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HeatTablInvariant = HeatTablLanguage.HeatTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Heat
         {
             HeatTablLanguage = await _context.HeatTablLanguage
                 .Include(h => h.HeatTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HeatTablInvariant = HeatTablLanguage.HeatTabl;
 
             _context.HeatTablLanguage.Remove(HeatTablLanguage);
             _context.HeatTablInvariant.Remove(HeatTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Heat
                 this.GetLanguage(),
                 "Heat",
                 system: _contextUtils.GetSystemUrlByHeadClue(HeatTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

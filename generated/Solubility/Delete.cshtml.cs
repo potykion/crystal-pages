@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Solubility
         {
             SuspTablLanguage = await _context.SuspTablLanguage
                 .Include(h => h.SuspTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             SuspTablInvariant = SuspTablLanguage.SuspTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Solubility
         {
             SuspTablLanguage = await _context.SuspTablLanguage
                 .Include(h => h.SuspTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             SuspTablInvariant = SuspTablLanguage.SuspTabl;
 
             _context.SuspTablLanguage.Remove(SuspTablLanguage);
             _context.SuspTablInvariant.Remove(SuspTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Solubility
                 this.GetLanguage(),
                 "Solubility",
                 system: _contextUtils.GetSystemUrlByHeadClue(SuspTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

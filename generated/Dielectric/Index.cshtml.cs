@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Dielectric
                 .ToDictionary(h => h.DielectrId, h =>
                     h.Dielectr.Bknumber.HasValue ? bibliogrLanguage[(int) h.Dielectr.Bknumber] : null
                 );
+
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.ElectroOptical
         {
             ElOpTablLanguage = await _context.ElOpTablLanguage
                 .Include(h => h.ElOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ElOpTablInvariant = ElOpTablLanguage.ElOpTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.ElectroOptical
         {
             ElOpTablLanguage = await _context.ElOpTablLanguage
                 .Include(h => h.ElOpTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ElOpTablInvariant = ElOpTablLanguage.ElOpTabl;
 
             _context.ElOpTablLanguage.Remove(ElOpTablLanguage);
             _context.ElOpTablInvariant.Remove(ElOpTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.ElectroOptical
                 this.GetLanguage(),
                 "ElectroOptical",
                 system: _contextUtils.GetSystemUrlByHeadClue(ElOpTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

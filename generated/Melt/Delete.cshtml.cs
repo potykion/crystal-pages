@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Melt
         {
             PlavTablLanguage = await _context.PlavTablLanguage
                 .Include(h => h.PlavTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             PlavTablInvariant = PlavTablLanguage.PlavTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Melt
         {
             PlavTablLanguage = await _context.PlavTablLanguage
                 .Include(h => h.PlavTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             PlavTablInvariant = PlavTablLanguage.PlavTabl;
 
             _context.PlavTablLanguage.Remove(PlavTablLanguage);
             _context.PlavTablInvariant.Remove(PlavTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Melt
                 this.GetLanguage(),
                 "Melt",
                 system: _contextUtils.GetSystemUrlByHeadClue(PlavTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

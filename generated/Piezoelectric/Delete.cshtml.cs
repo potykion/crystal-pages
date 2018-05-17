@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Piezoelectric
         {
             PzElTablLanguage = await _context.PzElTablLanguage
                 .Include(h => h.PzElTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             PzElTablInvariant = PzElTablLanguage.PzElTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Piezoelectric
         {
             PzElTablLanguage = await _context.PzElTablLanguage
                 .Include(h => h.PzElTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             PzElTablInvariant = PzElTablLanguage.PzElTabl;
 
             _context.PzElTablLanguage.Remove(PzElTablLanguage);
             _context.PzElTablInvariant.Remove(PzElTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Piezoelectric
                 this.GetLanguage(),
                 "Piezoelectric",
                 system: _contextUtils.GetSystemUrlByHeadClue(PzElTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

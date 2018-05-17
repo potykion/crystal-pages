@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Wave
             DecrTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.DecrTablLanguage.Add(DecrTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

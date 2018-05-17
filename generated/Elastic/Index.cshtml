@@ -52,15 +52,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.Elastic1Language[0].Elastic1.TemperEl)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Elastic1Language[0].Elastic1.CondClu1)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Elastic1Language[0].Elastic1.E1)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Elastic1Language[0].Elastic1.ErrE)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -84,16 +88,16 @@
             </td>
 
             <td>
-                @Html.Raw(item.Elastic1.TemperEl)
+                    @Html.Raw(item.Elastic1.TemperEl)
             </td>
             <td>
-                @Html.Raw(item.Elastic1.CondClu1)
+                    @Html.Raw(item.Elastic1.CondClu1)
             </td>
             <td>
-                @Html.Raw(item.Elastic1.E1)
+                    @Html.Raw(item.Elastic1.E1)
             </td>
             <td>
-                @Html.Raw(item.Elastic1.ErrE)
+                    @Html.Raw(item.Elastic1.ErrE)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -101,7 +105,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.Elastic1Id])">
-                    @Model.References[item.Elastic1Id].BibliogrId
+                   @Model.References[item.Elastic1Id].BibliogrId
+
                 </a>
             </td>
 

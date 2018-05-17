@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
                 .ToDictionary(h => h.DielDissId, h =>
                     h.DielDiss.Bknumber.HasValue ? bibliogrLanguage[(int) h.DielDiss.Bknumber] : null
                 );
+
         }
     }
 }

@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
             DielDissLanguage.LanguageId = this.GetLanguageId();
 
             _context.DielDissLanguage.Add(DielDissLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

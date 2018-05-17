@@ -36,9 +36,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.PlavTablLanguage[0].PlavTabl.PlavTemp)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.PlavTablLanguage[0].PlavTabl.ErrPlav)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -59,10 +61,10 @@
             </td>
 
             <td>
-                @Html.Raw(item.PlavTabl.PlavTemp)
+                    @Html.Raw(item.PlavTabl.PlavTemp)
             </td>
             <td>
-                @Html.Raw(item.PlavTabl.ErrPlav)
+                    @Html.Raw(item.PlavTabl.ErrPlav)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -70,7 +72,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.PlavTablId])">
-                    @Model.References[item.PlavTablId].BibliogrId
+                   @Model.References[item.PlavTablId].BibliogrId
+
                 </a>
             </td>
 

@@ -63,6 +63,7 @@ namespace Crystal.Pages.Substances.Thermal_Conductivity
                 .ToDictionary(h => h.HeatExpnId, h =>
                     h.HeatExpn.Bknumber.HasValue ? bibliogrLanguage[(int) h.HeatExpn.Bknumber] : null
                 );
+
         }
     }
 }

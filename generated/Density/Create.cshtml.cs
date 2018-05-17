@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Density
             DensTablLanguage.LanguageId = this.GetLanguageId();
 
             _context.DensTablLanguage.Add(DensTablLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

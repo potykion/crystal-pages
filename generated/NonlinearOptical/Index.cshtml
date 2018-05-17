@@ -52,12 +52,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.Lyambda)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.Rij)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.NlOpTablLanguage[0].NlOpTabl.ErrRij)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,13 +84,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.NlOpTabl.Lyambda)
+                    @Html.Raw(item.NlOpTabl.Lyambda)
             </td>
             <td>
-                @Html.Raw(item.NlOpTabl.Rij)
+                    @Html.Raw(item.NlOpTabl.Rij)
             </td>
             <td>
-                @Html.Raw(item.NlOpTabl.ErrRij)
+                    @Html.Raw(item.NlOpTabl.ErrRij)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -95,7 +98,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.NlOpTablId])">
-                    @Model.References[item.NlOpTablId].BibliogrId
+                   @Model.References[item.NlOpTablId].BibliogrId
+
                 </a>
             </td>
 

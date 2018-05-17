@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Dielectric
             DielectrLanguage.LanguageId = this.GetLanguageId();
 
             _context.DielectrLanguage.Add(DielectrLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

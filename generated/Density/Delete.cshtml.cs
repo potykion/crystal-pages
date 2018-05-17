@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Density
         {
             DensTablLanguage = await _context.DensTablLanguage
                 .Include(h => h.DensTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DensTablInvariant = DensTablLanguage.DensTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Density
         {
             DensTablLanguage = await _context.DensTablLanguage
                 .Include(h => h.DensTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DensTablInvariant = DensTablLanguage.DensTabl;
 
             _context.DensTablLanguage.Remove(DensTablLanguage);
             _context.DensTablInvariant.Remove(DensTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Density
                 this.GetLanguage(),
                 "Density",
                 system: _contextUtils.GetSystemUrlByHeadClue(DensTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

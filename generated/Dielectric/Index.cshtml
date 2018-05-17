@@ -52,18 +52,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.DielectrLanguage[0].Dielectr.FreqDiel)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielectrLanguage[0].Dielectr.Temper_2)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielectrLanguage[0].Dielectr.Constant)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielectrLanguage[0].Dielectr.Diel)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.DielectrLanguage[0].Dielectr.ErrY)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -87,19 +92,19 @@
             </td>
 
             <td>
-                @Html.Raw(item.Dielectr.FreqDiel)
+                    @Html.Raw(item.Dielectr.FreqDiel)
             </td>
             <td>
-                @Html.Raw(item.Dielectr.Temper_2)
+                    @Html.Raw(item.Dielectr.Temper_2)
             </td>
             <td>
-                @Html.Raw(item.Dielectr.Constant)
+                    @Html.Raw(item.Dielectr.Constant)
             </td>
             <td>
-                @Html.Raw(item.Dielectr.Diel)
+                    @Html.Raw(item.Dielectr.Diel)
             </td>
             <td>
-                @Html.Raw(item.Dielectr.ErrY)
+                    @Html.Raw(item.Dielectr.ErrY)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -107,7 +112,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.DielectrId])">
-                    @Model.References[item.DielectrId].BibliogrId
+                   @Model.References[item.DielectrId].BibliogrId
+
                 </a>
             </td>
 

@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Density
                 .ToDictionary(h => h.DensTablId, h =>
                     h.DensTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.DensTabl.Bknumber] : null
                 );
+
         }
     }
 }

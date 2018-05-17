@@ -53,6 +53,7 @@ namespace Crystal.Pages.Substances.Cury
                 .ToDictionary(h => h.CuryTablId, h =>
                     h.CuryTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.CuryTabl.Bknumber] : null
                 );
+
         }
     }
 }

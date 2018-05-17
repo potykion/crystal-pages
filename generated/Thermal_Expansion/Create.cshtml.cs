@@ -44,6 +44,7 @@ namespace Crystal.Pages.Substances.Thermal_Expansion
             HeatExpnLanguage.LanguageId = this.GetLanguageId();
 
             _context.HeatExpnLanguage.Add(HeatExpnLanguage);
+
             await _context.SaveChangesAsync();
 
             var url = _urlBuilder.BuildPropertyLink(

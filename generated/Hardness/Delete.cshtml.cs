@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Hardness
         {
             HardTablLanguage = await _context.HardTablLanguage
                 .Include(h => h.HardTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HardTablInvariant = HardTablLanguage.HardTabl;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Hardness
         {
             HardTablLanguage = await _context.HardTablLanguage
                 .Include(h => h.HardTabl)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             HardTablInvariant = HardTablLanguage.HardTabl;
 
             _context.HardTablLanguage.Remove(HardTablLanguage);
             _context.HardTablInvariant.Remove(HardTablInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Hardness
                 this.GetLanguage(),
                 "Hardness",
                 system: _contextUtils.GetSystemUrlByHeadClue(HardTablInvariant.HeadClue)
+
             );
             return Redirect(url);
 

@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Hardness
                 .ToDictionary(h => h.HardTablId, h =>
                     h.HardTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HardTabl.Bknumber] : null
                 );
+
         }
     }
 }

@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.Refractive
                 .ToDictionary(h => h.RefrcIndId, h =>
                     h.RefrcInd.Bknumber.HasValue ? bibliogrLanguage[(int) h.RefrcInd.Bknumber] : null
                 );
+
         }
     }
 }

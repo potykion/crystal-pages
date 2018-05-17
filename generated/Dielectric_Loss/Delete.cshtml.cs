@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
         {
             DielDissLanguage = await _context.DielDissLanguage
                 .Include(h => h.DielDiss)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DielDissInvariant = DielDissLanguage.DielDiss;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
         {
             DielDissLanguage = await _context.DielDissLanguage
                 .Include(h => h.DielDiss)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             DielDissInvariant = DielDissLanguage.DielDiss;
 
             _context.DielDissLanguage.Remove(DielDissLanguage);
             _context.DielDissInvariant.Remove(DielDissInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
                 this.GetLanguage(),
                 "Dielectric_Loss",
                 system: _contextUtils.GetSystemUrlByHeadClue(DielDissInvariant.HeadClue)
+
             );
             return Redirect(url);
 

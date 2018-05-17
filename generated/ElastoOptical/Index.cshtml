@@ -52,12 +52,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.EsOpTablLanguage[0].EsOpTabl.LengWave)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.EsOpTablLanguage[0].EsOpTabl.P)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.EsOpTablLanguage[0].EsOpTabl.ErrP)
             </th>
+
 
             @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
             {
@@ -81,13 +84,13 @@
             </td>
 
             <td>
-                @Html.Raw(item.EsOpTabl.LengWave)
+                    @Html.Raw(item.EsOpTabl.LengWave)
             </td>
             <td>
-                @Html.Raw(item.EsOpTabl.P)
+                    @Html.Raw(item.EsOpTabl.P)
             </td>
             <td>
-                @Html.Raw(item.EsOpTabl.ErrP)
+                    @Html.Raw(item.EsOpTabl.ErrP)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
@@ -95,7 +98,8 @@
             <td>
                 <a data-toggle="popover" data-placement="right"
                    data-content="@Html.Raw(Model.References[item.EsOpTablId])">
-                    @Model.References[item.EsOpTablId].BibliogrId
+                   @Model.References[item.EsOpTablId].BibliogrId
+
                 </a>
             </td>
 

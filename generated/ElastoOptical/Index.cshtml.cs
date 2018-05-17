@@ -61,6 +61,7 @@ namespace Crystal.Pages.Substances.ElastoOptical
                 .ToDictionary(h => h.EsOpTablId, h =>
                     h.EsOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.EsOpTabl.Bknumber] : null
                 );
+
         }
     }
 }

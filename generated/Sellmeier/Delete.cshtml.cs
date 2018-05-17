@@ -28,7 +28,7 @@ namespace Crystal.Pages.Substances.Sellmeier
         {
             ConstSelLanguage = await _context.ConstSelLanguage
                 .Include(h => h.ConstSel)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ConstSelInvariant = ConstSelLanguage.ConstSel;
 
@@ -39,12 +39,13 @@ namespace Crystal.Pages.Substances.Sellmeier
         {
             ConstSelLanguage = await _context.ConstSelLanguage
                 .Include(h => h.ConstSel)
-                .FirstAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             ConstSelInvariant = ConstSelLanguage.ConstSel;
 
             _context.ConstSelLanguage.Remove(ConstSelLanguage);
             _context.ConstSelInvariant.Remove(ConstSelInvariant);
+
 
             await _context.SaveChangesAsync();
 
@@ -52,6 +53,7 @@ namespace Crystal.Pages.Substances.Sellmeier
                 this.GetLanguage(),
                 "Sellmeier",
                 system: _contextUtils.GetSystemUrlByHeadClue(ConstSelInvariant.HeadClue)
+
             );
             return Redirect(url);
 

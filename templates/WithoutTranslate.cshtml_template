@@ -1,0 +1,28 @@
+@page
+@model WithoutTranslateModel
+
+
+<h3>Записи без перевода</h3>
+
+{% for table in tables %}
+<h4>{{ table }}</h4>
+
+<h5>Без английского перевода:</h5>
+
+<ul class="row">
+    @foreach (var item in Model.{{ table }}WithoutEnglish)
+    {
+        <li class="col-md-3">@item.{{ pks[table] }}</li>
+    }
+
+</ul>
+
+<h5>Без русского перевода</h5>
+
+<ul class="row">
+    @foreach (var item in Model.{{ table }}WithoutRussian)
+    {
+        <li class="col-md-3">@item.{{ pks[table] }}</li>
+    }
+</ul>
+{% endfor %}

@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Crystal.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+
+namespace Crystal
+{
+    public class WithoutTranslateModel : PageModel
+    {
+        private readonly CrystalContext _context;
+
+        public WithoutTranslateModel(CrystalContext context)
+        {
+            _context = context;
+        }
+
+        {% for table in tables %}
+        public IList<{{ table }}Invariant> {{ table }}WithoutEnglish { get; set; }
+        public IList<{{ table }}Invariant> {{ table }}WithoutRussian { get; set; }
+        {% endfor %}
+
+        public async Task OnGetAsync()
+        {
+            {% for table in tables %}
+            var {{ table }}LanguageRussian = _context.{{ table }}Language
+                .Where(hl => hl.LanguageId == 1)
+                .Select(hl => hl.{{ table }}Id);
+
+            var {{ table }}LanguageEnglish = _context.{{ table }}Language
+                .Where(hl => hl.LanguageId == 2)
+                .Select(hl => hl.{{ table }}Id);
+
+            {{ table }}WithoutEnglish = await _context.{{ table }}Invariant
+                .Where(h => !{{ table }}LanguageEnglish.Contains(h.{{ pks[table]  }}))
+                .ToListAsync();
+
+            {{ table }}WithoutRussian = await _context.{{ table }}Invariant
+                .Where(h => !{{ table }}LanguageRussian.Contains(h.{{ pks[table] }}))
+                .ToListAsync();
+
+            {% endfor %}
+        }
+    }
+}

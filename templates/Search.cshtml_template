@@ -1,0 +1,63 @@
+@page
+@using Utils
+@model SearchPageModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h3>Поиск</h3>
+
+<form method="post">
+    
+    {% for table in search_tables %}
+    {% if table.type == 'HAS_RU_COLUMNS' %}
+
+        <div>
+            <a role="button" data-toggle="collapse" href="#{{ table.table }}Collapse"
+                aria-expanded="false" aria-controls="{{ table.table }}Collapse">
+                {{ table.table }}
+            </a>
+        </div>
+
+        <div class="collapse" id="{{ table.table }}Collapse">
+        {% for field in table.invariant_fields %}
+        <div class="form-group form-inline">
+            {% if field in table.string_fields %}
+                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"></label>
+                <input asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"/>
+            {% else %}
+                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"></label>
+                <input asp-for="SearchRequest.{{ table.table }}Min.{{ table.table }}.{{ field }}" class="control-label"/>
+                <input asp-for="SearchRequest.{{ table.table }}Max.{{ table.table }}.{{ field }}" class="control-label"/>
+            {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endfor %}
+
+
+    <button type="submit" class="btn btn-default">Поиск</button>
+</form>
+
+
+<h3>Результаты поиска</h3>
+
+<div class="row">
+    @foreach (var item in Model.HeadTabl)
+    {
+        <div class="col-md-3 col-sm-4">
+            <a asp-page="./Details"
+               asp-route-systemurl="@item.HeadTabl.SystemUrl">
+                @Html.Raw(item.HeadTabl.System)
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

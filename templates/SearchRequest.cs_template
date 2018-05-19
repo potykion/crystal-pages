@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Crystal.Models
+{
+    public class SearchRequest
+    {
+        {% for table in search_tables %}
+        {% if table.type == 'HAS_RU_COLUMNS' %}
+        public {{ table.table }}Language {{ table.table }}Common { get; set; }
+        public {{ table.table }}Language {{ table.table }}Min { get; set; }
+        public {{ table.table }}Language {{ table.table }}Max { get; set; }
+        {% endif %}
+
+        {% endfor %}
+    }
+}

@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace Crystal.Models
+{
+    public class SearchRequestProcessor
+    {
+        private readonly CrystalContext _context;
+
+        public SearchRequestProcessor(CrystalContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IList<int>> Process(SearchRequest searchRequest)
+        {
+            IEnumerable<int> matchingHeadClues = await _context.HeadTablInvariant
+                .Select(h => h.HeadClue)
+                .ToListAsync();
+
+            var filters = await CollectFilters(searchRequest);
+            filters.ForEach(filter => { matchingHeadClues = matchingHeadClues.Intersect(filter); });
+
+            return matchingHeadClues.ToList();
+        }
+
+        private async Task<List<List<int>>> CollectFilters(SearchRequest searchRequest)
+        {
+            var filters = new List<List<int>>();
+
+            {% for table in search_tables %}
+            {% if table.type == 'HAS_RU_COLUMNS' %}
+
+            IQueryable<{{ table.table }}Language> matched{{ table.table }} = _context.{{ table.table }}Language
+                .Include(m => m.{{ table.table }});
+
+            var is{{ table.table }}DataFilled = false;
+            {% for field in table.invariant_fields %}
+            {% if field in table.string_fields %}
+            if (!string.IsNullOrEmpty(searchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}))
+            {
+                matched{{ table.table }} = matched{{ table.table }}.Where(m => m.{{ table.table }}.{{ field }}.Contains(searchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}));
+                is{{ table.table }}DataFilled = true;
+            }
+            {% else %}
+            if (searchRequest.{{ table.table }}Min.{{ table.table }}.{{ field }}.HasValue)
+            {
+                matched{{ table.table }} = matched{{ table.table }}.Where(m => m.{{ table.table }}.{{ field }} >= searchRequest.{{ table.table }}Min.{{ table.table }}.{{ field }});
+                is{{ table.table }}DataFilled = true;
+            }
+            if (searchRequest.{{ table.table }}Max.{{ table.table }}.{{ field }}.HasValue)
+            {
+                matched{{ table.table }} = matched{{ table.table }}.Where(m => m.{{ table.table }}.{{ field }} <= searchRequest.{{ table.table }}Max.{{ table.table }}.{{ field }});
+                is{{ table.table }}DataFilled = true;
+            }
+            {% endif %}
+            {% endfor %}
+
+            if (is{{ table.table }}DataFilled)
+            {
+                var matched{{ table.table }}HeadClue = await matched{{ table.table }}
+                    .Select(m => m.{{ table.table }}.HeadClue)
+                    .ToListAsync();
+                filters.Add(matched{{ table.table }}HeadClue);
+            }
+            {% endif %}
+            {% endfor %}
+            
+            return filters;
+        }
+    }
+}

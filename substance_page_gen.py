@@ -1,25 +1,17 @@
 import json
 import os
 
-import jinja2
-from jinja2 import FileSystemLoader
+from renederer import render_template
 
 BASE_DIR = 'generated'
-
-env = jinja2.Environment(
-    loader=FileSystemLoader("templates"),
-    trim_blocks=True,
-    lstrip_blocks=True
-)
 
 
 def render_page(page, context, dir_='.'):
     dir_ = os.path.join(BASE_DIR, dir_)
     os.makedirs(dir_, exist_ok=True)
 
-    template = env.get_template(f"{page}_template")
     with open(os.path.join(dir_, page), 'w', encoding='utf-8') as f:
-        rendered = template.render(context)
+        rendered = render_template(f"{page}_template", **context)
         f.write(rendered)
 
 
@@ -36,4 +28,3 @@ if __name__ == '__main__':
         render_page('Delete.cshtml.cs', context, context['model_dir'])
         render_page('Create.cshtml', context, context['model_dir'])
         render_page('Create.cshtml.cs', context, context['model_dir'])
-

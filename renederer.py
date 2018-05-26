@@ -6,6 +6,8 @@ env = jinja2.Environment(
     trim_blocks=True,
     lstrip_blocks=True
 )
+env.globals.update(zip=zip)
+
 
 
 def render_template(template_name, **context):

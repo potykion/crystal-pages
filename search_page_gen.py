@@ -53,11 +53,13 @@ def add_extra_data(search_tables):
 
         table['string_fields'] = string_fields
 
+        table['range_fields'] = table.get('range_fields', table['invariant_fields'])
+
     return search_tables
 
 
 if __name__ == '__main__':
-    with open("cry_search.json") as f:
+    with open("search_tables.json") as f:
         search_tables = json.load(f)
 
     # invariant_check()

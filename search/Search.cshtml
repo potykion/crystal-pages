@@ -1,10 +1,11 @@
 @page
 @using Utils
 @model SearchPageModel
+@addTagHelper "*, Crystal"
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
 
 
@@ -15,333 +16,388 @@
 
         <div>
             <a role="button" data-toggle="collapse" href="#AcOpTablCollapse"
-                aria-expanded="false" aria-controls="AcOpTablCollapse">
-                AcOpTabl
+                aria-expanded="false" aria-controls="AcOpTablCollapse" >
+                Акустооптические свойства
             </a>
         </div>
 
         <div class="collapse" id="AcOpTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M1" class="control-label"></label>
-                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M1" class="control-label"/>
-                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M1" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M1" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M1" class="form-control"/>
+                <div class="input-group-addon">≤ M<sub>1</sub> ≤</div>
+                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M1" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M2" class="control-label"></label>
-                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M2" class="control-label"/>
-                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M2" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M2" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M2" class="form-control"/>
+                <div class="input-group-addon">≤ M<sub>2</sub> ≤</div>
+                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M2" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M3" class="control-label"></label>
-                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M3" class="control-label"/>
-                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M3" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.AcOpTablCommon.AcOpTabl.M3" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.AcOpTablMin.AcOpTabl.M3" class="form-control"/>
+                <div class="input-group-addon">≤ M<sub>3</sub> ≤</div>
+                <input asp-for="SearchRequest.AcOpTablMax.AcOpTabl.M3" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#CuryTablCollapse"
-                aria-expanded="false" aria-controls="CuryTablCollapse">
-                CuryTabl
+                aria-expanded="false" aria-controls="CuryTablCollapse" >
+                Температура Кюри
             </a>
         </div>
 
         <div class="collapse" id="CuryTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.CuryTablCommon.CuryTabl.CuryTemp" class="control-label"></label>
-                <input asp-for="SearchRequest.CuryTablMin.CuryTabl.CuryTemp" class="control-label"/>
-                <input asp-for="SearchRequest.CuryTablMax.CuryTabl.CuryTemp" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.CuryTablCommon.CuryTabl.CuryTemp" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.CuryTablMin.CuryTabl.CuryTemp" class="form-control"/>
+                <div class="input-group-addon">≤ T ≤</div>
+                <input asp-for="SearchRequest.CuryTablMax.CuryTabl.CuryTemp" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#DecrTablCollapse"
-                aria-expanded="false" aria-controls="DecrTablCollapse">
-                DecrTabl
+                aria-expanded="false" aria-controls="DecrTablCollapse" >
+                Распространение и затухание упругих волн
             </a>
         </div>
 
         <div class="collapse" id="DecrTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.DecrTablCommon.DecrTabl.Decrement" class="control-label"></label>
-                <input asp-for="SearchRequest.DecrTablMin.DecrTabl.Decrement" class="control-label"/>
-                <input asp-for="SearchRequest.DecrTablMax.DecrTabl.Decrement" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.DecrTablCommon.DecrTabl.Decrement" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.DecrTablMin.DecrTabl.Decrement" class="form-control"/>
+                <div class="input-group-addon">≤ D ≤</div>
+                <input asp-for="SearchRequest.DecrTablMax.DecrTabl.Decrement" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.DecrTablCommon.DecrTabl.WaveSpeed" class="control-label"></label>
-                <input asp-for="SearchRequest.DecrTablMin.DecrTabl.WaveSpeed" class="control-label"/>
-                <input asp-for="SearchRequest.DecrTablMax.DecrTabl.WaveSpeed" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.DecrTablCommon.DecrTabl.WaveSpeed" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.DecrTablMin.DecrTabl.WaveSpeed" class="form-control"/>
+                <div class="input-group-addon">≤ S ≤</div>
+                <input asp-for="SearchRequest.DecrTablMax.DecrTabl.WaveSpeed" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#DensTablCollapse"
-                aria-expanded="false" aria-controls="DensTablCollapse">
-                DensTabl
+                aria-expanded="false" aria-controls="DensTablCollapse" >
+                Плотность
             </a>
         </div>
 
         <div class="collapse" id="DensTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.DensTablCommon.DensTabl.Density" class="control-label"></label>
-                <input asp-for="SearchRequest.DensTablMin.DensTabl.Density" class="control-label"/>
-                <input asp-for="SearchRequest.DensTablMax.DensTabl.Density" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.DensTablCommon.DensTabl.Density" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.DensTablMin.DensTabl.Density" class="form-control"/>
+                <div class="input-group-addon">≤ d ≤</div>
+                <input asp-for="SearchRequest.DensTablMax.DensTabl.Density" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#DielectrCollapse"
-                aria-expanded="false" aria-controls="DielectrCollapse">
-                Dielectr
+                aria-expanded="false" aria-controls="DielectrCollapse" >
+                Диэлектрическая проницаемость
             </a>
         </div>
 
         <div class="collapse" id="DielectrCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.DielectrCommon.Dielectr.Diel" class="control-label"></label>
-                <input asp-for="SearchRequest.DielectrMin.Dielectr.Diel" class="control-label"/>
-                <input asp-for="SearchRequest.DielectrMax.Dielectr.Diel" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.DielectrCommon.Dielectr.Diel" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.DielectrMin.Dielectr.Diel" class="form-control"/>
+                <div class="input-group-addon">≤ Оµ ≤</div>
+                <input asp-for="SearchRequest.DielectrMax.Dielectr.Diel" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#SuspTablCollapse"
-                aria-expanded="false" aria-controls="SuspTablCollapse">
-                SuspTabl
+                aria-expanded="false" aria-controls="SuspTablCollapse" >
+                Растворимость
             </a>
         </div>
 
         <div class="collapse" id="SuspTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.SuspTablCommon.SuspTabl.Temper" class="control-label"></label>
-                <input asp-for="SearchRequest.SuspTablMin.SuspTabl.Temper" class="control-label"/>
-                <input asp-for="SearchRequest.SuspTablMax.SuspTabl.Temper" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.SuspTablCommon.SuspTabl.Temper" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.SuspTablMin.SuspTabl.Temper" class="form-control"/>
+                <div class="input-group-addon">≤ T ≤</div>
+                <input asp-for="SearchRequest.SuspTablMax.SuspTabl.Temper" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.SuspTablCommon.SuspTabl.Suspense" class="control-label"></label>
-                <input asp-for="SearchRequest.SuspTablMin.SuspTabl.Suspense" class="control-label"/>
-                <input asp-for="SearchRequest.SuspTablMax.SuspTabl.Suspense" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.SuspTablCommon.SuspTabl.Suspense" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.SuspTablMin.SuspTabl.Suspense" class="form-control"/>
+                <div class="input-group-addon">≤ Sol. ≤</div>
+                <input asp-for="SearchRequest.SuspTablMax.SuspTabl.Suspense" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#ElOpTablCollapse"
-                aria-expanded="false" aria-controls="ElOpTablCollapse">
-                ElOpTabl
+                aria-expanded="false" aria-controls="ElOpTablCollapse" >
+                Коэффициенты линейного электрооптического эффекта
             </a>
         </div>
 
         <div class="collapse" id="ElOpTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.ElOpTablCommon.ElOpTabl.R" class="control-label"></label>
-                <input asp-for="SearchRequest.ElOpTablMin.ElOpTabl.R" class="control-label"/>
-                <input asp-for="SearchRequest.ElOpTablMax.ElOpTabl.R" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElOpTablCommon.ElOpTabl.R" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElOpTablMin.ElOpTabl.R" class="form-control"/>
+                <div class="input-group-addon">≤ R ≤</div>
+                <input asp-for="SearchRequest.ElOpTablMax.ElOpTabl.R" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#Elastic1Collapse"
-                aria-expanded="false" aria-controls="Elastic1Collapse">
-                Elastic1
+                aria-expanded="false" aria-controls="Elastic1Collapse" >
+                Упругие постоянные
             </a>
         </div>
 
         <div class="collapse" id="Elastic1Collapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.Elastic1Common.Elastic1.E1" class="control-label"></label>
-                <input asp-for="SearchRequest.Elastic1Min.Elastic1.E1" class="control-label"/>
-                <input asp-for="SearchRequest.Elastic1Max.Elastic1.E1" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.Elastic1Common.Elastic1.E1" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.Elastic1Min.Elastic1.E1" class="form-control"/>
+                <div class="input-group-addon">≤ E1 ≤</div>
+                <input asp-for="SearchRequest.Elastic1Max.Elastic1.E1" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#MechTablCollapse"
-                aria-expanded="false" aria-controls="MechTablCollapse">
-                MechTabl
+                aria-expanded="false" aria-controls="MechTablCollapse" >
+                Коэффициенты электромеханической связи
             </a>
         </div>
 
         <div class="collapse" id="MechTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.MechTablCommon.MechTabl.K" class="control-label"></label>
-                <input asp-for="SearchRequest.MechTablMin.MechTabl.K" class="control-label"/>
-                <input asp-for="SearchRequest.MechTablMax.MechTabl.K" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.MechTablCommon.MechTabl.K" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.MechTablMin.MechTabl.K" class="form-control"/>
+                <div class="input-group-addon">≤ K ≤</div>
+                <input asp-for="SearchRequest.MechTablMax.MechTabl.K" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#HardTablCollapse"
-                aria-expanded="false" aria-controls="HardTablCollapse">
-                HardTabl
+                aria-expanded="false" aria-controls="HardTablCollapse" >
+                Твердость
             </a>
         </div>
 
         <div class="collapse" id="HardTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard1" class="control-label"></label>
-                <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard1" class="control-label"/>
-                <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard1" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard1" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard1" class="form-control"/>
+                <div class="input-group-addon">≤ Hard1 ≤</div>
+                <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard1" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard2" class="control-label"></label>
-                <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard2" class="control-label"/>
-                <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard2" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard2" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard2" class="form-control"/>
+                <div class="input-group-addon">≤ Hard2 ≤</div>
+                <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard2" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Mohs" class="control-label"></label>
-                <input asp-for="SearchRequest.HardTablMin.HardTabl.Mohs" class="control-label"/>
-                <input asp-for="SearchRequest.HardTablMax.HardTabl.Mohs" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HardTablCommon.HardTabl.Mohs" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HardTablMin.HardTabl.Mohs" class="form-control"/>
+                <div class="input-group-addon">≤ Mohs ≤</div>
+                <input asp-for="SearchRequest.HardTablMax.HardTabl.Mohs" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#HeatExpnCollapse"
-                aria-expanded="false" aria-controls="HeatExpnCollapse">
-                HeatExpn
+                aria-expanded="false" aria-controls="HeatExpnCollapse" >
+                Тепловое расширение
             </a>
         </div>
 
         <div class="collapse" id="HeatExpnCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HeatExpnCommon.HeatExpn.S11" class="control-label"></label>
-                <input asp-for="SearchRequest.HeatExpnMin.HeatExpn.S11" class="control-label"/>
-                <input asp-for="SearchRequest.HeatExpnMax.HeatExpn.S11" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HeatExpnCommon.HeatExpn.S11" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HeatExpnMin.HeatExpn.S11" class="form-control"/>
+                <div class="input-group-addon">≤ S11 ≤</div>
+                <input asp-for="SearchRequest.HeatExpnMax.HeatExpn.S11" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#PlavTablCollapse"
-                aria-expanded="false" aria-controls="PlavTablCollapse">
-                PlavTabl
+                aria-expanded="false" aria-controls="PlavTablCollapse" >
+                Температура плавления
             </a>
         </div>
 
         <div class="collapse" id="PlavTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.PlavTablCommon.PlavTabl.PlavTemp" class="control-label"></label>
-                <input asp-for="SearchRequest.PlavTablMin.PlavTabl.PlavTemp" class="control-label"/>
-                <input asp-for="SearchRequest.PlavTablMax.PlavTabl.PlavTemp" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.PlavTablCommon.PlavTabl.PlavTemp" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.PlavTablMin.PlavTabl.PlavTemp" class="form-control"/>
+                <div class="input-group-addon">≤ PlavTemp ≤</div>
+                <input asp-for="SearchRequest.PlavTablMax.PlavTabl.PlavTemp" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#NlOpTablCollapse"
-                aria-expanded="false" aria-controls="NlOpTablCollapse">
-                NlOpTabl
+                aria-expanded="false" aria-controls="NlOpTablCollapse" >
+                Нелинейные оптические свойства
             </a>
         </div>
 
         <div class="collapse" id="NlOpTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.NlOpTablCommon.NlOpTabl.Rij" class="control-label"></label>
-                <input asp-for="SearchRequest.NlOpTablMin.NlOpTabl.Rij" class="control-label"/>
-                <input asp-for="SearchRequest.NlOpTablMax.NlOpTabl.Rij" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.NlOpTablCommon.NlOpTabl.Rij" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.NlOpTablMin.NlOpTabl.Rij" class="form-control"/>
+                <div class="input-group-addon">≤ Rij ≤</div>
+                <input asp-for="SearchRequest.NlOpTablMax.NlOpTabl.Rij" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#ElemTablCollapse"
-                aria-expanded="false" aria-controls="ElemTablCollapse">
-                ElemTabl
+                aria-expanded="false" aria-controls="ElemTablCollapse" >
+                Параметры элементарной ячейки
             </a>
         </div>
 
         <div class="collapse" id="ElemTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.Znparam" class="control-label"></label>
-                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.Znparam" class="control-label"/>
-                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.Znparam" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.Znparam" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.Znparam" class="form-control"/>
+                <div class="input-group-addon">≤ Znparam ≤</div>
+                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.Znparam" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="control-label"></label>
-                <input asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.ZnAngle" class="control-label"></label>
-                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.ZnAngle" class="control-label"/>
-                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.ZnAngle" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.ZnAngle" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.ZnAngle" class="form-control"/>
+                <div class="input-group-addon">≤ ZnAngle ≤</div>
+                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.ZnAngle" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#ModfTablCollapse"
-                aria-expanded="false" aria-controls="ModfTablCollapse">
-                ModfTabl
+                aria-expanded="false" aria-controls="ModfTablCollapse" >
+                Характеристика кристаллической структуры
             </a>
         </div>
 
         <div class="collapse" id="ModfTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.ModfTablCommon.ModfTabl.PointGrp" class="control-label"></label>
-                <input asp-for="SearchRequest.ModfTablCommon.ModfTabl.PointGrp" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ModfTablCommon.ModfTabl.PointGrp" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ModfTablCommon.ModfTabl.PointGrp" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#EsOpTablCollapse"
-                aria-expanded="false" aria-controls="EsOpTablCollapse">
-                EsOpTabl
+                aria-expanded="false" aria-controls="EsOpTablCollapse" >
+                Пьезооптические и упругооптические коэффициенты
             </a>
         </div>
 
         <div class="collapse" id="EsOpTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.EsOpTablCommon.EsOpTabl.P" class="control-label"></label>
-                <input asp-for="SearchRequest.EsOpTablMin.EsOpTabl.P" class="control-label"/>
-                <input asp-for="SearchRequest.EsOpTablMax.EsOpTabl.P" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.EsOpTablCommon.EsOpTabl.P" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.EsOpTablMin.EsOpTabl.P" class="form-control"/>
+                <div class="input-group-addon">≤ P ≤</div>
+                <input asp-for="SearchRequest.EsOpTablMax.EsOpTabl.P" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#RefrcIndCollapse"
-                aria-expanded="false" aria-controls="RefrcIndCollapse">
-                RefrcInd
+                aria-expanded="false" aria-controls="RefrcIndCollapse" >
+                Показатели преломления
             </a>
         </div>
 
         <div class="collapse" id="RefrcIndCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.RefrcIndCommon.RefrcInd.ZnachInd" class="control-label"></label>
-                <input asp-for="SearchRequest.RefrcIndMin.RefrcInd.ZnachInd" class="control-label"/>
-                <input asp-for="SearchRequest.RefrcIndMax.RefrcInd.ZnachInd" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.RefrcIndCommon.RefrcInd.ZnachInd" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.RefrcIndMin.RefrcInd.ZnachInd" class="form-control"/>
+                <div class="input-group-addon">≤ ZnachInd ≤</div>
+                <input asp-for="SearchRequest.RefrcIndMax.RefrcInd.ZnachInd" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#HeatTablCollapse"
-                aria-expanded="false" aria-controls="HeatTablCollapse">
-                HeatTabl
+                aria-expanded="false" aria-controls="HeatTablCollapse" >
+                Удельная теплоемкость
             </a>
         </div>
 
         <div class="collapse" id="HeatTablCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.ZnC" class="control-label"></label>
-                <input asp-for="SearchRequest.HeatTablCommon.HeatTabl.ZnC" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.ZnC" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HeatTablCommon.HeatTabl.ZnC" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.Temperat" class="control-label"></label>
-                <input asp-for="SearchRequest.HeatTablMin.HeatTabl.Temperat" class="control-label"/>
-                <input asp-for="SearchRequest.HeatTablMax.HeatTabl.Temperat" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.Temperat" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HeatTablMin.HeatTabl.Temperat" class="form-control"/>
+                <div class="input-group-addon">≤ Temperat ≤</div>
+                <input asp-for="SearchRequest.HeatTablMax.HeatTabl.Temperat" class="form-control"/>
         </div>
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.C" class="control-label"></label>
-                <input asp-for="SearchRequest.HeatTablMin.HeatTabl.C" class="control-label"/>
-                <input asp-for="SearchRequest.HeatTablMax.HeatTabl.C" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.C" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.HeatTablMin.HeatTabl.C" class="form-control"/>
+                <div class="input-group-addon">≤ C ≤</div>
+                <input asp-for="SearchRequest.HeatTablMax.HeatTabl.C" class="form-control"/>
         </div>
         </div>
 
         <div>
             <a role="button" data-toggle="collapse" href="#DielDissCollapse"
-                aria-expanded="false" aria-controls="DielDissCollapse">
-                DielDiss
+                aria-expanded="false" aria-controls="DielDissCollapse" >
+                Тангенс угла диэлектрических потерь
             </a>
         </div>
 
         <div class="collapse" id="DielDissCollapse">
-        <div class="form-group form-inline">
-                <label asp-for="SearchRequest.DielDissCommon.DielDiss.TangentD" class="control-label"></label>
-                <input asp-for="SearchRequest.DielDissMin.DielDiss.TangentD" class="control-label"/>
-                <input asp-for="SearchRequest.DielDissMax.DielDiss.TangentD" class="control-label"/>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.DielDissCommon.DielDiss.TangentD" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.DielDissMin.DielDiss.TangentD" class="form-control"/>
+                <div class="input-group-addon">≤ TangentD ≤</div>
+                <input asp-for="SearchRequest.DielDissMax.DielDiss.TangentD" class="form-control"/>
         </div>
         </div>
 

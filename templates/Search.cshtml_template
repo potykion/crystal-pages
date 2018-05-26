@@ -1,10 +1,11 @@
 @page
 @using Utils
 @model SearchPageModel
+@addTagHelper "*, Crystal"
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
 
 
@@ -17,21 +18,23 @@
 
         <div>
             <a role="button" data-toggle="collapse" href="#{{ table.table }}Collapse"
-                aria-expanded="false" aria-controls="{{ table.table }}Collapse">
-                {{ table.table }}
+                aria-expanded="false" aria-controls="{{ table.table }}Collapse" >
+                {{ table.verbose }}
             </a>
         </div>
 
         <div class="collapse" id="{{ table.table }}Collapse">
-        {% for field in table.invariant_fields %}
-        <div class="form-group form-inline">
+        {% for field, range_field in zip(table.invariant_fields, table.range_fields) %}
+        <div class="form-group input-group form-inline col-md-7">
+
             {% if field in table.string_fields %}
-                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"></label>
-                <input asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"/>
+                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="form-control"/>
             {% else %}
-                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="control-label"></label>
-                <input asp-for="SearchRequest.{{ table.table }}Min.{{ table.table }}.{{ field }}" class="control-label"/>
-                <input asp-for="SearchRequest.{{ table.table }}Max.{{ table.table }}.{{ field }}" class="control-label"/>
+                <label asp-for="SearchRequest.{{ table.table }}Common.{{ table.table }}.{{ field }}" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.{{ table.table }}Min.{{ table.table }}.{{ field }}" class="form-control"/>
+                <div class="input-group-addon">≤ {{ range_field }} ≤</div>
+                <input asp-for="SearchRequest.{{ table.table }}Max.{{ table.table }}.{{ field }}" class="form-control"/>
             {% endif %}
         </div>
         {% endfor %}

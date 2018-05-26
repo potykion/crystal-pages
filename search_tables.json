@@ -1,0 +1,193 @@
+[
+  {
+    "table": "AcOpTabl",
+    "invariant_fields": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "range_fields": [
+      "M<sub>1</sub>",
+      "M<sub>2</sub>",
+      "M<sub>3</sub>"
+    ],
+    "verbose": "\u0410\u043a\u0443\u0441\u0442\u043e\u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430"
+  },
+  {
+    "table": "Wavepure",
+    "invariant_fields": [
+      "Leftwave",
+      "Rightwave"
+    ],
+    "verbose": "\u041f\u043e\u043b\u043e\u0441\u0430 \u043f\u0440\u043e\u043f\u0443\u0441\u043a\u0430\u043d\u0438\u044f"
+  },
+  {
+    "table": "CuryTabl",
+    "invariant_fields": [
+      "CuryTemp"
+    ],
+    "range_fields": [
+      "T"
+    ],
+    "verbose": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u041a\u044e\u0440\u0438"
+  },
+  {
+    "table": "DecrTabl",
+    "invariant_fields": [
+      "Decrement",
+      "WaveSpeed"
+    ],
+    "range_fields": [
+      "D",
+      "S"
+    ],
+    "verbose": "\u0420\u0430\u0441\u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0435\u043d\u0438\u0435 \u0438 \u0437\u0430\u0442\u0443\u0445\u0430\u043d\u0438\u0435 \u0443\u043f\u0440\u0443\u0433\u0438\u0445 \u0432\u043e\u043b\u043d"
+  },
+  {
+    "table": "DensTabl",
+    "invariant_fields": [
+      "Density"
+    ],
+    "range_fields": [
+      "d"
+    ],
+    "verbose": "\u041f\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c"
+  },
+  {
+    "table": "Dielectr",
+    "invariant_fields": [
+      "Diel"
+    ],
+    "range_fields": [
+      "ε"
+    ],
+    "verbose": "\u0414\u0438\u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043f\u0440\u043e\u043d\u0438\u0446\u0430\u0435\u043c\u043e\u0441\u0442\u044c"
+  },
+  {
+    "table": "SuspTabl",
+    "invariant_fields": [
+      "Temper",
+      "Suspense"
+    ],
+    "language_fields": [
+      "SuspName"
+    ],
+    "range_fields": [
+      "T",
+      "Sol."
+    ],
+    "verbose": "\u0420\u0430\u0441\u0442\u0432\u043e\u0440\u0438\u043c\u043e\u0441\u0442\u044c"
+  },
+  {
+    "table": "ElOpTabl",
+    "invariant_fields": [
+      "R"
+    ],
+    "language_fields": [
+      "ZnN1"
+    ],
+    "verbose": "\u041a\u043e\u044d\u0444\u0444\u0438\u0446\u0438\u0435\u043d\u0442\u044b \u043b\u0438\u043d\u0435\u0439\u043d\u043e\u0433\u043e \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u044d\u0444\u0444\u0435\u043a\u0442\u0430"
+  },
+  {
+    "table": "Elastic1",
+    "invariant_fields": [
+      "E1"
+    ],
+    "language_fields": [
+      "ZnE"
+    ],
+    "verbose": "\u0423\u043f\u0440\u0443\u0433\u0438\u0435 \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435"
+  },
+  {
+    "table": "MechTabl",
+    "invariant_fields": [
+      "K"
+    ],
+    "verbose": "\u041a\u043e\u044d\u0444\u0444\u0438\u0446\u0438\u0435\u043d\u0442\u044b \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043c\u0435\u0445\u0430\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0441\u0432\u044f\u0437\u0438"
+  },
+  {
+    "table": "HardTabl",
+    "invariant_fields": [
+      "Hard1",
+      "Hard2",
+      "Mohs"
+    ],
+    "verbose": "\u0422\u0432\u0435\u0440\u0434\u043e\u0441\u0442\u044c"
+  },
+  {
+    "table": "HeatExpn",
+    "invariant_fields": [
+      "S11"
+    ],
+    "verbose": "\u0422\u0435\u043f\u043b\u043e\u0432\u043e\u0435 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435"
+  },
+  {
+    "table": "PlavTabl",
+    "invariant_fields": [
+      "PlavTemp"
+    ],
+    "language_fields": [
+      "PlavType"
+    ],
+    "verbose": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u043f\u043b\u0430\u0432\u043b\u0435\u043d\u0438\u044f"
+  },
+  {
+    "table": "NlOpTabl",
+    "invariant_fields": [
+      "Rij"
+    ],
+    "verbose": "\u041d\u0435\u043b\u0438\u043d\u0435\u0439\u043d\u044b\u0435 \u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430"
+  },
+  {
+    "table": "ElemTabl",
+    "invariant_fields": [
+      "Znparam",
+      "NazvAngl",
+      "ZnAngle"
+    ],
+    "language_fields": [
+      "Nazbparam"
+    ],
+    "verbose": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u043e\u0439 \u044f\u0447\u0435\u0439\u043a\u0438"
+  },
+  {
+    "table": "ModfTabl",
+    "invariant_fields": [
+      "PointGrp"
+    ],
+    "verbose": "\u0425\u0430\u0440\u0430\u043a\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043a\u0430 \u043a\u0440\u0438\u0441\u0442\u0430\u043b\u043b\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b"
+  },
+  {
+    "table": "EsOpTabl",
+    "invariant_fields": [
+      "P"
+    ],
+    "language_fields": [
+      "ZnP"
+    ],
+    "verbose": "\u041f\u044c\u0435\u0437\u043e\u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0438 \u0443\u043f\u0440\u0443\u0433\u043e\u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043a\u043e\u044d\u0444\u0444\u0438\u0446\u0438\u0435\u043d\u0442\u044b"
+  },
+  {
+    "table": "RefrcInd",
+    "invariant_fields": [
+      "ZnachInd"
+    ],
+    "verbose": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0438 \u043f\u0440\u0435\u043b\u043e\u043c\u043b\u0435\u043d\u0438\u044f"
+  },
+  {
+    "table": "HeatTabl",
+    "invariant_fields": [
+      "ZnC",
+      "Temperat",
+      "C"
+    ],
+    "verbose": "\u0423\u0434\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0435\u043f\u043b\u043e\u0435\u043c\u043a\u043e\u0441\u0442\u044c"
+  },
+  {
+    "table": "DielDiss",
+    "invariant_fields": [
+      "TangentD"
+    ],
+    "verbose": "\u0422\u0430\u043d\u0433\u0435\u043d\u0441 \u0443\u0433\u043b\u0430 \u0434\u0438\u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043f\u043e\u0442\u0435\u0440\u044c"
+  }
+]

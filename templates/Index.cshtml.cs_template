@@ -90,16 +90,29 @@ namespace Crystal.Pages.Substances.{{ model_dir }}
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
+            References = new Dictionary<int, BibliogrLanguage>();
             {% if language_fields %}
-            References = {{ model }}Language
-                .ToDictionary(h => h.{{ model }}Id, h =>
-                    h.{{ model }}.Bknumber.HasValue ? bibliogrLanguage[(int) h.{{ model }}.Bknumber] : null
-                );
+            foreach (var m in {{ model}}Language)
+            {
+                if (References.ContainsKey(m.{{ model }}Id)) continue;
+
+                var bibliogr = m.{{ model }}.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.{{ model }}.Bknumber]
+                    : null;
+
+                References[m.{{ model }}Id] = bibliogr;
+            }
             {% else %}
-            References = {{ model }}
-                .ToDictionary(h => h.Id, h =>
-                    h.Bknumber.HasValue ? bibliogrLanguage[(int) h.Bknumber] : null
-                );
+            foreach (var m in {{ model}})
+            {
+                if (References.ContainsKey(m.Id)) continue;
+
+                var bibliogr = m.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.Bknumber]
+                    : null;
+
+                References[m.Id] = bibliogr;
+            }
             {% endif %}
 
             {% endif %}

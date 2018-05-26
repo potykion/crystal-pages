@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Lattice
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = ElemTablLanguage
-                .ToDictionary(h => h.ElemTablId, h =>
-                    h.ElemTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ElemTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in ElemTablLanguage)
+            {
+                if (References.ContainsKey(m.ElemTablId)) continue;
+
+                var bibliogr = m.ElemTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.ElemTabl.Bknumber]
+                    : null;
+
+                References[m.ElemTablId] = bibliogr;
+            }
 
         }
     }

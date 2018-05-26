@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.NonlinearOptical
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = NlOpTablLanguage
-                .ToDictionary(h => h.NlOpTablId, h =>
-                    h.NlOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.NlOpTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in NlOpTablLanguage)
+            {
+                if (References.ContainsKey(m.NlOpTablId)) continue;
+
+                var bibliogr = m.NlOpTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.NlOpTabl.Bknumber]
+                    : null;
+
+                References[m.NlOpTablId] = bibliogr;
+            }
 
         }
     }

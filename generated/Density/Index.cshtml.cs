@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Density
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = DensTablLanguage
-                .ToDictionary(h => h.DensTablId, h =>
-                    h.DensTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.DensTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in DensTablLanguage)
+            {
+                if (References.ContainsKey(m.DensTablId)) continue;
+
+                var bibliogr = m.DensTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.DensTabl.Bknumber]
+                    : null;
+
+                References[m.DensTablId] = bibliogr;
+            }
 
         }
     }

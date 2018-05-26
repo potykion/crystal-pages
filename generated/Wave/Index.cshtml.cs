@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Wave
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = DecrTablLanguage
-                .ToDictionary(h => h.DecrTablId, h =>
-                    h.DecrTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.DecrTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in DecrTablLanguage)
+            {
+                if (References.ContainsKey(m.DecrTablId)) continue;
+
+                var bibliogr = m.DecrTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.DecrTabl.Bknumber]
+                    : null;
+
+                References[m.DecrTablId] = bibliogr;
+            }
 
         }
     }

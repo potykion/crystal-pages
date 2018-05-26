@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Hardness
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = HardTablLanguage
-                .ToDictionary(h => h.HardTablId, h =>
-                    h.HardTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HardTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in HardTablLanguage)
+            {
+                if (References.ContainsKey(m.HardTablId)) continue;
+
+                var bibliogr = m.HardTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.HardTabl.Bknumber]
+                    : null;
+
+                References[m.HardTablId] = bibliogr;
+            }
 
         }
     }

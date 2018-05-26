@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.AcoustoOptical
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = AcOpTablLanguage
-                .ToDictionary(h => h.AcOpTablId, h =>
-                    h.AcOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.AcOpTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in AcOpTablLanguage)
+            {
+                if (References.ContainsKey(m.AcOpTablId)) continue;
+
+                var bibliogr = m.AcOpTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.AcOpTabl.Bknumber]
+                    : null;
+
+                References[m.AcOpTablId] = bibliogr;
+            }
 
         }
     }

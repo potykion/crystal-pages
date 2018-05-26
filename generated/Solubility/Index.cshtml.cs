@@ -49,10 +49,17 @@ namespace Crystal.Pages.Substances.Solubility
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = SuspTablLanguage
-                .ToDictionary(h => h.SuspTablId, h =>
-                    h.SuspTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.SuspTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in SuspTablLanguage)
+            {
+                if (References.ContainsKey(m.SuspTablId)) continue;
+
+                var bibliogr = m.SuspTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.SuspTabl.Bknumber]
+                    : null;
+
+                References[m.SuspTablId] = bibliogr;
+            }
 
         }
     }

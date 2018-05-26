@@ -49,10 +49,17 @@ namespace Crystal.Pages.Substances.Heat
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = HeatTablLanguage
-                .ToDictionary(h => h.HeatTablId, h =>
-                    h.HeatTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.HeatTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in HeatTablLanguage)
+            {
+                if (References.ContainsKey(m.HeatTablId)) continue;
+
+                var bibliogr = m.HeatTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.HeatTabl.Bknumber]
+                    : null;
+
+                References[m.HeatTablId] = bibliogr;
+            }
 
         }
     }

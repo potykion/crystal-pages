@@ -93,6 +93,26 @@
     "model_id": 10
   },
   {
+    "model": "CuryTabl",
+    "language_fields": [
+      {
+        "name": "Oboztran"
+      }
+    ],
+    "invariant_fields": [
+      {
+        "name": "CuryTemp"
+      },
+      {
+        "name": "ErrCury"
+      }
+    ],
+    "has_references": true,
+    "has_sing": false,
+    "model_dir": "Cury",
+    "model_id": 10
+  },
+  {
     "model": "DecrTabl",
     "language_fields": [
       {

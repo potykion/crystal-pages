@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Elastic
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = Elastic1Language
-                .ToDictionary(h => h.Elastic1Id, h =>
-                    h.Elastic1.Bknumber.HasValue ? bibliogrLanguage[(int) h.Elastic1.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in Elastic1Language)
+            {
+                if (References.ContainsKey(m.Elastic1Id)) continue;
+
+                var bibliogr = m.Elastic1.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.Elastic1.Bknumber]
+                    : null;
+
+                References[m.Elastic1Id] = bibliogr;
+            }
 
         }
     }

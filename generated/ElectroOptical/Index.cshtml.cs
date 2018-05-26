@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.ElectroOptical
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = ElOpTablLanguage
-                .ToDictionary(h => h.ElOpTablId, h =>
-                    h.ElOpTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ElOpTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in ElOpTablLanguage)
+            {
+                if (References.ContainsKey(m.ElOpTablId)) continue;
+
+                var bibliogr = m.ElOpTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.ElOpTabl.Bknumber]
+                    : null;
+
+                References[m.ElOpTablId] = bibliogr;
+            }
 
         }
     }

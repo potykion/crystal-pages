@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Crystal_Mod
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = ModfTablLanguage
-                .ToDictionary(h => h.ModfTablId, h =>
-                    h.ModfTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.ModfTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in ModfTablLanguage)
+            {
+                if (References.ContainsKey(m.ModfTablId)) continue;
+
+                var bibliogr = m.ModfTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.ModfTabl.Bknumber]
+                    : null;
+
+                References[m.ModfTablId] = bibliogr;
+            }
 
         }
     }

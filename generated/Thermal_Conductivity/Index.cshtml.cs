@@ -59,10 +59,17 @@ namespace Crystal.Pages.Substances.Thermal_Conductivity
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = HeatExpnLanguage
-                .ToDictionary(h => h.HeatExpnId, h =>
-                    h.HeatExpn.Bknumber.HasValue ? bibliogrLanguage[(int) h.HeatExpn.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in HeatExpnLanguage)
+            {
+                if (References.ContainsKey(m.HeatExpnId)) continue;
+
+                var bibliogr = m.HeatExpn.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.HeatExpn.Bknumber]
+                    : null;
+
+                References[m.HeatExpnId] = bibliogr;
+            }
 
         }
     }

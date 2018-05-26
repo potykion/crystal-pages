@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Dielectric
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = DielectrLanguage
-                .ToDictionary(h => h.DielectrId, h =>
-                    h.Dielectr.Bknumber.HasValue ? bibliogrLanguage[(int) h.Dielectr.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in DielectrLanguage)
+            {
+                if (References.ContainsKey(m.DielectrId)) continue;
+
+                var bibliogr = m.Dielectr.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.Dielectr.Bknumber]
+                    : null;
+
+                References[m.DielectrId] = bibliogr;
+            }
 
         }
     }

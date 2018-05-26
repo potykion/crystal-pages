@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Refractive
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = RefrcIndLanguage
-                .ToDictionary(h => h.RefrcIndId, h =>
-                    h.RefrcInd.Bknumber.HasValue ? bibliogrLanguage[(int) h.RefrcInd.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in RefrcIndLanguage)
+            {
+                if (References.ContainsKey(m.RefrcIndId)) continue;
+
+                var bibliogr = m.RefrcInd.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.RefrcInd.Bknumber]
+                    : null;
+
+                References[m.RefrcIndId] = bibliogr;
+            }
 
         }
     }

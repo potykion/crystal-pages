@@ -49,10 +49,17 @@ namespace Crystal.Pages.Substances.Cury
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = CuryTablLanguage
-                .ToDictionary(h => h.CuryTablId, h =>
-                    h.CuryTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.CuryTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in CuryTablLanguage)
+            {
+                if (References.ContainsKey(m.CuryTablId)) continue;
+
+                var bibliogr = m.CuryTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.CuryTabl.Bknumber]
+                    : null;
+
+                References[m.CuryTablId] = bibliogr;
+            }
 
         }
     }

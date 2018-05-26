@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Piezoelectric
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = PzElTablLanguage
-                .ToDictionary(h => h.PzElTablId, h =>
-                    h.PzElTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.PzElTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in PzElTablLanguage)
+            {
+                if (References.ContainsKey(m.PzElTablId)) continue;
+
+                var bibliogr = m.PzElTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.PzElTabl.Bknumber]
+                    : null;
+
+                References[m.PzElTablId] = bibliogr;
+            }
 
         }
     }

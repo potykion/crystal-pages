@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Sellmeier
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = ConstSelLanguage
-                .ToDictionary(h => h.ConstSelId, h =>
-                    h.ConstSel.Bknumber.HasValue ? bibliogrLanguage[(int) h.ConstSel.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in ConstSelLanguage)
+            {
+                if (References.ContainsKey(m.ConstSelId)) continue;
+
+                var bibliogr = m.ConstSel.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.ConstSel.Bknumber]
+                    : null;
+
+                References[m.ConstSelId] = bibliogr;
+            }
 
         }
     }

@@ -49,10 +49,17 @@ namespace Crystal.Pages.Substances.Melt
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = PlavTablLanguage
-                .ToDictionary(h => h.PlavTablId, h =>
-                    h.PlavTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.PlavTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in PlavTablLanguage)
+            {
+                if (References.ContainsKey(m.PlavTablId)) continue;
+
+                var bibliogr = m.PlavTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.PlavTabl.Bknumber]
+                    : null;
+
+                References[m.PlavTablId] = bibliogr;
+            }
 
         }
     }

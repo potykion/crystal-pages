@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Dielectric_Loss
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = DielDissLanguage
-                .ToDictionary(h => h.DielDissId, h =>
-                    h.DielDiss.Bknumber.HasValue ? bibliogrLanguage[(int) h.DielDiss.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in DielDissLanguage)
+            {
+                if (References.ContainsKey(m.DielDissId)) continue;
+
+                var bibliogr = m.DielDiss.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.DielDiss.Bknumber]
+                    : null;
+
+                References[m.DielDissId] = bibliogr;
+            }
 
         }
     }

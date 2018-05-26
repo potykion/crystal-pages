@@ -57,10 +57,17 @@ namespace Crystal.Pages.Substances.Piezoelectric_Coupling
                 .Where(b => b.LanguageId == this.GetLanguageId())
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
-            References = MechTablLanguage
-                .ToDictionary(h => h.MechTablId, h =>
-                    h.MechTabl.Bknumber.HasValue ? bibliogrLanguage[(int) h.MechTabl.Bknumber] : null
-                );
+            References = new Dictionary<int, BibliogrLanguage>();
+            foreach (var m in MechTablLanguage)
+            {
+                if (References.ContainsKey(m.MechTablId)) continue;
+
+                var bibliogr = m.MechTabl.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.MechTabl.Bknumber]
+                    : null;
+
+                References[m.MechTablId] = bibliogr;
+            }
 
         }
     }

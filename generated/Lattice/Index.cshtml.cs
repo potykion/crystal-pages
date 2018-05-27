@@ -19,7 +19,7 @@ namespace Crystal.Pages.Substances.Lattice
             _contextUtils = new ContextUtils(_context);
         }
 
-        public IList<ElemTablLanguage> ElemTablLanguage { get; set; }
+        public IList<ElemTablNewLanguage> ElemTablNewLanguage { get; set; }
         public IList<GrafTablLanguage> Images { get; set; }
         public IDictionary<int, BibliogrLanguage> References { get; set; }
         public IList<SingTabl> SingTabl { get; set; }
@@ -28,18 +28,18 @@ namespace Crystal.Pages.Substances.Lattice
         {
             var headClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
 
-            var substanceElemTabl = _context.ElemTablLanguage
-                .Include(m => m.ElemTabl)
-                .Where(m => m.ElemTabl.HeadClue == headClue)
+            var substanceElemTablNew = _context.ElemTablNewLanguage
+                .Include(m => m.ElemTablNew)
+                .Where(m => m.ElemTablNew.HeadClue == headClue)
                 .Where(m => m.LanguageId == this.GetLanguageId());
 
             if (!string.IsNullOrEmpty(sing))
             {
-                substanceElemTabl = substanceElemTabl.Where(m => m.ElemTabl.SingCode == sing);
+                substanceElemTablNew = substanceElemTablNew.Where(m => m.ElemTablNew.SingCode == sing);
             }
 
 
-            ElemTablLanguage = await substanceElemTabl.ToListAsync();
+            ElemTablNewLanguage = await substanceElemTablNew.ToListAsync();
 
             Images = await _context.GrafTablLanguage
                 .Include(image => image.GrafTabl)
@@ -58,15 +58,15 @@ namespace Crystal.Pages.Substances.Lattice
                 .ToDictionaryAsync(b => b.BibliogrId, b => b);
 
             References = new Dictionary<int, BibliogrLanguage>();
-            foreach (var m in ElemTablLanguage)
+            foreach (var m in ElemTablNewLanguage)
             {
-                if (References.ContainsKey(m.ElemTablId)) continue;
+                if (References.ContainsKey(m.ElemTablNewId)) continue;
 
-                var bibliogr = m.ElemTabl.Bknumber.HasValue
-                    ? bibliogrLanguage[(int) m.ElemTabl.Bknumber]
+                var bibliogr = m.ElemTablNew.Bknumber.HasValue
+                    ? bibliogrLanguage[(int) m.ElemTablNew.Bknumber]
                     : null;
 
-                References[m.ElemTablId] = bibliogr;
+                References[m.ElemTablNewId] = bibliogr;
             }
 
         }

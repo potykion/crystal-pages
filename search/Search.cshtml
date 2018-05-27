@@ -115,7 +115,7 @@
 
                 <label asp-for="SearchRequest.DielectrCommon.Dielectr.Diel" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.DielectrMin.Dielectr.Diel" class="form-control"/>
-                <div class="input-group-addon">≤ Оµ ≤</div>
+                <div class="input-group-addon">≤ &epsilon; ≤</div>
                 <input asp-for="SearchRequest.DielectrMax.Dielectr.Diel" class="form-control"/>
         </div>
         </div>
@@ -173,7 +173,7 @@
 
                 <label asp-for="SearchRequest.Elastic1Common.Elastic1.E1" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.Elastic1Min.Elastic1.E1" class="form-control"/>
-                <div class="input-group-addon">≤ E1 ≤</div>
+                <div class="input-group-addon">≤ C ≤</div>
                 <input asp-for="SearchRequest.Elastic1Max.Elastic1.E1" class="form-control"/>
         </div>
         </div>
@@ -207,21 +207,21 @@
 
                 <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard1" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard1" class="form-control"/>
-                <div class="input-group-addon">≤ Hard1 ≤</div>
+                <div class="input-group-addon">≤ H ≤</div>
                 <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard1" class="form-control"/>
         </div>
         <div class="form-group input-group form-inline col-md-7">
 
                 <label asp-for="SearchRequest.HardTablCommon.HardTabl.Hard2" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.HardTablMin.HardTabl.Hard2" class="form-control"/>
-                <div class="input-group-addon">≤ Hard2 ≤</div>
+                <div class="input-group-addon">≤ H ≤</div>
                 <input asp-for="SearchRequest.HardTablMax.HardTabl.Hard2" class="form-control"/>
         </div>
         <div class="form-group input-group form-inline col-md-7">
 
                 <label asp-for="SearchRequest.HardTablCommon.HardTabl.Mohs" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.HardTablMin.HardTabl.Mohs" class="form-control"/>
-                <div class="input-group-addon">≤ Mohs ≤</div>
+                <div class="input-group-addon">≤ H ≤</div>
                 <input asp-for="SearchRequest.HardTablMax.HardTabl.Mohs" class="form-control"/>
         </div>
         </div>
@@ -238,7 +238,7 @@
 
                 <label asp-for="SearchRequest.HeatExpnCommon.HeatExpn.S11" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.HeatExpnMin.HeatExpn.S11" class="form-control"/>
-                <div class="input-group-addon">≤ S11 ≤</div>
+                <div class="input-group-addon">≤ &alpha; ≤</div>
                 <input asp-for="SearchRequest.HeatExpnMax.HeatExpn.S11" class="form-control"/>
         </div>
         </div>
@@ -255,7 +255,7 @@
 
                 <label asp-for="SearchRequest.PlavTablCommon.PlavTabl.PlavTemp" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.PlavTablMin.PlavTabl.PlavTemp" class="form-control"/>
-                <div class="input-group-addon">≤ PlavTemp ≤</div>
+                <div class="input-group-addon">≤ T ≤</div>
                 <input asp-for="SearchRequest.PlavTablMax.PlavTabl.PlavTemp" class="form-control"/>
         </div>
         </div>
@@ -272,37 +272,60 @@
 
                 <label asp-for="SearchRequest.NlOpTablCommon.NlOpTabl.Rij" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.NlOpTablMin.NlOpTabl.Rij" class="form-control"/>
-                <div class="input-group-addon">≤ Rij ≤</div>
+                <div class="input-group-addon">≤ d ≤</div>
                 <input asp-for="SearchRequest.NlOpTablMax.NlOpTabl.Rij" class="form-control"/>
         </div>
         </div>
 
         <div>
-            <a role="button" data-toggle="collapse" href="#ElemTablCollapse"
-                aria-expanded="false" aria-controls="ElemTablCollapse" >
+            <a role="button" data-toggle="collapse" href="#ElemTablNewCollapse"
+                aria-expanded="false" aria-controls="ElemTablNewCollapse" >
                 Параметры элементарной ячейки
             </a>
         </div>
 
-        <div class="collapse" id="ElemTablCollapse">
+        <div class="collapse" id="ElemTablNewCollapse">
         <div class="form-group input-group form-inline col-md-7">
 
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.Znparam" class="input-group-addon"></label>
-                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.Znparam" class="form-control"/>
-                <div class="input-group-addon">≤ Znparam ≤</div>
-                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.Znparam" class="form-control"/>
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.A" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.A" class="form-control"/>
+                <div class="input-group-addon">≤ A ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.A" class="form-control"/>
         </div>
         <div class="form-group input-group form-inline col-md-7">
 
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="input-group-addon"></label>
-                <input asp-for="SearchRequest.ElemTablCommon.ElemTabl.NazvAngl" class="form-control"/>
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.B" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.B" class="form-control"/>
+                <div class="input-group-addon">≤ B ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.B" class="form-control"/>
         </div>
         <div class="form-group input-group form-inline col-md-7">
 
-                <label asp-for="SearchRequest.ElemTablCommon.ElemTabl.ZnAngle" class="input-group-addon"></label>
-                <input asp-for="SearchRequest.ElemTablMin.ElemTabl.ZnAngle" class="form-control"/>
-                <div class="input-group-addon">≤ ZnAngle ≤</div>
-                <input asp-for="SearchRequest.ElemTablMax.ElemTabl.ZnAngle" class="form-control"/>
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.C" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.C" class="form-control"/>
+                <div class="input-group-addon">≤ C ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.C" class="form-control"/>
+        </div>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.Alpha" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.Alpha" class="form-control"/>
+                <div class="input-group-addon">≤ &alpha; ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.Alpha" class="form-control"/>
+        </div>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.Beta" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.Beta" class="form-control"/>
+                <div class="input-group-addon">≤ &beta; ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.Beta" class="form-control"/>
+        </div>
+        <div class="form-group input-group form-inline col-md-7">
+
+                <label asp-for="SearchRequest.ElemTablNewCommon.ElemTablNew.Gamma" class="input-group-addon"></label>
+                <input asp-for="SearchRequest.ElemTablNewMin.ElemTablNew.Gamma" class="form-control"/>
+                <div class="input-group-addon">≤ &gamma; ≤</div>
+                <input asp-for="SearchRequest.ElemTablNewMax.ElemTablNew.Gamma" class="form-control"/>
         </div>
         </div>
 
@@ -350,7 +373,7 @@
 
                 <label asp-for="SearchRequest.RefrcIndCommon.RefrcInd.ZnachInd" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.RefrcIndMin.RefrcInd.ZnachInd" class="form-control"/>
-                <div class="input-group-addon">≤ ZnachInd ≤</div>
+                <div class="input-group-addon">≤ n ≤</div>
                 <input asp-for="SearchRequest.RefrcIndMax.RefrcInd.ZnachInd" class="form-control"/>
         </div>
         </div>
@@ -372,7 +395,7 @@
 
                 <label asp-for="SearchRequest.HeatTablCommon.HeatTabl.Temperat" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.HeatTablMin.HeatTabl.Temperat" class="form-control"/>
-                <div class="input-group-addon">≤ Temperat ≤</div>
+                <div class="input-group-addon">≤ T ≤</div>
                 <input asp-for="SearchRequest.HeatTablMax.HeatTabl.Temperat" class="form-control"/>
         </div>
         <div class="form-group input-group form-inline col-md-7">
@@ -396,7 +419,7 @@
 
                 <label asp-for="SearchRequest.DielDissCommon.DielDiss.TangentD" class="input-group-addon"></label>
                 <input asp-for="SearchRequest.DielDissMin.DielDiss.TangentD" class="form-control"/>
-                <div class="input-group-addon">≤ TangentD ≤</div>
+                <div class="input-group-addon">≤ tg &delta; ≤</div>
                 <input asp-for="SearchRequest.DielDissMax.DielDiss.TangentD" class="form-control"/>
         </div>
         </div>

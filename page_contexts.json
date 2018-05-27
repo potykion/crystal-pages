@@ -280,36 +280,36 @@
     "model_id": 20
   },
   {
-    "model": "ElemTabl",
+    "model": "ElemTablNew",
     "language_fields": [
       {
         "name": "MethodP",
-        "raw": false
-      },
-      {
-        "name": "Nazbparam",
         "raw": false
       }
     ],
     "invariant_fields": [
       {
-        "name": "Znparam",
+        "name": "A",
         "raw": false
       },
       {
-        "name": "Errparam",
+        "name": "B",
         "raw": false
       },
       {
-        "name": "NazvAngl",
+        "name": "C",
         "raw": false
       },
       {
-        "name": "ZnAngle",
+        "name": "Alpha",
         "raw": false
       },
       {
-        "name": "ErrAngl",
+        "name": "Beta",
+        "raw": false
+      },
+      {
+        "name": "Gamma",
         "raw": false
       }
     ],

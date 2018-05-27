@@ -21,30 +21,30 @@ namespace Crystal.Pages.Substances.Lattice
             _contextUtils = new ContextUtils(context);
         }
 
-        [BindProperty] public ElemTablLanguage ElemTablLanguage { get; set; }
-        [BindProperty] public ElemTablInvariant ElemTablInvariant { get; set; }
+        [BindProperty] public ElemTablNewLanguage ElemTablNewLanguage { get; set; }
+        [BindProperty] public ElemTablNewInvariant ElemTablNewInvariant { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            ElemTablLanguage = await _context.ElemTablLanguage
-                .Include(h => h.ElemTabl)
+            ElemTablNewLanguage = await _context.ElemTablNewLanguage
+                .Include(h => h.ElemTablNew)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            ElemTablInvariant = ElemTablLanguage.ElemTabl;
+            ElemTablNewInvariant = ElemTablNewLanguage.ElemTablNew;
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            ElemTablLanguage = await _context.ElemTablLanguage
-                .Include(h => h.ElemTabl)
+            ElemTablNewLanguage = await _context.ElemTablNewLanguage
+                .Include(h => h.ElemTablNew)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            ElemTablInvariant = ElemTablLanguage.ElemTabl;
+            ElemTablNewInvariant = ElemTablNewLanguage.ElemTablNew;
 
-            _context.ElemTablLanguage.Remove(ElemTablLanguage);
-            _context.ElemTablInvariant.Remove(ElemTablInvariant);
+            _context.ElemTablNewLanguage.Remove(ElemTablNewLanguage);
+            _context.ElemTablNewInvariant.Remove(ElemTablNewInvariant);
 
 
             await _context.SaveChangesAsync();
@@ -52,7 +52,7 @@ namespace Crystal.Pages.Substances.Lattice
             var url = _urlBuilder.BuildPropertyLink(
                 this.GetLanguage(),
                 "Lattice",
-                system: _contextUtils.GetSystemUrlByHeadClue(ElemTablInvariant.HeadClue)
+                system: _contextUtils.GetSystemUrlByHeadClue(ElemTablNewInvariant.HeadClue)
 
             );
             return Redirect(url);

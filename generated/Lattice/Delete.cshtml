@@ -14,53 +14,53 @@
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablLanguage.MethodP)
+            @Html.DisplayNameFor(model => model.ElemTablNewLanguage.MethodP)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablLanguage.MethodP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ElemTablLanguage.Nazbparam)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ElemTablLanguage.Nazbparam)
+            @Html.DisplayFor(model => model.ElemTablNewLanguage.MethodP)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablInvariant.Znparam)
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.A)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablInvariant.Znparam)
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.A)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablInvariant.Errparam)
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.B)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablInvariant.Errparam)
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.B)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablInvariant.NazvAngl)
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.C)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablInvariant.NazvAngl)
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.C)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablInvariant.ZnAngle)
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.Alpha)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablInvariant.ZnAngle)
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.Alpha)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ElemTablInvariant.ErrAngl)
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.Beta)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ElemTablInvariant.ErrAngl)
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.Beta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ElemTablNewInvariant.Gamma)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ElemTablNewInvariant.Gamma)
         </dd>
 
     </dl>
 
     <form method="post">
-        <input type="hidden" asp-for="ElemTablLanguage.Id" />
+        <input type="hidden" asp-for="ElemTablNewLanguage.Id" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

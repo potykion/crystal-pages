@@ -13,61 +13,62 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ElemTablLanguage.Id" />
+            <input type="hidden" asp-for="ElemTablNewLanguage.Id" />
 
 
             <div class="form-group">
-                <label asp-for="ElemTablLanguage.MethodP" class="control-label"></label>
-                <input asp-for="ElemTablLanguage.MethodP" class="form-control" />
-                <span asp-validation-for="ElemTablLanguage.MethodP" class="text-danger"></span>
-            </div>    
-            <div class="form-group">
-                <label asp-for="ElemTablLanguage.Nazbparam" class="control-label"></label>
-                <input asp-for="ElemTablLanguage.Nazbparam" class="form-control" />
-                <span asp-validation-for="ElemTablLanguage.Nazbparam" class="text-danger"></span>
+                <label asp-for="ElemTablNewLanguage.MethodP" class="control-label"></label>
+                <input asp-for="ElemTablNewLanguage.MethodP" class="form-control" />
+                <span asp-validation-for="ElemTablNewLanguage.MethodP" class="text-danger"></span>
             </div>    
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.Znparam" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.Znparam" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.Znparam" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.A" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.A" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.A" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.Errparam" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.Errparam" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.Errparam" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.B" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.B" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.B" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.NazvAngl" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.NazvAngl" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.NazvAngl" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.C" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.C" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.C" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.ZnAngle" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.ZnAngle" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.ZnAngle" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.Alpha" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.Alpha" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.Alpha" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.ErrAngl" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.ErrAngl" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.ErrAngl" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.Beta" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.Beta" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.Beta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ElemTablNewInvariant.Gamma" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.Gamma" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.Gamma" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.SingCode" class="control-label"></label>
-                <select asp-for="ElemTablInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
-                <span asp-validation-for="ElemTablInvariant.SingCode" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.SingCode" class="control-label"></label>
+                <select asp-for="ElemTablNewInvariant.SingCode" class="form-control" asp-items="ViewBag.SingCode"></select>
+                <span asp-validation-for="ElemTablNewInvariant.SingCode" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="ElemTablInvariant.Bknumber" class="control-label"></label>
-                <input asp-for="ElemTablInvariant.Bknumber" class="form-control" />
-                <span asp-validation-for="ElemTablInvariant.Bknumber" class="text-danger"></span>
+                <label asp-for="ElemTablNewInvariant.Bknumber" class="control-label"></label>
+                <input asp-for="ElemTablNewInvariant.Bknumber" class="form-control" />
+                <span asp-validation-for="ElemTablNewInvariant.Bknumber" class="text-danger"></span>
             </div>
 
             <div class="form-group">

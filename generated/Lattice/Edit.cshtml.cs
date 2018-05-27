@@ -19,16 +19,16 @@ namespace Crystal.Pages.Substances.Lattice
             _context = context;
         }
 
-        [BindProperty] public ElemTablLanguage ElemTablLanguage { get; set; }
-        [BindProperty] public ElemTablInvariant ElemTablInvariant { get; set; }
+        [BindProperty] public ElemTablNewLanguage ElemTablNewLanguage { get; set; }
+        [BindProperty] public ElemTablNewInvariant ElemTablNewInvariant { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            ElemTablLanguage = await _context.ElemTablLanguage
-                .Include(h => h.ElemTabl)
+            ElemTablNewLanguage = await _context.ElemTablNewLanguage
+                .Include(h => h.ElemTablNew)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            ElemTablInvariant = ElemTablLanguage.ElemTabl;
+            ElemTablNewInvariant = ElemTablNewLanguage.ElemTablNew;
 
             var singCodes = await _context.SingTabl.Select(s => s.SingType).Distinct().ToListAsync();
             ViewData["SingCode"] = new SelectList(singCodes);
@@ -38,21 +38,21 @@ namespace Crystal.Pages.Substances.Lattice
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            var ElemTablLanguageToUpdate = await _context.ElemTablLanguage
-                .Include(m => m.ElemTabl)
+            var ElemTablNewLanguageToUpdate = await _context.ElemTablNewLanguage
+                .Include(m => m.ElemTablNew)
                 .FirstAsync(m => m.Id == id);
 
-            var ElemTablInvariantToUpdate = ElemTablLanguageToUpdate.ElemTabl;
+            var ElemTablNewInvariantToUpdate = ElemTablNewLanguageToUpdate.ElemTablNew;
 
             await TryUpdateModelAsync(
-                ElemTablLanguageToUpdate,
-                "ElemTablLanguage",
-                    m => m.MethodP,                    m => m.Nazbparam            );
+                ElemTablNewLanguageToUpdate,
+                "ElemTablNewLanguage",
+                    m => m.MethodP            );
 
             await TryUpdateModelAsync(
-                ElemTablInvariantToUpdate,
-                "ElemTablInvariant",
-m => m.Znparam ,m => m.Errparam ,m => m.NazvAngl ,m => m.ZnAngle ,m => m.ErrAngl , m => m.Bknumber , m => m.SingCode             );
+                ElemTablNewInvariantToUpdate,
+                "ElemTablNewInvariant",
+m => m.A ,m => m.B ,m => m.C ,m => m.Alpha ,m => m.Beta ,m => m.Gamma , m => m.Bknumber , m => m.SingCode             );
 
             await _context.SaveChangesAsync();
 

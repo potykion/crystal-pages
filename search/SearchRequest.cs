@@ -59,9 +59,9 @@ namespace Crystal.Models
         public NlOpTablLanguage NlOpTablMin { get; set; }
         public NlOpTablLanguage NlOpTablMax { get; set; }
 
-        public ElemTablLanguage ElemTablCommon { get; set; }
-        public ElemTablLanguage ElemTablMin { get; set; }
-        public ElemTablLanguage ElemTablMax { get; set; }
+        public ElemTablNewLanguage ElemTablNewCommon { get; set; }
+        public ElemTablNewLanguage ElemTablNewMin { get; set; }
+        public ElemTablNewLanguage ElemTablNewMax { get; set; }
 
         public ModfTablLanguage ModfTablCommon { get; set; }
         public ModfTablLanguage ModfTablMin { get; set; }

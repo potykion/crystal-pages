@@ -46,30 +46,31 @@
     <thead>
     <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].MethodP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].Nazbparam)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].MethodP)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.Znparam)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.A)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.Errparam)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.B)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.NazvAngl)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.C)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.ZnAngle)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.Alpha)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ElemTablLanguage[0].ElemTabl.ErrAngl)
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.Beta)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ElemTablNewLanguage[0].ElemTablNew.Gamma)
             </th>
 
 
@@ -84,38 +85,38 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.ElemTablLanguage)
+    @foreach (var item in Model.ElemTablNewLanguage)
     {
     <tr>
             <td>
                 @Html.Raw(item.MethodP)
             </td>
-            <td>
-                @Html.Raw(item.Nazbparam)
-            </td>
 
             <td>
-                    @Html.Raw(item.ElemTabl.Znparam)
+                    @Html.Raw(item.ElemTablNew.A)
             </td>
             <td>
-                    @Html.Raw(item.ElemTabl.Errparam)
+                    @Html.Raw(item.ElemTablNew.B)
             </td>
             <td>
-                    @Html.Raw(item.ElemTabl.NazvAngl)
+                    @Html.Raw(item.ElemTablNew.C)
             </td>
             <td>
-                    @Html.Raw(item.ElemTabl.ZnAngle)
+                    @Html.Raw(item.ElemTablNew.Alpha)
             </td>
             <td>
-                    @Html.Raw(item.ElemTabl.ErrAngl)
+                    @Html.Raw(item.ElemTablNew.Beta)
+            </td>
+            <td>
+                    @Html.Raw(item.ElemTablNew.Gamma)
             </td>
 
         @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
         {
             <td>
                 <a data-toggle="popover" data-placement="right"
-                   data-content="@Html.Raw(Model.References[item.ElemTablId])">
-                   @Model.References[item.ElemTablId].BibliogrId
+                   data-content="@Html.Raw(Model.References[item.ElemTablNewId])">
+                   @Model.References[item.ElemTablNewId].BibliogrId
 
                 </a>
             </td>

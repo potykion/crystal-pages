@@ -31,7 +31,7 @@ namespace Crystal.Pages.Substances.Lattice
             return Page();
         }
 
-        [BindProperty] public ElemTablLanguage ElemTablLanguage { get; set; }
+        [BindProperty] public ElemTablNewLanguage ElemTablNewLanguage { get; set; }
 
         public async Task<IActionResult> OnPostAsync(string systemUrl)
         {
@@ -40,10 +40,10 @@ namespace Crystal.Pages.Substances.Lattice
                 return Page();
             }
 
-            ElemTablLanguage.ElemTabl.HeadClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
-            ElemTablLanguage.LanguageId = this.GetLanguageId();
+            ElemTablNewLanguage.ElemTablNew.HeadClue = _contextUtils.GetHeadClueBySystemUrl(systemUrl);
+            ElemTablNewLanguage.LanguageId = this.GetLanguageId();
 
-            _context.ElemTablLanguage.Add(ElemTablLanguage);
+            _context.ElemTablNewLanguage.Add(ElemTablNewLanguage);
 
             await _context.SaveChangesAsync();
 

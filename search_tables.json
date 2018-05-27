@@ -59,7 +59,7 @@
       "Diel"
     ],
     "range_fields": [
-      "ε"
+      "&epsilon;"
     ],
     "verbose": "\u0414\u0438\u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043f\u0440\u043e\u043d\u0438\u0446\u0430\u0435\u043c\u043e\u0441\u0442\u044c"
   },
@@ -96,6 +96,9 @@
     "language_fields": [
       "ZnE"
     ],
+    "range_fields": [
+      "C"
+    ],
     "verbose": "\u0423\u043f\u0440\u0443\u0433\u0438\u0435 \u043f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0435"
   },
   {
@@ -112,6 +115,11 @@
       "Hard2",
       "Mohs"
     ],
+    "range_fields": [
+      "H",
+      "H",
+      "H"
+    ],
     "verbose": "\u0422\u0432\u0435\u0440\u0434\u043e\u0441\u0442\u044c"
   },
   {
@@ -119,7 +127,10 @@
     "invariant_fields": [
       "S11"
     ],
-    "verbose": "\u0422\u0435\u043f\u043b\u043e\u0432\u043e\u0435 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435"
+    "verbose": "\u0422\u0435\u043f\u043b\u043e\u0432\u043e\u0435 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435",
+    "range_fields": [
+      "&alpha;"
+    ]
   },
   {
     "table": "PlavTabl",
@@ -129,26 +140,40 @@
     "language_fields": [
       "PlavType"
     ],
-    "verbose": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u043f\u043b\u0430\u0432\u043b\u0435\u043d\u0438\u044f"
+    "verbose": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430 \u043f\u043b\u0430\u0432\u043b\u0435\u043d\u0438\u044f",
+    "range_fields": [
+      "T"
+    ]
   },
   {
     "table": "NlOpTabl",
     "invariant_fields": [
       "Rij"
     ],
-    "verbose": "\u041d\u0435\u043b\u0438\u043d\u0435\u0439\u043d\u044b\u0435 \u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430"
+    "verbose": "\u041d\u0435\u043b\u0438\u043d\u0435\u0439\u043d\u044b\u0435 \u043e\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430",
+    "range_fields": [
+      "d"
+    ]
   },
   {
-    "table": "ElemTabl",
+    "table": "ElemTablNew",
     "invariant_fields": [
-      "Znparam",
-      "NazvAngl",
-      "ZnAngle"
+      "A",
+      "B",
+      "C",
+      "Alpha",
+      "Beta",
+      "Gamma"
     ],
-    "language_fields": [
-      "Nazbparam"
-    ],
-    "verbose": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u043e\u0439 \u044f\u0447\u0435\u0439\u043a\u0438"
+    "verbose": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\u0440\u043d\u043e\u0439 \u044f\u0447\u0435\u0439\u043a\u0438",
+    "range_fields": [
+      "A",
+      "B",
+      "C",
+      "&alpha;",
+      "&beta;",
+      "&gamma;"
+    ]
   },
   {
     "table": "ModfTabl",
@@ -172,7 +197,10 @@
     "invariant_fields": [
       "ZnachInd"
     ],
-    "verbose": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0438 \u043f\u0440\u0435\u043b\u043e\u043c\u043b\u0435\u043d\u0438\u044f"
+    "verbose": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0438 \u043f\u0440\u0435\u043b\u043e\u043c\u043b\u0435\u043d\u0438\u044f",
+    "range_fields": [
+      "n"
+    ]
   },
   {
     "table": "HeatTabl",
@@ -181,13 +209,21 @@
       "Temperat",
       "C"
     ],
-    "verbose": "\u0423\u0434\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0435\u043f\u043b\u043e\u0435\u043c\u043a\u043e\u0441\u0442\u044c"
+    "verbose": "\u0423\u0434\u0435\u043b\u044c\u043d\u0430\u044f \u0442\u0435\u043f\u043b\u043e\u0435\u043c\u043a\u043e\u0441\u0442\u044c",
+    "range_fields": [
+      "ZnC",
+      "T",
+      "C"
+    ]
   },
   {
     "table": "DielDiss",
     "invariant_fields": [
       "TangentD"
     ],
-    "verbose": "\u0422\u0430\u043d\u0433\u0435\u043d\u0441 \u0443\u0433\u043b\u0430 \u0434\u0438\u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043f\u043e\u0442\u0435\u0440\u044c"
+    "verbose": "\u0422\u0430\u043d\u0433\u0435\u043d\u0441 \u0443\u0433\u043b\u0430 \u0434\u0438\u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043f\u043e\u0442\u0435\u0440\u044c",
+    "range_fields": [
+      "tg &delta;"
+    ]
   }
 ]

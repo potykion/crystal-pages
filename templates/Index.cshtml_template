@@ -17,7 +17,7 @@
 <h2>{{ model_dir }}</h2>
 
 <div>
-    @if ((await AuthorizationService.AuthorizeAsync(User, "UserOnly")).Succeeded)
+    @if ((await AuthorizationService.AuthorizeAsync(User, "AdminOnly")).Succeeded)
     {
     <a href="@UrlBuilder.BuildPropertyLink(
                      Model.GetLanguage(),
@@ -71,7 +71,10 @@
                 @SharedLocalizer["Reference"]
             </th>
         {% endif %}
+        }
 
+        @if ((await AuthorizationService.AuthorizeAsync(User, "AdminOnly")).Succeeded)
+        {
         <th>Actions</th>
         }
     </tr>
@@ -116,7 +119,9 @@
                 </a>
             </td>
         {% endif %}
-
+        }
+        @if ((await AuthorizationService.AuthorizeAsync(User, "AdminOnly")).Succeeded)
+        {
          <td>
             <div>
                 <a href="@UrlBuilder.BuildPropertyLink(
